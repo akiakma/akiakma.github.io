@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://akiakma.github.io',
   pathPrefix: '/',
   title: 'Blog by akiakma',
-  subtitle: '안녕하세요.',
+  subtitle: '안녕하세요 .',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,

@@ -2,7 +2,7 @@
 title: TIL 10일차
 date: "2020-02-7T22:40:32.169Z"
 template: "post"
-draft: false
+draft: true
 slug: "humane-typography-in-the-digital-age"
 category: "Typography"
 tags:

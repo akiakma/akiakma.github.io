@@ -27,7 +27,7 @@ module.exports = {
   author: {
     name: 'Hyunjun Kim',
     photo: 'media/emoji.jpg',
-    bio: '안녕하세요. 저는 김현준입니다.',
+    bio: '안녕하세요. 저는 김현준입니다. 개발자 고수가 될때까지 블로그를 작성하도록 하겠습니다.',
     contacts: {
       email: '',
       facebook: '#',

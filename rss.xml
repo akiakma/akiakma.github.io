@@ -1,4 +1,385 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 10 Feb 2020 14:10:32 GMT</lastBuildDate><item><title><![CDATA[EnemyRain 코드리뷰]]></title><description><![CDATA[Wecode에서 자바스크립트+css+html을 이용한 간단한 게임을 만들었습니다. 6기 대다수의 학생들이 게임을 만들면서 힘들어하는것같아서 시작하기전에 하루정도 dom부터 시작해서 event, js를 다시한번 복습하고 천천히 시작하게 되었습니다. 시작하기전 q&a시간에 이 게임은 클래스에 익숙해지기위해서 만드셨다고 하셨는데 아직 class 에 대한 기본 개념이 잘 잡혀있지 않아서 함수로만 만들어보았습니다. 하루정도만에 게임을 완성했는데 코드가 상당히 지저분하고 더럽습니다]]></description><link>https://akiakma.github.io/posts/blogEnemyRain</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogEnemyRain</guid><pubDate>Mon, 10 Feb 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;enemy-rain-간단-코드리뷰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#enemy-rain-%EA%B0%84%EB%8B%A8-%EC%BD%94%EB%93%9C%EB%A6%AC%EB%B7%B0&quot; aria-label=&quot;enemy rain 간단 코드리뷰 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Enemy rain&lt;/strong&gt; &lt;strong&gt;간단&lt;/strong&gt; &lt;strong&gt;코드리뷰&lt;/strong&gt;&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 14 Feb 2020 14:53:00 GMT</lastBuildDate><item><title><![CDATA[HTTP 구조 및 핵심 요소]]></title><description><![CDATA[위코드 은우님이 발표하신 HTTP의 구조, 핵심요소 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic</guid><pubDate>Thu, 13 Feb 2020 23:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;http-구조-및-핵심-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;http 구조 및 핵심 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP 구조 및 핵심 요소&lt;/h1&gt;
+&lt;h2 id=&quot;http&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http&quot; aria-label=&quot;http permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;HyperText Transfer Protocol&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하이퍼텍스트(HTML) 문서를 교환하기 위해 만들어진 protocol(통신 규약).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;즉 웹상에서 네트워크로 서버끼리 통신을 할때 어떠한 형식으로 서로 통신을 하자고 규정해 놓은 “통신 형식” 혹은 “통신 구조” 라고 보면 된다.&lt;/li&gt;
+&lt;li&gt;프론트앤드 서버와 클라이언트간의 통신에 사용된다.&lt;/li&gt;
+&lt;li&gt;또한 백앤드와 프론트앤드 서버간에의 통신에도 사용된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTTP는 TCP/IP 기반으로 되어있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;http-핵심-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-%ED%95%B5%EC%8B%AC-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;http 핵심 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP 핵심 요소&lt;/h2&gt;
+&lt;p&gt;HTTP 통신 방식&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP 기본적으로 요청/응답 (request/response) 구조로 되어있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;클라이언트가 HTTP request를 서버에 보내면 서버는 HTTP response를 보내는 구조.&lt;/li&gt;
+&lt;li&gt;클라이언트와 서버의 모든 통신이 요청과 응답으로 이루어 진다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP는 Stateless 이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stateless 란 말그대로 state(상태)를 저장하지 않는 다는 뜻.&lt;/li&gt;
+&lt;li&gt;즉, 요청이 오면 그에 응답을 할뿐, 여러 요청/응답 끼리 연결되어 있지 않다는 뜻이다. 즉 각각의 요청/응답은 독립적인 요청/응답 이다.&lt;/li&gt;
+&lt;li&gt;예를 들어, 클라이언트가 요청을 보내고 응답을 받은후, 조금 있다 다시 요청을 보낼때, 전에 보낸 요청/응답에 대해 알지 못한다는 뜻이다.&lt;/li&gt;
+&lt;li&gt;그래서 만일 여러 요청과응답 의 진행과정이나 데이터가 필요할때는 쿠키나 세션 등등을 사용하게 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;HTTP Request 구조&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP request 메세지는 크게 3부분으로 구성된다:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;status line&lt;/li&gt;
+&lt;li&gt;headers&lt;/li&gt;
+&lt;li&gt;body&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Start Line&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;말 그대로 HTTP request의 첫 라인(이름이 너무 식상하지만, 뭐 이미 이렇게 지어졌다).&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP request의 start line또한 3부분으로 구성되어 있음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP Method&lt;/li&gt;
+&lt;li&gt;해당 request가 의도한 action을 정의하는 부분.&lt;/li&gt;
+&lt;li&gt;HTTP Methods에는 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;OPTIONS&lt;/code&gt; 등등이 있다.&lt;/li&gt;
+&lt;li&gt;주로 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; 과 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;과 쓰임.&lt;/li&gt;
+&lt;li&gt;Request target&lt;/li&gt;
+&lt;li&gt;해당 request가 전송되는 목표 uri.&lt;/li&gt;
+&lt;li&gt;예를 들어 &lt;code class=&quot;language-text&quot;&gt;/login&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;HTTP Version&lt;/li&gt;
+&lt;li&gt;말 그대로 사용되는 HTTP 버젼. 버젼에는 &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;1.1&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;2.0&lt;/code&gt; 등이 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GET /search HTTP/1.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Headers&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;해당 request에 대한 추가 정보(addtional information)를 담고 있는 부분.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, request 메세지 body의 총 길이 (Content-Length) 등.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Key:Value 값으로 되어있다 (&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 사용됨).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;key:value&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;HOST: google.com&lt;/code&gt; =&gt; Key = &lt;code class=&quot;language-text&quot;&gt;HOST&lt;/code&gt;, Value = &lt;code class=&quot;language-text&quot;&gt;google.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Headers도 크게 3부분으로 나뉘지만(&lt;code class=&quot;language-text&quot;&gt;general headers&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;request headers&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;entity headers&lt;/code&gt;) 너무 자세한 부분임으로, 3부분 으로 구성되어 있다는것만 알고 있어도 괜찮다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;자주 사용되는 header 정보에는 다음이 있다:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Host&lt;/li&gt;
+&lt;li&gt;요청이 전송되는 target의 host url: 예를 들어, google.com&lt;/li&gt;
+&lt;li&gt;User-Agent&lt;/li&gt;
+&lt;li&gt;요청을 보내는 클라이언트의 대한 정보: 예를 들어, 웹브라우저에 대한 정보.&lt;/li&gt;
+&lt;li&gt;Accept&lt;/li&gt;
+&lt;li&gt;해당 요청이 받을 수 있는 응답(response) 타입.&lt;/li&gt;
+&lt;li&gt;Connection&lt;/li&gt;
+&lt;li&gt;해당 요청이 끝난후에 클라이언트와 서버가 계속해서 네트워크 컨넥션을 유지 할것인지 아니면 끊을것인지에 대해 지시하는 부분.&lt;/li&gt;
+&lt;li&gt;Content-Type&lt;/li&gt;
+&lt;li&gt;해당 요청이 보내는 메세지 body의 타입. 예를 들어, JSON을 보내면 &lt;code class=&quot;language-text&quot;&gt;application/json&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Content-Length:&lt;/li&gt;
+&lt;li&gt;메세지 body의 길이.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 257
+Host: google.com
+User-Agent: HTTPie/0.9.3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Body&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;해당 reqeust의 실제 메세지/내용.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Body가 없는 request도 많다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, GET request들은 대부분 body가 없는 경우가 많음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;POST /payment-sync HTTP/1.1
+
+Accept: application/json
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 83
+Content-Type: application/json
+Host: intropython.com
+User-Agent: HTTPie/0.9.3
+
+{
+    &amp;quot;imp_uid&amp;quot;: &amp;quot;imp_1234567890&amp;quot;,
+    &amp;quot;merchant_uid&amp;quot;: &amp;quot;order_id_8237352&amp;quot;,
+    &amp;quot;status&amp;quot;: &amp;quot;paid&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;HTTP Response 구조&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Response도 request와 마찬가지로 크게 3부분으로 구성되어 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Status line&lt;/li&gt;
+&lt;li&gt;Headers&lt;/li&gt;
+&lt;li&gt;Body&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Status Line&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Response의 상태를 간략하게 나타내주는 부분.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3부분으로 구성되어 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP 버젼&lt;/li&gt;
+&lt;li&gt;Status code: 응답 상태를 나타내는 코드. 숫자로 되어 있는 코드.&lt;/li&gt;
+&lt;li&gt;예를 들어, &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Status text: 응답 상태를 간략하게 설명해주는 부분.&lt;/li&gt;
+&lt;li&gt;예를 들어, “Not Found”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 404 Not Found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Headers&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Response의 headers와 동일하다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;다만 response에서만 사용되는 header 값들이 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, &lt;code class=&quot;language-text&quot;&gt;User-Agent&lt;/code&gt; 대신에 &lt;code class=&quot;language-text&quot;&gt;Server&lt;/code&gt; 헤더가 사용된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Body&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Response의 body와 일반적으로 동일하다.&lt;/li&gt;
+&lt;li&gt;Request와 마찬가지로 모든 response가 body가 있지는 않다. 데이터를 전송할 필요가 없을경우 body가 비어있게 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 404 Not Found
+
+Connection: close
+Content-Length: 1573
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 20 Aug 2018 07:59:05 GMT
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=en&amp;gt;
+  &amp;lt;meta charset=utf-8&amp;gt;
+  &amp;lt;meta name=viewport content=&amp;quot;initial-scale=1, minimum-scale=1, width=device-width&amp;quot;&amp;gt;
+  &amp;lt;title&amp;gt;Error 404 (Not Found)!!1&amp;lt;/title&amp;gt;
+  &amp;lt;style&amp;gt;
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* &amp;gt; body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  &amp;lt;/style&amp;gt;
+  &amp;lt;a href=//www.google.com/&amp;gt;&amp;lt;span id=logo aria-label=Google&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;
+  &amp;lt;p&amp;gt;&amp;lt;b&amp;gt;404.&amp;lt;/b&amp;gt; &amp;lt;ins&amp;gt;That’s an error.&amp;lt;/ins&amp;gt;
+  &amp;lt;p&amp;gt;The requested URL &amp;lt;code&amp;gt;/payment-sync&amp;lt;/code&amp;gt; was not found on this server.  &amp;lt;ins&amp;gt;That’s all we know.&amp;lt;/ins&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;자주-쓰이는-http-methods&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%90%EC%A3%BC-%EC%93%B0%EC%9D%B4%EB%8A%94-http-methods&quot; aria-label=&quot;자주 쓰이는 http methods permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;자주 쓰이는 HTTP Methods&lt;/h2&gt;
+&lt;p&gt;GET&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이름 그대로 어떠한 데이타를 서버로 부터 받아(GET)올때 주로 사용하는 Method.&lt;/li&gt;
+&lt;li&gt;데이터 생성/수정/삭제 없이 받아오기만 할때 사용된다.&lt;/li&gt;
+&lt;li&gt;가장 간단하고 많이 사용되는 HTTP Method&lt;/li&gt;
+&lt;li&gt;언급한대로 주로 데이터를 받아올때 사용되기 때문에 request에 body를 안 보내는 경우가 많다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;POST&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;데이터를 생성/수정/삭제 할때 주로 사용되는 Method.&lt;/li&gt;
+&lt;li&gt;데이터를 생성 및 수정 할때 많이 사용하기 때문에 대부분의 경우 requst body가 포함되서 보내진다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;알고-있으면-좋은-http-methods&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%8C%EA%B3%A0-%EC%9E%88%EC%9C%BC%EB%A9%B4-%EC%A2%8B%EC%9D%80-http-methods&quot; aria-label=&quot;알고 있으면 좋은 http methods permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;알고 있으면 좋은 HTTP Methods&lt;/h2&gt;
+&lt;p&gt;OPTIONS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;주로 요청 URI에서 사용할 수 있는 Method를 받아올때 사용된다.&lt;/li&gt;
+&lt;li&gt;예를 들어, &lt;code class=&quot;language-text&quot;&gt;/update&lt;/code&gt; uri에서 어떤 method를 요청 가능한가(&lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;? &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;?)를 알고 싶으면 먼저 &lt;code class=&quot;language-text&quot;&gt;OPTIONS&lt;/code&gt; 요청을 사용해서 확인하게 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http -v OPTIONS http://example.org
+
+OPTIONS / HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Content-Length: 0
+Host: example.org
+User-Agent: HTTPie/0.9.3
+
+
+
+HTTP/1.1 200 OK
+Allow: OPTIONS, GET, HEAD, POST
+Cache-Control: max-age=604800
+Content-Length: 0
+Date: Mon, 20 Aug 2018 08:37:45 GMT
+Expires: Mon, 27 Aug 2018 08:37:45 GMT
+Server: EOS (vny006/0450)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;PUT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;와 비슷하다. 데이터를 생성 할때 사용되는 Method.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;와 겹치기 때문에 &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;을 사용하는 곳도 있고 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;로 통일해서 사용하는 곳도 있는데, 최근 몇년 사이에 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;에 밀려서 잘 사용안되는 추세.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DELETE&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;특정 데이터를 서버에서 삭제 요청을 보낼때 쓰이는 Method&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;과 마찬가지로 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;에 밀려서 잘 사용안되는 추세.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;자주-쓰이는-http-status-code&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%90%EC%A3%BC-%EC%93%B0%EC%9D%B4%EB%8A%94-http-status-code&quot; aria-label=&quot;자주 쓰이는 http status code permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;자주 쓰이는 HTTP Status Code&lt;/h2&gt;
+&lt;p&gt;200 OK&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;가장 자주 보게되는 status code.&lt;/li&gt;
+&lt;li&gt;문제없이 다 잘 실행 되었을때 보내는 코드.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;301 Moved Permanently&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;해당 URI가 다른 주소로 바뀌었을때 보내는 코드.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 301 Moved Permanently
+Location: http://www.example.org/index.asp&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;400 Bad Request&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;해당 요청이 잘못된 요청일대 보내는 코드.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;주로 요청에 포함된 input 값들이 잘못된 값들이 보내졌을때 사용되는 코드.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, 전화번호를 보내야 되는데 text가 보내졌을때 등등.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;401 Unauthorized&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;유저가 해당 요청을 진행 할려면 먼저 로그인을 하거나 회원 가입을 하거나 등등이 필요하다는것을 나타내려 할때 쓰이는 코드.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;403 Forbidden&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;유저가 해당 요청에 대한 권한이 없다는 뜻.&lt;/li&gt;
+&lt;li&gt;예를 들어, 오직 과금을 한 유저만 볼 수 있는 데이터를 요청 했을때 등.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;404 Not Found&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;요청된 uri가 존재 하지 않는다는 뜻.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http -v google.com/no-such-uri
+
+GET /no-such-uri HTTP/1.1
+Accept: */*
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Host: google.com
+User-Agent: HTTPie/0.9.3
+
+HTTP/1.1 404 Not Found
+Content-Length: 1572
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 20 Aug 2018 08:46:48 GMT
+Referrer-Policy: no-referrer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;500 Internal Server Error&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;서버에서 에러가 났을때 사용되는 코드.&lt;/li&gt;
+&lt;li&gt;API 개발을 하는 백앤드 개발자들이 싫어하는 코드.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;restful-http-api-구조-및-핵심-개념&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#restful-http-api-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EA%B0%9C%EB%85%90&quot; aria-label=&quot;restful http api 구조 및 핵심 개념 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RESTful HTTP API 구조 및 핵심 개념&lt;/h1&gt;
+&lt;h2 id=&quot;기본-배경-지식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EB%B3%B8-%EB%B0%B0%EA%B2%BD-%EC%A7%80%EC%8B%9D&quot; aria-label=&quot;기본 배경 지식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기본 배경 지식&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;URI:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Uniform Resource Identifier&lt;/li&gt;
+&lt;li&gt;해당 사이트의 특정 자원의 위치를 나타내는 유일한 주소.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;/login&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;/news&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;https://finance.naver.com/marketindex/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;HTTP Method&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP request가 의도하는 action을 정의한것.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; 등등.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Payload&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP request에서 보내는 데이터 (body)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;representational-state-transfer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#representational-state-transfer&quot; aria-label=&quot;representational state transfer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;REpresentational State Transfer&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;웹상에서 사용되는 여러 리소스를 HTTP URI로 표현하고 그 리소스에 대한 행위를 HTTP Method로 정의하는 방식.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;즉, 리소스(HTTP URI로 정의된)를 어떻게 한다(HTTP Method + Payload)를 구조적으로 깔끔하게 표현하는것.&lt;/li&gt;
+&lt;li&gt;Method는 주로 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;만 사용한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; 등도 사용하는 곳도 있지만, 그냥 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;만 사용하는 것이 단순하기 때문에 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;만 사용하는 추세.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;예를 들어, 삼성전자 주식 정보를 받기 위한 HTTP 요청:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP GET https://api.trueshort.com/stock/005930&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;유저의 보유 주식 종목들을 DB에 저장하는 HTTP 요청:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP POST https://api.trueshort.com/user/portfolio&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;{
+“user_id” : 1,
+“stocks”: [
+“005930”,
+“298730”,
+“378900”
+]
+}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;restful-api의-장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#restful-api%EC%9D%98-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;restful api의 장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RESTful API의 장점&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;여러 장점들이 있지만, 사실 그중 가장 명확한 장점은 바로 &lt;code class=&quot;language-text&quot;&gt;self-descriptiveness&lt;/code&gt; 이다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RESTful API는 그 자체만으로도 API의 목적이 쉽게 이해가 된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, 위의 &lt;code class=&quot;language-text&quot;&gt;HTTP GET https://api.trueshort.com/stock/005930&lt;/code&gt; ` 요청의 경우, 문서나 주석이 없이도 &lt;em&gt;”&lt;a href=&quot;https://api.trueshort.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://api.trueshort.com&lt;/a&gt; 라는 API에서 삼성전자 주식에 관한 정보를 HTTP 요청을 통해 받아오는 구나”&lt;/em&gt; 라는 해석이 쉽게 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;restful-api를-개발할때-유의-할점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#restful-api%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%A0%EB%95%8C-%EC%9C%A0%EC%9D%98-%ED%95%A0%EC%A0%90&quot; aria-label=&quot;restful api를 개발할때 유의 할점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RESTful API를 개발할때 유의 할점&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;(슬래시)는 계층 관계를 나타낼때 사용된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를 들어, &lt;code class=&quot;language-text&quot;&gt;https://api.trueshort.com/kospi/stock/005930&lt;/code&gt; 이라는 구조라면, KOSPI에 속해있는 주식(Stock) 중 삼성전자(005930)을 나타내는 것이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;https://api.shopping.com/books/novel/stephenking&lt;/code&gt; 이라는 구조 이라면, 책들중 소설 그리고 소설중 Stephen King의 소설을 나타내는 구조이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;URI에 &lt;code class=&quot;language-text&quot;&gt;_&lt;/code&gt;(underscore)는 주로 포함하지않고 또한 영어 대문자보다 소문자를 쓴다. 그리고 너무 긴 단어는 잘 사용하지 않는다. 이 모든건 가독성을 높이기 위해서다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;URI는 명사를 사용한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;/books/novel/stephenking&lt;/code&gt; 이라고 하지 &lt;code class=&quot;language-text&quot;&gt;/books/novel/get-stephenking&lt;/code&gt; 이라고 잘 하지 않는다.&lt;/li&gt;
+&lt;li&gt;그 이유는 동사는 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; 같은 HTTP Method를 통해 표현하기 때문이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;참조:&lt;a href=&quot;https://stackoverflow.com/c/wecode/questions/308&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://stackoverflow.com/c/wecode/questions/308&lt;/a&gt;  [&gt;WECODE 은우님강의자료]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EnemyRain 코드리뷰]]></title><description><![CDATA[Wecode에서 자바스크립트+css+html을 이용한 간단한 게임을 만들었습니다. 6기 대다수의 학생들이 게임을 만들면서 힘들어하는것같아서 시작하기전에 하루정도 dom부터 시작해서 event, js를 다시한번 복습하고 천천히 시작하게 되었습니다. 시작하기전 q&a시간에 이 게임은 클래스에 익숙해지기위해서 만드셨다고 하셨는데 아직 class 에 대한 기본 개념이 잘 잡혀있지 않아서 함수로만 만들어보았습니다. 하루정도만에 게임을 완성했는데 코드가 상당히 지저분하고 더럽습니다]]></description><link>https://akiakma.github.io/posts/blogEnemyRain</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogEnemyRain</guid><pubDate>Mon, 10 Feb 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;enemy-rain-간단-코드리뷰&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#enemy-rain-%EA%B0%84%EB%8B%A8-%EC%BD%94%EB%93%9C%EB%A6%AC%EB%B7%B0&quot; aria-label=&quot;enemy rain 간단 코드리뷰 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Enemy rain&lt;/strong&gt; &lt;strong&gt;간단&lt;/strong&gt; &lt;strong&gt;코드리뷰&lt;/strong&gt;&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Wecode에서 자바스크립트+css+html을 이용한 간단한 게임을 만들었습니다. 6기 대다수의 학생들이 게임을 만들면서 힘들어하는것같아서 시작하기전에 하루정도 dom부터 시작해서 event, js를 다시한번 복습하고 천천히 시작하게 되었습니다. 시작하기전 q&amp;#x26;a시간에 이 게임은 클래스에 익숙해지기위해서 만드셨다고 하셨는데 아직 class 에 대한 기본 개념이 잘 잡혀있지 않아서 함수로만 만들어보았습니다. 하루정도만에 게임을 완성했는데 코드가 상당히 지저분하고 더럽습니다.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -58,7 +439,11 @@
 &lt;li&gt;귀신을 하늘에서 떨어지게합니다. 땅에 닿으면 귀신이 죽은 형상을 보이도록 합니다.(background-position)이용.&lt;/li&gt;
 &lt;li&gt;귀신이 떨어질때 영웅에 닿으면 귀신이 죽습니다. (귀신은 땅에떨어져도 죽고 영웅에 닿아도죽습니다.)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;이렇게 다 만들고 나서 여러 귀신을 만드는데 문제가 생겼습니다. 제가 지금까지 만든것은 오로지 한 귀신에만 적용을 했기때문입니다. 그래서 &lt;code class=&quot;language-text&quot;&gt;dom&lt;/code&gt;을 이용해서 &lt;code class=&quot;language-text&quot;&gt;div태그&lt;/code&gt;를 생성하게하였고 그 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;에 앞서 만든 한 귀신에만 속하게 했던 속성들을 그 div에 덮어주었습니다. &lt;u&gt;즉, 인터벌을 주어서 매초마다 그 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;를 생성하고, 그 생성된 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;에 속성을 덮어주는 방식입니다.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 다 만들고 나서 여러 귀신을 만드는데 문제가 생겼습니다. 제가 지금까지 만든&lt;/p&gt;
+&lt;p&gt;것은 오로지 한 귀신에만 적용을 했기때문입니다. 그래서 &lt;code class=&quot;language-text&quot;&gt;dom&lt;/code&gt;을 이용해서 &lt;code class=&quot;language-text&quot;&gt;div태그&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;를 생성하게하였고 그 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;에 앞서 만든 한 귀신에만 속하게 했던 속성들을 그 div에 &lt;/p&gt;
+&lt;p&gt;덮어주었습니다. &lt;u&gt;즉, 인터벌을 주어서 매초마다 그 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;를 생성하고, 그 생성&lt;/p&gt;
+&lt;p&gt;된 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;에 속성을 덮어주는 방식입니다.&lt;/u&gt;&lt;/p&gt;
 &lt;h2 id=&quot;그럼-자세하게-코드를-살펴보겠습니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9F%BC-%EC%9E%90%EC%84%B8%ED%95%98%EA%B2%8C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B2%A0%EC%8A%B5%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;그럼 자세하게 코드를 살펴보겠습니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그럼 자세하게 코드를 살펴보겠습니다.&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token doctype&quot;&gt;&amp;lt;!DOCTYPE html&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -77,7 +462,12 @@
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;hero.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;에는 배경이 들어갈 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; 와 영웅 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; 만을 만들어주었습니다. 귀신의 경우에는 처음에 귀신을 만들고 모든속성을 그 한 귀신에만 주었다가, 여러 귀신을 만들어야 한다는것을 인지하고 &lt;code class=&quot;language-text&quot;&gt;javascript&lt;/code&gt; 의 &lt;code class=&quot;language-text&quot;&gt;dom&lt;/code&gt; 을 이용하여 매초마다 귀신 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; 를 생성, 그리고 모든 귀신 속성을 그 &lt;code class=&quot;language-text&quot;&gt;tag&lt;/code&gt; 에 주는 인터벌을 만들었습니다. 처음부터 끝가지 구체적으로 계획을 세우고 로직을 짰다면, 그런 수고를 덜수있었을텐데 계획의 중요성을 알게 되었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;에는 배경이 들어갈 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; 와 영웅 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; 만을 만들어주었습니다. 귀신의 경우에&lt;/p&gt;
+&lt;p&gt;는 처음에 귀신을 만들고 모든속성을 그 한 귀신에만 주었다가, 여러 귀신을 만들어야 &lt;/p&gt;
+&lt;p&gt;한다는것을 인지하고 &lt;code class=&quot;language-text&quot;&gt;javascript&lt;/code&gt; 의 &lt;code class=&quot;language-text&quot;&gt;dom&lt;/code&gt; 을 이용하여 매초마다 귀신 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt; 를 생&lt;/p&gt;
+&lt;p&gt;성, 그리고 모든 귀신 속성을 그 &lt;code class=&quot;language-text&quot;&gt;tag&lt;/code&gt; 에 주는 인터벌을 만들었습니다. 처음부터 끝가&lt;/p&gt;
+&lt;p&gt;지 구체적으로 계획을 세우고 로직을 짰다면, 그런 수고를 덜수있었을텐데 계획의 중&lt;/p&gt;
+&lt;p&gt;요성을 알게 되었습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token property&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -113,7 +503,18 @@
   &lt;span class=&quot;token property&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;0px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;390px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt; &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt; 에는 &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;,  &lt;code class=&quot;language-text&quot;&gt;bg&amp;lt;div&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;hero&amp;lt;div&amp;gt;&lt;/code&gt;,&lt;code class=&quot;language-text&quot;&gt;enemy&amp;lt;div&amp;gt;&lt;/code&gt; 가 있습니다. &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;에는 lightgreen의 색상을 주었고, display:flex의 justify-content를center에 주어서 앞에 들어가 &lt;code class=&quot;language-text&quot;&gt;bg&amp;lt;div&amp;gt;&lt;/code&gt;가(이하 bg) 가운데에 배치되도록 설정하였습니다.  &lt;code class=&quot;language-text&quot;&gt;bg&lt;/code&gt;는 배경이미지입니다. 배경이미지의 가로세로 넓이를 입력하였고 position:relative를 주었습니다.(여기서 간단히 position 속성을 알아보자면, relative가 static인 상태를 기준으로 주어진 픽셀만큼 움직였다면, absolute는 position:static속성을 가지고 있지 않은 부모를 기준으로 움직입니다. 만약 부모중에 포지션이 relative, absolute,fixed 인 태그가 존재하지않으면 가장 상위의 태그를 기준으로 적용됩니다.)  그러므로 &lt;code class=&quot;language-text&quot;&gt;hero&lt;/code&gt;와&lt;code class=&quot;language-text&quot;&gt;enemy&lt;/code&gt;가 전부 &lt;code class=&quot;language-text&quot;&gt;bg&lt;/code&gt;에 속해있기때문에 &lt;code class=&quot;language-text&quot;&gt;bg&lt;/code&gt;를 기준으로 위치가 정해지게됩니다. display:flex 속성을 알면 각각의 이미지들을원하는 곳에 배치시키기 상당히 수월하게 됩니다. &lt;a href=&quot;https://flexboxfroggy.com/#ko&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://flexboxfroggy.com/#ko&lt;/a&gt; 이 사이트를 이용하시면 flex에 대해서 완벽히 이해할 수 있습니다.&lt;/p&gt;
+&lt;p&gt; &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt; 에는 &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;,  &lt;code class=&quot;language-text&quot;&gt;bg&amp;lt;div&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;hero&amp;lt;div&amp;gt;&lt;/code&gt;,&lt;code class=&quot;language-text&quot;&gt;enemy&amp;lt;div&amp;gt;&lt;/code&gt; 가 있습니다. &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;에는&lt;/p&gt;
+&lt;p&gt; lightgreen의 색상을 주었고, display:flex의 justify-content를center에 주어서 &lt;/p&gt;
+&lt;p&gt;앞에 들어가 &lt;code class=&quot;language-text&quot;&gt;bg&amp;lt;div&amp;gt;&lt;/code&gt;가(이하 bg) 가운데에 배치되도록 설정하였습니다.  &lt;code class=&quot;language-text&quot;&gt;bg&lt;/code&gt;는 배&lt;/p&gt;
+&lt;p&gt;경이미지입니다. 배경이미지의 가로세로 넓이를 입력하였고 position:relative를 주&lt;/p&gt;
+&lt;p&gt;었습니다.(여기서 간단히 position 속성을 알아보자면, relative가 static인 상태를 &lt;/p&gt;
+&lt;p&gt;기준으로 주어진 픽셀만큼 움직였다면, absolute는 position:static속성을 가지고 &lt;/p&gt;
+&lt;p&gt;있지 않은 부모를 기준으로 움직입니다. 만약 부모중에 포지션이 relative, &lt;/p&gt;
+&lt;p&gt;absolute,fixed 인 태그가 존재하지않으면 가장 상위의 태그를 기준으로 적용됩니&lt;/p&gt;
+&lt;p&gt;다.)  그러므로 &lt;code class=&quot;language-text&quot;&gt;hero&lt;/code&gt;와&lt;code class=&quot;language-text&quot;&gt;enemy&lt;/code&gt;가 전부 &lt;code class=&quot;language-text&quot;&gt;bg&lt;/code&gt;에 속해있기때문에 &lt;code class=&quot;language-text&quot;&gt;bg&lt;/code&gt;를 기준으로 위치가 &lt;/p&gt;
+&lt;p&gt;정해지게됩니다. display:flex 속성을 알면 각각의 이미지들을원하는 곳에 배치시키&lt;/p&gt;
+&lt;p&gt;기 상당히 수월하게 됩니다. &lt;a href=&quot;https://flexboxfroggy.com/#ko&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://flexboxfroggy.com/#ko&lt;/a&gt; 이 사이트를 이용하&lt;/p&gt;
+&lt;p&gt;시면 flex에 대해서 완벽히 이해할 수 있습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;keydown&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; keycode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;keyCode&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keycode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -151,7 +552,18 @@
         &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;offsetLeft &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;17&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;px&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;자바스크립트 코드입니다. &lt;code class=&quot;language-text&quot;&gt;DOM&lt;/code&gt;을 이용하여 &lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;에 접근하는 방식입니다. 맨 처음 코드부터 차근차근 살펴보겠습니다. window.addEventListener()는 키다운 발생시, 함수를 동작하게 하는 코드입니다. 첫부분부터 상당히 혼란스러웠고 많이 해맷던것 같습니다. keycode변수에 키입력을 감지하는 event.keyCode를 넣어야 한다는것을 몰랐기 때문입니다. 이렇게해야 키입력을 감지할 수 있습니다. 37, 39, 32는 각각 key code reference value입니다. (좌측부터 왼쪽, 오른쪽, 스페이스)  obj변수는 dom방식을 따라서 &lt;code class=&quot;language-text&quot;&gt;hero&amp;lt;div&amp;gt;&lt;/code&gt;를 지정해줍니다. 그렇게하여 가운데, 좌측,우측으로 향하는 함수를 생성하였습니다. 가운데(생략), 좌측의 경우 moveLeft()함수 실행시 backgroundPosition에 값을 줘서 왼쪽을 바라보게하였고, if를 이용하여 3보다  offsetLeft값이 3보다 작을경우에는 작동하지않고(0px씩 이동) 그외에는 왼쪽으로 -17px씩 이동하게 하였습니다. 우측(동일하므로 생략하겠습니다.) offset은 obj의 현재 위치를 알려주는 함수입니다. &lt;/p&gt;
+&lt;p&gt;자바스크립트 코드입니다. &lt;code class=&quot;language-text&quot;&gt;DOM&lt;/code&gt;을 이용하여 &lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;에 접근하는 방식입니다. 맨 처음 &lt;/p&gt;
+&lt;p&gt;코드부터 차근차근 살펴보겠습니다. window.addEventListener()는 키다운 발생&lt;/p&gt;
+&lt;p&gt;시, 함수를 동작하게 하는 코드입니다. 첫부분부터 상당히 혼란스러웠고 많이 해맷던&lt;/p&gt;
+&lt;p&gt;것 같습니다. keycode변수에 키입력을 감지하는 event.keyCode를 넣어야 한다는&lt;/p&gt;
+&lt;p&gt;것을 몰랐기 때문입니다. 이렇게해야 키입력을 감지할 수 있습니다. 37, 39, 32는 각&lt;/p&gt;
+&lt;p&gt;각 key code reference value입니다. (좌측부터 왼쪽, 오른쪽, 스페이스)  obj변수&lt;/p&gt;
+&lt;p&gt;는 dom방식을 따라서 &lt;code class=&quot;language-text&quot;&gt;hero&amp;lt;div&amp;gt;&lt;/code&gt;를 지정해줍니다. 그렇게하여 가운데, 좌측,우측&lt;/p&gt;
+&lt;p&gt;으로 향하는 함수를 생성하였습니다. 가운데(생략), 좌측의 경우 moveLeft()함수 실&lt;/p&gt;
+&lt;p&gt;행시 backgroundPosition에 값을 줘서 왼쪽을 바라보게하였고, if를 이용하여 3보&lt;/p&gt;
+&lt;p&gt;다  offsetLeft값이 3보다 작을경우에는 작동하지않고(0px씩 이동) 그외에는 왼쪽으&lt;/p&gt;
+&lt;p&gt;로 -17px씩 이동하게 하였습니다. 우측(동일하므로 생략하겠습니다.) offset은 obj&lt;/p&gt;
+&lt;p&gt;의 현재 위치를 알려주는 함수입니다. &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 유령div를 부모밑에 넣어주려면 그 상위태그인 bg 가 필요하다.&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; divdiv &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;bg&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;// 유령 태어날때 랜덤값으로 좌표반영&lt;/span&gt;
@@ -201,7 +613,44 @@
         &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;저는 처음에 한개의 귀신을만들고 그 귀신에 모든 속성을 주었습니다. 그렇게하고 나중을 생각하자는 식으로 코드를했고 결국 마지막에왔을때 어찌해야될지 막막했습니다. 사실 위에 코드가 잘 작동될까하는 의구심이 컸고 안될것같다는 생각을했습니다. 이번에는 운이 좋았지만 다음번에는 마지막까지 잘 구성을해서 코드를 짜야겠다고 느꼈습니다. 위의 코드내용은 다음과 같습니다.                                              &lt;code class=&quot;language-text&quot;&gt;DOM&lt;/code&gt;을 이용하여 &lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;에 접근합니다. &lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;내에 귀신태그를 매초마다 한번씩 생성해줍니다. 그 생성된 &lt;code class=&quot;language-text&quot;&gt;귀신div&lt;/code&gt;에는 귀신의 모든 속성을 넣어줍니다.&lt;/u&gt;                                      위에서부터 하나씩 코드를 설명해보겠습니다. &lt;code class=&quot;language-text&quot;&gt;divdiv태그&lt;/code&gt;는 주석에도 설명이 있지만 &lt;code class=&quot;language-text&quot;&gt;DOM&lt;/code&gt;으로 생성해줄 귀신태그가 appendchild되려면 만들어줘야할 부모태그가 필요하기때문에 지정해 주었습니다. &lt;em&gt;부모태그.appendchild(자식태그)는  부모태그아래에 자식태그를 속하게 해줄때 필요한 함수입니다.&lt;/em&gt;  그아래에 getrandom()이라는 함수는 귀신이 태어날때 랜덤한 위치에 태어날수있게 만든 좌표값입니다. 700과 16은 우측끝값과 좌측끝값이라고 생각하시면 됩니다.  인터벌 함수에는 사실 모든 함수가 들어있다고 봐도 과언이 아닙니다. 아니 모든 함수가 다 들어있습니다. 특이한점은 그 안에 모든 함수가 정의되고, 또한 실행도 그위치에 되어있는데 함수정의가 바깥에 있을경우 scope의 문제로인해서 동작하는데에 오류가 발생합니다. 아직 저도 이부분에있어서 헷갈리는 경우가많아서 조금더 공부가 필요하다고 느꼈습니다.  var setMonster라는 변수에는 setInterval함수가 들어가 있습니다. 하나씩 설명하자면 divN은 귀신을 넣어줄 &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;를 만들어주기 위한 변수, sos라는 변수는 귀신의 랜덤 좌표값을 반영할 변수입니다. divN변수에 클래스 네임을 줍니다. 그렇게해야 전에. &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;의 속성을 &lt;code class=&quot;language-text&quot;&gt;귀신div&lt;/code&gt;에 적용할 수 있기 때문입니다. divn에 left값으로는 sos를 넣어주는 모두 귀신의 랜덤한 위치생성을 위한 과정이라고 생각하시면됩니다. Enemymove()함수를 알기위해서는 코드를 아래함수부터 천천히 읽어야 이해하시기 쉽습니다 왜냐하면 코드안에 코드를 부르는 함수들이 줄줄이 연속되는데 맨 아래의 코드가 그 시작이기 때문입니다. deadEnemy함수는 if 귀신이 영웅에 닿으면 죽습니다. 그 설정은 우선 히어로맨 상단부분의 위치에 닿으면 무조건 죽는다 &lt;u&gt;그리고&lt;/u&gt; 귀신의 offset값이 영웅의 범위안에 닿으면 죽는다 이렇게 설정하였습니다. 여기서 중요한것은 &amp;#x26;&amp;#x26;(그리고)입니다. 이것이 없을 경우 영웅의 height에 도달하거나, 영웅의 범위안에 속하는 경우 모두 죽어버리는 불상사가 발생하기 때문입니다. stopInterval()이라는 함수는 유령이 죽는것을 실행하면서, 만약 귀신이 땅에 닿을경우 setInt라는 인터벌을 종료시킵니다. 이 함수는 EnemyMove()라는 함수안에 있고 이 함수가 작동시 발생하게됩니다.  그리고 귀신을 하늘에서부터 3px 씩 이동하게합니다. &lt;u&gt;&lt;em&gt;간략하게 말하자면 다음과 같습니다.0.02초마다 Enemymove()함수가 발동합니다. 0.02초마다 귀신은 3px 씩 아래로 떨어지며, 땅에 닿을시 deadEnemy()함수를 발동하며 0.02초마다 떨어지게하는 setInt인터벌을 종료합니다.&lt;/em&gt;&lt;/u&gt;  그리고 귀신이 사라지는것은 땅에 닿았을때 귀신을 사라지게하는건가 라고 생각할수있지만 그게 아니라 귀신이 땅에 닿는 속도를 측정하여 setTimeout함수를 적용해 땅에닿고 2초후인 총 7초동안만 존재하게 하는 함수를 만들어줍니다 그리고, 이 모든것이 적용된 유령이 2초마다 태어나게끔 설정해줍니다.&lt;/p&gt;
+&lt;p&gt;저는 처음에 한개의 귀신을만들고 그 귀신에 모든 속성을 주었습니다. 그렇게하고 나&lt;/p&gt;
+&lt;p&gt;중을 생각하자는 식으로 코드를했고 결국 마지막에왔을때 어찌해야될지 막막했습니&lt;/p&gt;
+&lt;p&gt;다. 사실 위에 코드가 잘 작동될까하는 의구심이 컸고 안될것같다는 생각을했습니다.&lt;/p&gt;
+&lt;p&gt; 이번에는 운이 좋았지만 다음번에는 마지막까지 잘 구성을해서 코드를 짜야겠다고 느&lt;/p&gt;
+&lt;p&gt;꼈습니다. 위의 코드내용은 다음과 같습니다.  &lt;code class=&quot;language-text&quot;&gt;DOM&lt;/code&gt;을 이용하여 &lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;에 접근합니다. &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;html&lt;/code&gt;내에 귀신태그를 매초마다 한번씩 생성해줍니다. 그 생성된 &lt;code class=&quot;language-text&quot;&gt;귀신div&lt;/code&gt;에는 귀&lt;/p&gt;
+&lt;p&gt;신의 모든 속성을 넣어줍니다.&lt;/u&gt; 위에서부터 하나씩 코드를 설명해보겠습니다. &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;divdiv태그&lt;/code&gt;는 주석에도 설명이 있지만 &lt;code class=&quot;language-text&quot;&gt;DOM&lt;/code&gt;으로 생성해줄 귀신태그가 &lt;/p&gt;
+&lt;p&gt;appendchild되려면 만들어줘야할 부모태그가 필요하기때문에 지정해 주었습니다.&lt;/p&gt;
+&lt;p&gt; &lt;em&gt;부모태그.appendchild(자식태그)는  부모태그아래에 자식태그를 속하게 해줄때 필&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;요한 함수입니다.&lt;/em&gt;  그아래에 getrandom()이라는 함수는 귀신이 태어날때 랜덤한 &lt;/p&gt;
+&lt;p&gt;위치에 태어날수있게 만든 좌표값입니다. 700과 16은 우측끝값과 좌측끝값이라고 &lt;/p&gt;
+&lt;p&gt;생각하시면 됩니다.  인터벌 함수에는 사실 모든 함수가 들어있다고 봐도 과언이 아닙&lt;/p&gt;
+&lt;p&gt;니다. 아니 모든 함수가 다 들어있습니다. 특이한점은 그 안에 모든 함수가 정의되고, &lt;/p&gt;
+&lt;p&gt;또한 실행도 그위치에 되어있는데 함수정의가 바깥에 있을경우 scope의 문제로인해&lt;/p&gt;
+&lt;p&gt;서 동작하는데에 오류가 발생합니다. 아직 저도 이부분에있어서 헷갈리는 경우가많아&lt;/p&gt;
+&lt;p&gt;서 조금더 공부가 필요하다고 느꼈습니다.  var setMonster라는 변수에는 &lt;/p&gt;
+&lt;p&gt;setInterval함수가 들어가 있습니다. 하나씩 설명하자면 divN은 귀신을 넣어줄 &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;를 만들어주기 위한 변수, sos라는 변수는 귀신의 랜덤 좌표값을 반영할 변수&lt;/p&gt;
+&lt;p&gt;입니다. divN변수에 클래스 네임을 줍니다. 그렇게해야 전에. &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;의 속성을 &lt;code class=&quot;language-text&quot;&gt;귀신div&lt;/code&gt;에 적용할 수 있기 때문입니다. divn에 left값으로는 sos를 넣어주는 모두 귀신&lt;/p&gt;
+&lt;p&gt;의 랜덤한 위치생성을 위한 과정이라고 생각하시면됩니다. Enemymove()함수를 알&lt;/p&gt;
+&lt;p&gt;기위해서는 코드를 아래함수부터 천천히 읽어야 이해하시기 쉽습니다 왜냐하면 코드&lt;/p&gt;
+&lt;p&gt;안에 코드를 부르는 함수들이 줄줄이 연속되는데 맨 아래의 코드가 그 시작이기 때문&lt;/p&gt;
+&lt;p&gt;입니다. deadEnemy함수는 if 귀신이 영웅에 닿으면 죽습니다. 그 설정은 우선 히어&lt;/p&gt;
+&lt;p&gt;로맨 상단부분의 위치에 닿으면 무조건 죽는다 &lt;u&gt;그리고&lt;/u&gt; 귀신의 offset값이 영웅의 범&lt;/p&gt;
+&lt;p&gt;위안에 닿으면 죽는다 이렇게 설정하였습니다. 여기서 중요한것은 &amp;#x26;&amp;#x26;(그리고)입니&lt;/p&gt;
+&lt;p&gt;다. 이것이 없을 경우 영웅의 height에 도달하거나, 영웅의 범위안에 속하는 경우 모&lt;/p&gt;
+&lt;p&gt;두 죽어버리는 불상사가 발생하기 때문입니다. stopInterval()이라는 함수는 유령이 &lt;/p&gt;
+&lt;p&gt;죽는것을 실행하면서, 만약 귀신이 땅에 닿을경우 setInt라는 인터벌을 종료시킵니&lt;/p&gt;
+&lt;p&gt;다. 이 함수는 EnemyMove()라는 함수안에 있고 이 함수가 작동시 발생하게됩니다. &lt;/p&gt;
+&lt;p&gt; 그리고 귀신을 하늘에서부터 3px 씩 이동하게합니다. &lt;u&gt;&lt;em&gt;간략하게 말하자면 다음&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;과 같&lt;/em&gt;습니다. 0.02초마다 Enemymove()함수가 발동합니다. 0.02초마다 귀신은 &lt;/p&gt;
+&lt;p&gt;3px 씩 아래로 떨어지며, 땅에 닿을시 deadEnemy()함수를 발동하며 0.02초마다 &lt;/p&gt;
+&lt;p&gt;떨어지게하는 setInt인터벌을 종료합니다.*&lt;/u&gt;  그리고 귀신이 사라지는것은 땅에 &lt;/p&gt;
+&lt;p&gt;닿았을때 귀신을 사라지게하는건가 라고 생각할수있지만 그게 아니라 귀신이 땅에 닿&lt;/p&gt;
+&lt;p&gt;는 속도를 측정하여 setTimeout함수를 적용해 땅에닿고 2초후인 총 7초동안만 존&lt;/p&gt;
+&lt;p&gt;재하게 하는 함수를 만들어줍니다 그리고, 이 모든것이 적용된 유령이 2초마다 태어나&lt;/p&gt;
+&lt;p&gt;게끔 설정해줍니다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;너무 복잡해서 이해하기 힘듭니다.  클래스를 이용하면 가독성이 좋아지고 수정이 쉬워지는데 클래스가 적용이 되지않아 이해하기도, 또 수정하기도 너무 번거로운 로직인것 같습니다. 이렇게 간단한 게임이야 운이좋게도 함수로만 작성할 수 있겠지만 더 복잡한 코드에는 함수가 있어야 협업시 모두가 편하게 일을 할 수 있을것같습니다.  이번 게임을 만들면서 느낀것은 무언가 만들때 계획적으로 처음부터 끝까지 구상해야 한다는것, 너무 복잡하고 더러워진 코드를 줄이기위해서 클래스를 이용해야하는것 마지막으로 코드 계획시 아주 작은부분부터 쪼개서 생각해야 한다는것을 배우게 되었습니다.&lt;/p&gt;
 &lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[github(1)]]></title><description><![CDATA[git은 개발자들이 프로젝트를 협업하는데있어서 필수적인 요소입니다. 처음에 git을 이해하고 사용하는것은 까다롭지만 어떻게 사용하는지알고 파악한다면 협업하는데있어서 정말 큰 도움이 될 수 있습니다. 깃허브를 시작하기전에 간단하게 용어를 알아보겠습니다.]]></description><link>https://akiakma.github.io/posts/bloggithub(1)</link><guid isPermaLink="false">https://akiakma.github.io/posts/bloggithub(1)</guid><pubDate>Sun, 09 Feb 2020 22:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;깃허브-시작하기전에-알아두면-좋은것들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B9%83%ED%97%88%EB%B8%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4-%EC%A2%8B%EC%9D%80%EA%B2%83%EB%93%A4&quot; aria-label=&quot;깃허브 시작하기전에 알아두면 좋은것들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;깃허브&lt;/strong&gt; &lt;strong&gt;시작하기전에&lt;/strong&gt; &lt;strong&gt;알아두면&lt;/strong&gt; 좋은것들&lt;/h1&gt;

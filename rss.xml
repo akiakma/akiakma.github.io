@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 14 Feb 2020 14:53:00 GMT</lastBuildDate><item><title><![CDATA[HTTP 구조 및 핵심 요소]]></title><description><![CDATA[위코드 은우님이 발표하신 HTTP의 구조, 핵심요소 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic</guid><pubDate>Thu, 13 Feb 2020 23:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;http-구조-및-핵심-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;http 구조 및 핵심 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP 구조 및 핵심 요소&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Feb 2020 08:49:26 GMT</lastBuildDate><item><title><![CDATA[React(1)]]></title><description><![CDATA[벨로퍼트님과 성문님 블로그글을 참조하여 정리하였습니다. 리액트를 시작하기전에 간단하게 훑고간다면 리액트를 배우는데 조금더 수월해질 것 같습니다.]]></description><link>https://akiakma.github.io/posts/blogReact(1)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogReact(1)</guid><pubDate>Sun, 16 Feb 2020 23:40:32 GMT</pubDate><content:encoded>&lt;hr&gt;
+&lt;h1 id=&quot;react-공부전-알면-좋은것들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-%EA%B3%B5%EB%B6%80%EC%A0%84-%EC%95%8C%EB%A9%B4-%EC%A2%8B%EC%9D%80%EA%B2%83%EB%93%A4&quot; aria-label=&quot;react 공부전 알면 좋은것들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;React 공부전 알면 좋은것들.&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;React의 특징&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;React의 장점&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;React의 제한&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Global Pacakge란?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Dom이란?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Component란?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JSX&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Props&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;State&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;특징&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EC%A7%95&quot; aria-label=&quot;특징 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;특징&lt;/strong&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Virtual DOM&lt;/strong&gt;을 사용합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JSX&lt;/strong&gt;: JSX는 JavaScript의 확장 문법입니다. DOM 엘리먼트들을 만들 때 JavaScript 형식으로 작성해야 하는것을, XML과 비슷한 형태로 작성할 수 있게 해줍니다. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Components&lt;/strong&gt; React는 모두 Component 에 대한 것 입니다. React 개발을 할 때는 모든 것을 Component로서 생각해야 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;장점&lt;/strong&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Virtual DOM 을 사용한 어플리케이션의 성능 향상&lt;/li&gt;
+&lt;li&gt;클라이언트에서도 렌더링 될 수 있고, 서버측에서도 렌더링 될 수 있음(이를 통해 브라우저측의 초기 렌더링 딜레이를 줄이고, SEO 호환도 가능해집니다.)&lt;/li&gt;
+&lt;li&gt;Component의 가독성이 매우 높고 간단하여 쉬운 유지보수가 가능해집니다.&lt;/li&gt;
+&lt;li&gt;프레임워크가 아닌 라이브러리로서 다른 프레임워크들과 사용이 가능합니다. React 에선. UI만 신경쓰고, 빠져있는 부분은 본인이 좋아하는 라이브러리를 사용하여 stack을 본인의 입맛대로 설정 할 수 있음&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;제한&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%ED%95%9C&quot; aria-label=&quot;제한 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;제한&lt;/strong&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;어플리케이션 View 레이어만 다루므로 이 외의 부분은 다른 기술을 사용해야 합니다 (예를들어 Ajax, Router)&lt;/li&gt;
+&lt;li&gt;IE8 이하 버전을 지원하지 않습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;global-package&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#global-package&quot; aria-label=&quot;global package permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Global Package&lt;/strong&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;babel: ECMAScript6 Syntax를 사용 할 수 있게 해줍니다.&lt;/li&gt;
+&lt;li&gt;webpack: 모듈 번들러로서, Browserify 처럼 브라우저 위에서 import(require)을 할 수 있게 해주고 자바스크립트 파일들을 하나로 합쳐 줍니다.&lt;/li&gt;
+&lt;li&gt;webpack-dev-server: webpack에서 지원하는 간단한 개발서버로서 별도의 서버를 구축하지 않고도 웹서버를 열수 있으며 hot-loader를 통하여 코드가 수정될때마다 자동으로 리로드 되게 할 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;virtual-dom&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#virtual-dom&quot; aria-label=&quot;virtual dom permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Virtual DOM&lt;/h3&gt;
+&lt;p&gt;Virtual Dom은 단순한 DOM 조작 도구가 아니라 컴포넌트 단위로 움직이는 Declarative한 개발을 위해 도입된 것이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Virtual Dom이 자신의 역할을 수행하는 부분(순서)&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;React 컴포넌트는 render를 다시 호출하여 새로운 결과값을 return한다. 하지만 이 return 값은 바로 DOM에 반영되지 않는다. (바로 브라우저에 렌더링되지 않는다)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;React는 새로운 return 값을 가지고 새로운 Virtual DOM을 만든다.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;React안에 있는 div들은 진짜 html이 아니라 Babel에 의해 컴파일되는 JSX&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;render함수가 return하는 것은 새로운 Virtual DOM을 만들기 위한 재료&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;현재 브라우저에 보여지고 있는 진짜 DOM과 비교하여 어떤 부분이 달라졌는지 찾아낸다.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;바뀐 부분만 진짜 DOM에 적용한다.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;브라우저는 이 DOM을 해석하여 유저에게 새로운 화면을 보여준다.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;왜 이렇게 번거로운 비교작업을 거치는 것일까?&lt;/p&gt;
+&lt;p&gt;브라우저에게 DOM을 해석하고 렌더링 하는 것은 굉장히 비싼 작업입니다. Virtual DOM은 그 작업을 미리 최적화 시켜줄 뿐만아니라, 컴포넌트 단위로 묶어서 관리할 수 있게 해줍니다.&lt;/p&gt;
+&lt;h3 id=&quot;component-분석&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#component-%EB%B6%84%EC%84%9D&quot; aria-label=&quot;component 분석 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;Component 분석&lt;/strong&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Component는 UI를 구성하는 개별적인 뷰 단위입니다.&lt;/p&gt;
+&lt;p&gt;전체 앱은 각 Component들이 결합해서 만들어 집니다.&lt;/p&gt;
+&lt;p&gt;각 Component들은 앱의 다른 부분, 도는 다른 앱에서 쉽개 재사용이 가능합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt;import React from &amp;#39;react&amp;#39;;
+
+class App extends React.Component {
+    render(){
+
+        return (
+                &amp;lt;h1&amp;gt;Hello Velopert&amp;lt;/h1&amp;gt;
+        );
+    }
+}
+
+export default App;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;import&lt;/strong&gt; 는 ES6 에 도입된 새로운 문법인데, var React = require(‘react’)와 같습니다. React 모듈은 component를 만들때 사용됩니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;class&lt;/strong&gt;  모든 Component 는 React.Component 를 상속합니다. ES5 환경에서는 React.createClass()라는 메소드를 사용합니다. 또한 ES5 에서 클래스를 만들때는 메소드들을 nest할 수 없고 prototype 을 사용했어야 했습니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;render()&lt;/strong&gt; 메소드에서는 컴포넌트에 렌더링 될 데이타를 정의합니다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;위 코드 펜스에서 LINE 5~7&lt;/strong&gt; 이 부분이 JSX의 가장 중요한 부분입니다. 자바스크립트에서 html태그를 반환하는데, 따옴표 같은건 없습니다. React JSX는 XML-like Syntax를 native Javascript로 변환해줍니다. 따라서 ” “로 감싸지 않는 점 주의해야 합니다. ()를 사용하지 않아도 오류는 발생하지 않지만 가독성을 위하여 사용하는 것이 좋습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;react-에서-jsx문법-사용의-장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-%EC%97%90%EC%84%9C-jsx%EB%AC%B8%EB%B2%95-%EC%82%AC%EC%9A%A9%EC%9D%98-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;react 에서 jsx문법 사용의 장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;React 에서 JSX문법 사용의 장점&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;JSX는 React를 위해 태어난 새로운 자바스크립트 문법입니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;JSX는 컴파일링 되면서 최적화 되므로, 빠르다.&lt;/li&gt;
+&lt;li&gt;Tyep-safe 그리고 컴파일링 과정에서 에러를 감지할 수 있다.(Type-safe란 예측 불가능한 결과를 나타내지 않는다는것을 의미합니다.)&lt;/li&gt;
+&lt;li&gt;JSX를 사용하여 더 쉽고 빠르게 템플릿을 작성 할 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;jsx-사용시-주의사항&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#jsx-%EC%82%AC%EC%9A%A9%EC%8B%9C-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;jsx 사용시 주의사항 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;strong&gt;JSX 사용시 주의사항&lt;/strong&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;꼭 닫혀야 하는 태그&lt;/li&gt;
+&lt;li&gt;감싸져 있는 엘리먼트&lt;/li&gt;
+&lt;li&gt;JSX 안에 자바스크립트 값 사용하기&lt;/li&gt;
+&lt;li&gt;조건부 렌더링&lt;/li&gt;
+&lt;li&gt;style과 className&lt;/li&gt;
+&lt;li&gt;주석&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;컴포넌트에 여러 Element를 렌더링 해야 할 때, 그 element들을 필수적으로 container element  안에 포함시켜줘야 됩니다.               (JavaScript Expression)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt;    render(){
+        let text = &amp;quot;Dev-Server&amp;quot;
+        return  (
+            &amp;lt;div&amp;gt;
+                &amp;lt;h1&amp;gt; Hello Velopert &amp;lt;/h1&amp;gt;
+                &amp;lt;h2&amp;gt; Welcome to {text}&amp;lt;/h2&amp;gt;
+            &amp;lt;/div&amp;gt;
+        );
+    }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;ES6 에 도입된 let키워드는 var와 비슷하지만, var변수의 scope는 기본적으로 함수 단위인데 let은 블럭범위내에서 변수를 선업합니다. 따라서 Javascript의 Scope관련 문제를 해결 할 수 있습니다. ES6에선 평상시 let을 쓰고 var는 필요한 상황에서만 사용하는게 좋습니다. {text}를 사용하여 text Javacript 변수를 렌더링 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;임의 method 생성 및 사용하기&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt;//method 생성 및 사용법
+ sayHey(){
+    alert(&amp;quot;hey&amp;quot;);
+  }
+
+  render(){
+    let text = &amp;quot;Dev-Server&amp;quot;
+    return  (
+      &amp;lt;div&amp;gt;
+        &amp;lt;h1&amp;gt; Hello Velopert &amp;lt;/h1&amp;gt;
+        &amp;lt;h2&amp;gt; Welcome to {text}&amp;lt;/h2&amp;gt;
+        &amp;lt;button onClick={this.sayHey}&amp;gt;Click Me&amp;lt;/button&amp;gt;
+      &amp;lt;/div&amp;gt;
+    );
+  }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;{this.sayHey}를 통해 버튼이 클릭되면 해당 메소드가 실행되게 할 수 있습니다. ()가 뒤에 안붙어있다는점을 주의해야합니다&lt;u&gt;. 만약에 ()가 붙으면 페이지가 로드 될때도 실행되고, 클릭할때도 실행됩니다.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IF-Else 문 사용 불가&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;JSX 안에서 사용되는 JavaSciprt 표현에는 IF-Else 문이 사용 불가능합니다. 이에 대한 대안은 ternary표현을 사용하는 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inline Style&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;React의 Inline Style 에서는, string 형식이 사용되지 않고 key가 camelCase 인 Object 가 사용됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt; //inline Style 예제
+ render(){
+        let text = &amp;quot;Dev-Server&amp;quot;;
+
+        let pStyle = {
+            color: &amp;#39;aqua&amp;#39;,
+            backgroundColor: &amp;#39;black&amp;#39;
+        };
+
+        return  (
+            &amp;lt;div&amp;gt;
+                &amp;lt;h1&amp;gt; Hello Velopert &amp;lt;/h1&amp;gt;
+                &amp;lt;h2&amp;gt; Welcome to {text}&amp;lt;/h2&amp;gt;
+                &amp;lt;button onClick= {this.sayHey}&amp;gt;Click Me&amp;lt;/button&amp;gt;
+                &amp;lt;p style = {pStyle}&amp;gt;{1 == 1 ? &amp;#39;True&amp;#39; : &amp;#39;False&amp;#39;}&amp;lt;/p&amp;gt;
+            &amp;lt;/div&amp;gt;
+        );
+    }
+//pStyle이 p element에 적용되었습니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Naming Convetion&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;모든 React Compoonent 는 첫 문자가 대문자인 CamelCase로 작성됩니다.&lt;/p&gt;
+&lt;h3 id=&quot;props&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#props&quot; aria-label=&quot;props permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Props&lt;/h3&gt;
+&lt;p&gt;props는 컴포넌트에서 사용 할 데이터 중 변동되지 않는 데이터를 다룰 때 사용됩니다. parent 컴포넌트에서 child 컴포넌트로 데이터를 전할 때, props가 사용됩니다.&lt;/p&gt;
+&lt;h3 id=&quot;state&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#state&quot; aria-label=&quot;state permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;State&lt;/h3&gt;
+&lt;p&gt;컴포넌트에서 유동적인 데이터를 다룰 때,  state를 사용합니다. React.js 어플리케이션을 만들 땐, state를 사용하는 컴포넌트의 갯수를 최소화 하는 것을 노력해야 합니다. 예를들어, 10개의 컴포넌트에서 유동적인 데이터를 사용 하게 될땐, 각 데이터에 state를 사용할 게 아니라, props를 사용하고 10개의 컴포넌트를 포함시키는 container 컴포넌트를 사용하는 것이 효율적입니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Props와 State는 중요하므로 다음 블로그에서 자세하게 다뤄보겠습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;참조&lt;/p&gt;
+&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;/&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;/&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;.&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;/&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;https://velopert.com/&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8888799999999999em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;/&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;/&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;.&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;.&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;/&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;https://seongmun-hong.github.io/&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8888799999999999em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;</content:encoded></item><item><title><![CDATA[HTTP 구조 및 핵심 요소]]></title><description><![CDATA[위코드 은우님이 발표하신 HTTP의 구조, 핵심요소 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic</guid><pubDate>Thu, 13 Feb 2020 23:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;http-구조-및-핵심-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;http 구조 및 핵심 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP 구조 및 핵심 요소&lt;/h1&gt;
 &lt;h2 id=&quot;http&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#http&quot; aria-label=&quot;http permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;HTTP&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;HyperText Transfer Protocol&lt;/li&gt;

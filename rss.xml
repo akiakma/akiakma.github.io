@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Feb 2020 04:52:31 GMT</lastBuildDate><item><title><![CDATA[코드카타 WEEK2 DAY1]]></title><description><![CDATA[코드카타 Week2 Day1 [객체와 for문]]]></description><link>https://akiakma.github.io/posts/blogcodekataweek2-1</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogcodekataweek2-1</guid><pubDate>Tue, 18 Feb 2020 23:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;코드카타--week-2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C%EC%B9%B4%ED%83%80--week-2&quot; aria-label=&quot;코드카타  week 2 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드카타  week 2&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 19 Feb 2020 05:24:31 GMT</lastBuildDate><item><title><![CDATA[인증 (Authentication) & 인가 (Authorization)]]></title><description><![CDATA[위코드 은우님이 발표하신 인증 (Authentication) & 인가 (Authorization) 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic(2)</guid><pubDate>Wed, 19 Feb 2020 21:00:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;인증authentication--인가authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9Dauthentication--%EC%9D%B8%EA%B0%80authorization&quot; aria-label=&quot;인증authentication  인가authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증(Authentication) &amp;#x26; 인가(Authorization)&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;인증과 인가는 API에서 가장 자주 구현되는 기능중 하나이다.&lt;/li&gt;
+&lt;li&gt;Private한 API는 물론이고 Public한 API도 기본적인 인증과 인가를 요구한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;인증authentication&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9Dauthentication&quot; aria-label=&quot;인증authentication permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증(Authentication)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Authentication은 유저의 identification을 확인하는 절차다.&lt;/li&gt;
+&lt;li&gt;쉽게 설명하면, 유저의 아이디와 비번을 확인하는 절차.&lt;/li&gt;
+&lt;li&gt;인증을 하기 위해선 먼저 유저의 아이디와 비번을 생성할 수 있는 기능도 필요하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;로그인-절차&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%A0%88%EC%B0%A8&quot; aria-label=&quot;로그인 절차 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;로그인 절차&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;유저 아이디와 비번 생성&lt;/li&gt;
+&lt;li&gt;유저 비번 암호화 해서 DB에 저장.&lt;/li&gt;
+&lt;li&gt;유저 로그인 -&gt; 아이디와 비밀번호 입력&lt;/li&gt;
+&lt;li&gt;유저가 입력한 비밀번호 암호화 한후 암호화되서 DB에 저정된 유저 비밀번호와 비교.&lt;/li&gt;
+&lt;li&gt;일치하면 로그인 성공&lt;/li&gt;
+&lt;li&gt;로그인 성공하면 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 클라이언트에게 전송.&lt;/li&gt;
+&lt;li&gt;유저는 로그인 성공후 다음부터는 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 첨부해서 request를 서버에 전송함으로서 매번 로그인 해도 되지 않도록 한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;유저-비밀번호-암호화&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%A0%EC%A0%80-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%95%94%ED%98%B8%ED%99%94&quot; aria-label=&quot;유저 비밀번호 암호화 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;유저 비밀번호 암호화&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;유저의 비밀번호는 절대 비밀번호 그대로 DB에 저장 하지 않는다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DB가 해킹을 당하면 유저의 비밀번호도 그대로 노출 된다.&lt;/li&gt;
+&lt;li&gt;외부 해킹이 아니더라도 내부 개발자나 인력이 유저들의 비밀번호를 볼 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;유저의 비밀번호는 꼭 암호화 해서 저장 해야 한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;그럼으로 DB가 해킹을 당해도 비밀번호가 그대로 노출되지 않으며&lt;/li&gt;
+&lt;li&gt;내부 인력도 비밀번호를 알 수가 없음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;비밀번호 암호에는 단방향 해쉬 함수(one-way hash function)가 일반적으로 쓰인다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;단방향 해시 함수는 원본 메시지를 변환하여 암호화된 메시지인 &lt;code class=&quot;language-text&quot;&gt;다이제스트(digest)&lt;/code&gt;를 생성한다. 원본 메시지를 알면 암호화된 메시지를 구하기는 쉽지만 암호화된 메시지로는 원본 메시지를 구할 수 없어서 &lt;code class=&quot;language-text&quot;&gt;단방향성(one-way)&lt;/code&gt; 이라고 한다.&lt;/li&gt;
+&lt;li&gt;예를 들어, “test password”를 hash256이라는 해쉬 함수를 사용하면 &lt;code class=&quot;language-text&quot;&gt;0b47c69b1033498d5f33f5f7d97bb6a3126134751629f4d0185c115db44c094e&lt;/code&gt; 값이 나온다.&lt;/li&gt;
+&lt;li&gt;만일 “test password2”를 hash256 해쉬 함수를 사용하면 &lt;code class=&quot;language-text&quot;&gt;d34b32af5c7bc7f54153e2fdddf251550e7011e846b465e64207e8ccda4c1aeb&lt;/code&gt; 값이 나온다. 실제 비밀번호는 비슷하지만 해쉬 함수 값은 완전히 틀린것을 볼 수 있다. 이러한 효과를 avalance라고 하는데 비밀번호 해쉬 값을 해킹을 어렵게 만드는 하나의 요소이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  In [21]: import hashlib
+
+  In [22]: m = hashlib.sha256()
+
+  In [23]: m.update(b&amp;quot;test password&amp;quot;)
+
+  In [24]: m.hexdigest()
+  Out[24]: &amp;#39;0b47c69b1033498d5f33f5f7d97bb6a3126134751629f4d0185c115db44c094e&amp;#39;
+
+  In [25]: m = hashlib.sha256()
+
+  In [26]: m.update(b&amp;quot;test password2&amp;quot;)
+
+  In [27]: m.hexdigest()
+  Out[27]: &amp;#39;d34b32af5c7bc7f54153e2fdddf251550e7011e846b465e64207e8ccda4c1aeb&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;bcrypt&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#bcrypt&quot; aria-label=&quot;bcrypt permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Bcrypt&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;단방향 해쉬 함수도 몇가지 취약점이 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rainbow table attack - 미리 해쉬값들을 계산해 놓은 테이블을 Rainbow table이라고 한다.&lt;/li&gt;
+&lt;li&gt;해시 함수는 원래 패스워드를 저장하기 위해서 설계된 것이 아니라 짧은 시간에 데이터를 검색하기 위해 설계된 것이다 (Remember Set?). 그렇기 때문에 해시 함수는 본래 처리 속도가 최대한 빠르도록 설계되었다. 이러한 속성 때문에 공격자는 매우 빠른 속도로 임의의 문자열의 다이제스트와 해킹할 대상의 다이제스트를 비교할 수 있다(MD5를 사용한 경우 일반적인 장비를 이용하여 1초당 56억 개의 다이제스트를 대입할 수 있다). 이런 방식으로 패스워드를 추측하면 패스워드가 충분히 길거나 복잡하지 않은 경우에는 그리 긴 시간이 걸리지 않는다 (대부분 사용자의 패스워드는 길거나 복잡하지 않을 뿐 아니라, 동일한 패스워드를 사용하는 경우도 많다).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;단방향 해쉬 함수의 취약점들을 보안하기 위해 일반적으로 2가지 보완점들이 사용된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Salting&lt;/li&gt;
+&lt;li&gt;실제 비밀번호 이외에 추가적으로 랜덤 데이터를 더해서 해시값을 계산하는 방법.&lt;/li&gt;
+&lt;li&gt;Key Stretching&lt;/li&gt;
+&lt;li&gt;단방향 해쉬값을 계산 한 후 그 해쉬값을 또 또 해쉬 하고, 또 이를 반복하는 것을 말한다.&lt;/li&gt;
+&lt;li&gt;최근에는 일반적인 장비로 1초에 50억 개 이상의 다이제스트를 비교할 수 있지만, 키 스트레칭을 적용하여 동일한 장비에서 1초에 5번 정도만 비교할 수 있게 한다. GPU(Graphics Processing Unit)를 사용하더라도 수백에서 수천 번 정도만 비교할 수 있다. 50억 번과는 비교할 수도 없을 정도로 적은 횟수다. 앞으로 컴퓨터 성능이 더 향상되면 몇 번의 반복을 추가하여 보완할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/media/apipic.png&quot; alt=&quot;Nulla faucibus vestibulum eros in tempus. Vestibulum tempor imperdiet velit nec dapibus&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Salting과 Key Stretching을 구현한 해쉬 함수중 가장 널리 사용되는 것이 bcrypt이다. bcrypt는 처음부터 비밀번호를 단방향 암호화 하기 위해 만들이전 해쉬함수 이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;In [40]: import bcrypt
+
+In [41]: bcrypt.hashpw(b&amp;quot;secrete password&amp;quot;, bcrypt.gensalt())
+Out[41]: b&amp;#39;$2b$12$.XIJKgAepSrI5ghrJUaJa.ogLHJHLyY8ikIC.7gDoUMkaMfzNhGo6&amp;#39;
+
+In [42]: bcrypt.hashpw(b&amp;quot;secrete password&amp;quot;, bcrypt.gensalt()).hex()
+Out[42]: &amp;#39;243262243132242e6b426f39757a69666e344f563852694a43666b5165445469397448446c4d366635613542396847366d5132446d62744b70357353&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;jwtjson-web-tokens&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#jwtjson-web-tokens&quot; aria-label=&quot;jwtjson web tokens permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;JWT(JSON Web Tokens)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;앞서 언급했듯이 유저가 로그인에 성공한 후에는 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;이라고 하는 암호화된 유저 정보를 첨부해서 request를 보내게 된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;유저 로그인:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;POST /auth HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+
+{
+  &amp;quot;username&amp;quot;: &amp;quot;joe&amp;quot;,
+  &amp;quot;password&amp;quot;: &amp;quot;pass&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;access token:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  &amp;quot;access_token&amp;quot;: &amp;quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGl0eSI6MSwiaWF0IjoxNDQ0OTE3NjQwLCJuYmYiOjE0NDQ5MTc2NDAsImV4cCI6MTQ0NDkxNzk0MH0.KPmI6WSjRjlpzecPvs3q_T3cJQvAgJvaQAPtk1abC_E&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;그러면 서버에서는 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 복호화 해서 해당 유저 정보를 얻게 된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예를들어 access token &lt;code class=&quot;language-text&quot;&gt;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGl0eSI6MSwiaWF0IjoxNDQ0OTE3NjQwLCJuYmYiOjE0NDQ5MTc2NDAsImV4cCI6MTQ0NDkxNzk0MH0.KPmI6WSjRjlpzecPvs3q_T3cJQvAgJvaQAPtk1abC_E&lt;/code&gt; 를 복호화 하면 다음과 같은 정보를 얻는다:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+  user_id = 1 
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;복호화해서 얻은 유저 아이디를 통해 해당 유저가 누군지 알 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;이런 절차의 목적은 해당 유저가 매번 로그인 해도 되지 않도록 하는 것이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 생성하는 방법은 여러가지가 있는데, 그 중 가장 널리 사용되는 기술중 하가 바로 JWT(JSON Web Tokens)이다.&lt;/li&gt;
+&lt;li&gt;JWT는 말 그대로 유저 정보를 담음 JSON 데이터를 암호화 해서 클라이언트와 서버간에 주고 받는 것이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/media/apipic1.png&quot; alt=&quot;Nulla faucibus vestibulum eros in tempus. Vestibulum tempor imperdiet velit nec dapibus&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;why-use-access-token-vs-id-and-password&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-use-access-token-vs-id-and-password&quot; aria-label=&quot;why use access token vs id and password permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why Use Access Token VS ID and Password?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Performance&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No heavy bcrypt call, just a simple hash&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Client-side storage&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No actual ID and password stored in the client such as cookie.&lt;/li&gt;
+&lt;li&gt;Also, token is very server specific - not reused in any other site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;인가authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EA%B0%80authorization&quot; aria-label=&quot;인가authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인가(Authorization)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Authorization은 유저가 요청하는 request를 실행할 수 있는 권한이 있는 유저인가를 확인하는 절차 이다.&lt;/li&gt;
+&lt;li&gt;예를 들어, 해당 유저는 고객 정보를 볼 수 있는 있지만 수정 할 수는 없다 등.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Authroization도 JWT를 통해서 구현 될 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 통해 해당 유저 정보를 얻을 수 있음으로 해당 유저가 가지고 있는 권한(permission)도 확인 할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;authorization-절차&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#authorization-%EC%A0%88%EC%B0%A8&quot; aria-label=&quot;authorization 절차 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Authorization 절차&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Authentication 절차를 통해 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 생성한다. &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;에는 유저 정보를 확인할 수 있는 정보가 들어가 있어야 한다 (예를 들어 user id).&lt;/li&gt;
+&lt;li&gt;유저가 request를 보낼때 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 첨부해서 보낸다.&lt;/li&gt;
+&lt;li&gt;서버에서는 유저가 보낸 &lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 복호화 한다.&lt;/li&gt;
+&lt;li&gt;복호화된 데이터를 통해 user id를 얻는다.&lt;/li&gt;
+&lt;li&gt;user id를 사용해서 database에서 해당 유저의 권한(permission)을 확인하다.&lt;/li&gt;
+&lt;li&gt;유저가 충분한 권한을 가지고 있으면 해당 요청을 처리한다.&lt;/li&gt;
+&lt;li&gt;유저가 권한을 가지고 있지 않으면 Unauthorized Response(401) 혹은 다른 에러 코드를 보낸다.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[코드카타 WEEK2 DAY1]]></title><description><![CDATA[코드카타 Week2 Day1 [객체와 for문]]]></description><link>https://akiakma.github.io/posts/blogcodekataweek2-1</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogcodekataweek2-1</guid><pubDate>Tue, 18 Feb 2020 23:40:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;코드카타--week-2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C%EC%B9%B4%ED%83%80--week-2&quot; aria-label=&quot;코드카타  week 2 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드카타  week 2&lt;/h1&gt;
 &lt;h2 id=&quot;문제-day1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C-day1&quot; aria-label=&quot;문제 day1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제 day1&lt;/h2&gt;
 &lt;p&gt;로마자에서 숫자로 바꾸기&lt;/p&gt;
 &lt;p&gt;1~3999 사이의 로마자 s를 인자로 주면 그에 해당하는 숫자를 반환해주세요. 로마 숫자를 숫자로 표기하면 다음과 같습니다.&lt;/p&gt;

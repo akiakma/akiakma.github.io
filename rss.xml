@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 19 Feb 2020 05:36:19 GMT</lastBuildDate><item><title><![CDATA[인증 (Authentication) & 인가 (Authorization)]]></title><description><![CDATA[위코드 은우님이 발표하신 인증 (Authentication) & 인가 (Authorization) 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic(2)</guid><pubDate>Wed, 19 Feb 2020 21:00:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;인증authentication--인가authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9Dauthentication--%EC%9D%B8%EA%B0%80authorization&quot; aria-label=&quot;인증authentication  인가authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증(Authentication) &amp;#x26; 인가(Authorization)&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 19 Feb 2020 05:39:43 GMT</lastBuildDate><item><title><![CDATA[인증 (Authentication) & 인가 (Authorization)]]></title><description><![CDATA[위코드 은우님이 발표하신 인증 (Authentication) & 인가 (Authorization) 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic(2)</guid><pubDate>Wed, 19 Feb 2020 21:00:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;인증authentication--인가authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9Dauthentication--%EC%9D%B8%EA%B0%80authorization&quot; aria-label=&quot;인증authentication  인가authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증(Authentication) &amp;#x26; 인가(Authorization)&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;인증과 인가는 API에서 가장 자주 구현되는 기능중 하나이다.&lt;/li&gt;
 &lt;li&gt;Private한 API는 물론이고 Public한 API도 기본적인 인증과 인가를 요구한다.&lt;/li&gt;
@@ -79,7 +79,47 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/media/apipic.png&quot; alt=&quot;Nulla faucibus&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 548px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/082aed03c4d9f95caf32dc9039c2dd71/a58fe/apipic.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.55474452554745%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAB1gAAAdYAGVm790AAACa0lEQVQoz31SS08TURS+qT/AjW5wA4alK0hc0RITcOmGxMQloUpQq8GokUBKYki0YIhiVSraEsrDGIMrU1FjeCSUtoFCFRBl6MC0wzDTebV23g9vW8FKgS83N+eee76c851zgFkEwzA0TdN1bfep730V+/cAzBIYusHQPLXDsjST2CJ4NptJC+ZBAMVJ1jaiQ+Mu//gj92D7k1dtbp+z13M3Z3id/vGeiekRVVULBf5HLpQ0FXln76hu6axpdZ270VXb3FHj6Kq9dt/a4rQ1tVf3eO2SKB1ALkAQBCIHnMA3t5MoRSZWVxaXv0dTZBJPxukUZZjGEZqN4ubBm2F5eIqzHUouKGfwCBG6TM1fT4Qc65N2dMZORx146CpHxwtBpeScKytgbDa9GXmgBIAYOLbsBcGnAPED7bMFeoiNQD7w38DABoJgGEbu4BiWnplrnFt6jEbccgCgo5YfPrA+DBYHADpmMb9A8sR+sp4HtHiOX0dWoJHhtoi1QSb+hvw1Egx0IvPPaWSMWBsWsvS+voC/MuAGKTKGYhRBKrIMp8n8NuPJ7E80RbIZGK7A5YNH1w9tGPxmNJVIURyJiTwJx5/mGJ6lj+q2nMnMNjR8stkm6+uDNmvY8/pCz/u6Oy/PO0drbvVbW5/Vtfnq24fO3uzvfjuVy7GbP0/muOmqqg9lZV8rK6dOnpjucp25N3zq0sOKZk+F3V3e2Fve1Hf6yovjF7tvD3yE8apWRIYFwcVnJGkuFltCEEnTTF1BVr9Fw8HYQji2EArPzlDbCVOTDVU+RLNhKKIIu7W77YYkKaIky4oiSbKm6aWa/wCRJTlzulVIyQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/082aed03c4d9f95caf32dc9039c2dd71/8ac56/apipic.webp 240w,
+/static/082aed03c4d9f95caf32dc9039c2dd71/d3be9/apipic.webp 480w,
+/static/082aed03c4d9f95caf32dc9039c2dd71/01940/apipic.webp 548w&quot;
+          sizes=&quot;(max-width: 548px) 100vw, 548px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/082aed03c4d9f95caf32dc9039c2dd71/8ff5a/apipic.png 240w,
+/static/082aed03c4d9f95caf32dc9039c2dd71/e85cb/apipic.png 480w,
+/static/082aed03c4d9f95caf32dc9039c2dd71/a58fe/apipic.png 548w&quot;
+          sizes=&quot;(max-width: 548px) 100vw, 548px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/082aed03c4d9f95caf32dc9039c2dd71/a58fe/apipic.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Salting과 Key Stretching을 구현한 해쉬 함수중 가장 널리 사용되는 것이 bcrypt이다. bcrypt는 처음부터 비밀번호를 단방향 암호화 하기 위해 만들이전 해쉬함수 이다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -131,7 +171,51 @@ Content-Type: application/json
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;access token&lt;/code&gt;을 생성하는 방법은 여러가지가 있는데, 그 중 가장 널리 사용되는 기술중 하가 바로 JWT(JSON Web Tokens)이다.&lt;/li&gt;
 &lt;li&gt;JWT는 말 그대로 유저 정보를 담음 JSON 데이터를 암호화 해서 클라이언트와 서버간에 주고 받는 것이다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/media/apipic1.png&quot; alt=&quot;Nulla fau&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8ddf7b0a19d63940d3dacf79dad9126d/29007/apipic1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB/ElEQVQoz5WSy27TUBCGj3iClieAN6i6RF2w5Q2QYMGCVdmwqYQEr4EEUgpCkdqGqjeKBOyoEilYuYhcLIjdOk5iGjt20ji+X4fxOYnaqhv4ZB2Nx+efmd/nEJDF+NM23xFarZYkSe12m+d5DBRFcV0XAFIEV8h4dgKrBVjbg3t7cP8QSBoEvq7phqFTNE2bTCa+7ydJEizw/WydmebabrS0CSsFuJOH25tAcJMXhnAdbIb5dAELkyh8cJzeegN38+lyDpZyVIx9rknDMLXMKIqjKMKGIQUD/NIbO/y59Ut1ZRMUi4pxU0xJ8MG2khAeF+rNZrVSqVZxqdRqNUEQ0NG3L58PPu6MzhU2HfGpIdu28fewDgyX4lNY7DiO52HsYYb9QoL7MMucwn9CcFocG6eNb6jpGWWgtfgK+DoXq6o6NIz4Ty/4/nWoaRKl2+3KsoxHjW45jjNN86oj9MjqEsua2Z4HF2P43VS1UafTQRmKmc9yuVwqlRa+5gR+NBdjJRz7H03OItUIJUlvjLzTSdgjbJ6YWk8Ymas0vrwh7LZAkiZHg5c58WFeevrh7Mn7s0cE0+y0LsFyrhOMdbQ6nU5xZhZYtnXQf/Hu9PHR4NVWdx2rELhxM7N1OEi23v5sNIrFYr1e57gfoihijxP99ba8vt/f2O0/3x9s/AV9fwJiUFw8xQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/8ddf7b0a19d63940d3dacf79dad9126d/8ac56/apipic1.webp 240w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/d3be9/apipic1.webp 480w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/e46b2/apipic1.webp 960w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/f992d/apipic1.webp 1440w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/fad48/apipic1.webp 1600w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/8ddf7b0a19d63940d3dacf79dad9126d/8ff5a/apipic1.png 240w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/e85cb/apipic1.png 480w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/d9199/apipic1.png 960w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/07a9c/apipic1.png 1440w,
+/static/8ddf7b0a19d63940d3dacf79dad9126d/29007/apipic1.png 1600w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/8ddf7b0a19d63940d3dacf79dad9126d/d9199/apipic1.png&quot;
+          alt=&quot;Nulla fau&quot;
+          title=&quot;Nulla fau&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;why-use-access-token-vs-id-and-password&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-use-access-token-vs-id-and-password&quot; aria-label=&quot;why use access token vs id and password permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why Use Access Token VS ID and Password?&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;

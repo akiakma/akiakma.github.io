@@ -25,9 +25,9 @@ module.exports = {
     }
   ],
   author: {
-    name: 'Hyunjun Kim',
+    name: '김햄준',
     photo: 'media/emoji.jpg',
-    bio: '깃허브 블로그 죽이고싶다.',
+    bio: '실력, 심력, 체력, 영력의 균형있는 성장을 추구합니다.',
     contacts: {
       email: '',
       facebook: '#',

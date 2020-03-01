@@ -1,4 +1,839 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Feb 2020 09:58:00 GMT</lastBuildDate><item><title><![CDATA[인증 (Authentication) & 인가 (Authorization)]]></title><description><![CDATA[위코드 은우님이 발표하신 인증 (Authentication) & 인가 (Authorization) 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic(2)</guid><pubDate>Wed, 19 Feb 2020 21:00:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;인증authentication--인가authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9Dauthentication--%EC%9D%B8%EA%B0%80authorization&quot; aria-label=&quot;인증authentication  인가authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증(Authentication) &amp;#x26; 인가(Authorization)&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 Mar 2020 09:59:51 GMT</lastBuildDate><item><title><![CDATA[github(2)]]></title><description><![CDATA[위코드 은우님이 발표하신 Github 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/bloggithub(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/bloggithub(2)</guid><pubDate>Fri, 28 Feb 2020 19:20:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;git--github&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git--github&quot; aria-label=&quot;git  github permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git &amp;#x26; Github&lt;/h1&gt;
+&lt;p&gt;Git은 VCS (Version Control System) 입니다. 여기서 version은 소스코드(sourcecode) 파일의 version을 뜻하니다. 즉 소스코드(soruce code)의 변경사항 내역을 관리하는 시스템 입니다. 참고로 소스코드란 코드 파일들을 말합니다. &lt;code class=&quot;language-text&quot;&gt;server.js&lt;/code&gt; 같은 파일이 소스코드 입니다.&lt;/p&gt;
+&lt;p&gt;그럼 왜 먼저 코드의 변경 사항 내역들을 기록하고 관리해야 할까요? 최신 버젼의 코드만 가지고 있으면 되는거 아닐까요?&lt;/p&gt;
+&lt;p&gt;네, 그렇지 않습니다. 저희도 글을 쓸때 내용이 엉키거나 문제가 생겨서 이전의 상태로 되돌릴때가 많습니다. 심지어 글을 쓸대도 그럴진데, 코드는 더더욱 그런 경우가 많습니다. 최신 코드에 문제가 있어서 이전 코드로 되돌려야 할때가 종종 있습니다. 이전 상태로 되돌리지 않더라도 변경 사항들일 확인해야 할 필요도 자주 있습니다.&lt;/p&gt;
+&lt;p&gt;코드 버전 관리는 팀단위로 개발을 할때 더더욱 필요합니다. 여러명이 동시에 한 시스템을 개발할때는 누가 어떠한 코드를 언제 수정 했는지 등의 내역들을 확인 할 수 있고 관리 할 수 있는것이 굉장히 중요합니다. 또한 종종 동일한 파일에 여러 개발자가 코드를 수정하는 경우가 있음으로 각 수정 사항들을 체계적으로 관리할 수 있어야 함으로 중요합니다.&lt;/p&gt;
+&lt;p&gt;정리하자면 VCS의 기능은 다음과 같습니다:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;코드 변경 사항 내역 기록 및 관리&lt;/li&gt;
+&lt;li&gt;필요시 이전 상태로 rollback&lt;/li&gt;
+&lt;li&gt;팀단위 개발시 체계적이고 효과적인 협업&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;git&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git&quot; aria-label=&quot;git permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git&lt;/h2&gt;
+&lt;p&gt;그렇다면 VCS를 구현할려면 어떻게 해야 할까요? 아마 가장 간단한 방법은 파일 이름을 사용하는 것일 겁니다. 아마 여러분들도 많이 사용하셨던 방법일겁니다. 파일 이름에 날짜나 버젼을 붙이는 거죠.&lt;/p&gt;
+&lt;p&gt;예를 들어, &lt;code class=&quot;language-text&quot;&gt;server.js&lt;/code&gt; 라는 파일이 있다면, &lt;code class=&quot;language-text&quot;&gt;server.v1.js&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;server.v2.js&lt;/code&gt; 등등을 만들어서 관리 하는 겁니다. 이렇게 하면 아주 간단한 버젼 관리를 할 수 있겠죠. 하지만 이러한 식의 버전 관리는 많은 제한이 있습니다. 먼저 버젼 수가 늘어날 수록 파일 수가 너무 많아 질것입니다. 하나의 파일에 만일 버젼이 100개가 있다면 100개의 파일을 보관및 관리 해야 합니다. 설상가상으로 날짜까지 붙이면 더 복잡해질것입니다. 어제 수정했던 사항들이 무엇인지 보려면 날짜가 중요하겠죠. 그럼으로 버전에 날짜까지 붙이면 디렉토리에 복잡한 이름의 코드들이 넘처날것입니다. 이러면 내역을 한눈에 보기도 힘들 뿐만이 아니라 개발 자체가 어려워 질것입니다. 게다가 실수로 최신 버전이 아닌 이전 버전의 파일을 최신 버전으로 착각해서 수정 하는 실수도 있을 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 269px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4bb2406f3ce108a6c24e8cf9897104a6/98fe2/github1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.594795539033456%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABwUlEQVQoz31S227bMAz1//9KX/pWDN0HFMWwJlnjJbZs3WzZ8iW+xpJsS5qcYg9DlxLngaB4yCOSnjWrFYESvRBSSTldJyGmaRyHYViWxVprjL7B2E/m6VWp4iElpzPAcQTf/SCCODgF++Pp0g0uQ/+lrcYu+h94Qs2qfs4ZhCRLUxahhCRZBOApjMu6zXhJkywEMIK0Hyd9K7E65q2QJ2clqyee4xgxQpJzCDFNCWXnCNXNwMuaphlCCaKsH4Vc9CRnOWsxr2o1ntZKlY9ZCiKUEkzPQYxI4pS7QhjT/e4AIPKPAcI0AtHu4L++vAYgOvzyx6vaOovqOURwDzI/YrtzcgiTgF74aFi3sG7OB+2crF+d44K5w6DzURdX9+dZDcUTIOgtSN9D+uOIdgFF5bUStpa2FJZfbTFZl/oZntFKV48lA5ikjFAAYoJxU18Kzvc/37q+v23rP3vaVmX0bNvvNccs40Weu4GnSdI0jdam7/t5Xux928im/VZziJCbMnadYRx3bbc9Gvu1ObI01UPJwk02JR9knvOyKH4ffYwgSdg95Z412io2jW3bdn3bOsFt00opt9upKqfc3eu9zn8AiKehgcNEqy8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/4bb2406f3ce108a6c24e8cf9897104a6/8ac56/github1.webp 240w,
+/static/4bb2406f3ce108a6c24e8cf9897104a6/9fef4/github1.webp 269w&quot;
+          sizes=&quot;(max-width: 269px) 100vw, 269px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/4bb2406f3ce108a6c24e8cf9897104a6/8ff5a/github1.png 240w,
+/static/4bb2406f3ce108a6c24e8cf9897104a6/98fe2/github1.png 269w&quot;
+          sizes=&quot;(max-width: 269px) 100vw, 269px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/4bb2406f3ce108a6c24e8cf9897104a6/98fe2/github1.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이러한 문제를 해결하기 위해서는 어떻게 해야 할까요? 다음 글을 읽기전에 잠시 한번 생각해보세요. 여러분이라면 어떻게 해결 하셨을까요? 🤨🧐&lt;/p&gt;
+&lt;p&gt;이러한 문제를 해결 하기 위해서는 수정된 버전 파일들 전체를 디렉토리에 저장해 놓는게 아니라 다른 공간에 저장하는 것입니다. 수정 사항들과 함께 수정된 날짜 등등의 meta 정보를 같이 다른 공간에 저장하면 됩니다. 그러면 파일은 최신 파일만 저장하고, 수정 사항들은 수정 사항 정보들과 meta 정보들을 저장한 공간을 통해 에 저장, 검색, 열람하면 됩니다. 이렇게 변경정보들을 따로 저장한 공간을 version databas라고 불르겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 800px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/039a3778545348a8f50b0703c011638d/5a190/github2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACjklEQVQ4y3VUy27TUBDNd8CCP2DHT/ArfAc71ryEhAoLYMUGUaC0Kn2ARJvGjp/XsZuXSUjaxA6kcfOwDzPXruuUxNLR+Gp8zz1nZnxLiqJA13VomgZNT8HrarWKSqUioaoKyuVyuj45obW6vEfTEtM0oSiVoMQJIWzYtkVIo+M4KB8fYfvrFxwe7OP46Cc+bX6k9RZ2d7YlKX/D3wuGsJNarUaHaEGJT0mJirBgWVYeDcOQkVVcRdM0smhSXk+EENA1JtRTQl1aJRi6/Oia1Ibv+2g0Gmi1Wmg2mxK8ZvB7p9NJOFKZUkLe+ONwHwd7u4Rv0pJNJ7IKz/MQxzF6v7vo93rodjo46/fRIoL6qYdffhv0JEEYpjU0qIanDsm1TKikTM3seZLQlIRJkmDdk+WSIAiIUAlKgggefPiM2882cG/jHe6+fIM7z1/jxf531Mm2oOLP53PESYwwPEO320C/3ya1bQzOO5SbScJhTki27r99j9Kjx0T6CreebtD7Ezzc2kGdcgapjaIIs9lUEglbgVvTJLrdOqbTy5yQxiu1zJu2yhVsHp9I7CkqHGrGOsupqiSzjNyyJOSm8Cy5BE+kcAnpeBhwXVc2hZ/J5C9Go3Np/c9ogIuLERaLxTIhj4pFtTJ4ngq4mr8iIVs0tCM4QoWwKmi3HLIcZZaH1wp55opDy3EV4WIxo1pGGI9HVNcxWZ+S5fh/y0XCm3/EMiF1O56Tqgm9T+UBxbHJLd8kLBIvW27A0Mkyddomy75fI8WX6y0XkVv23LzLETUlGPZkU8KgT00Jrw67Hmy+bfh/vamuqJAHm7vJm5mbD2DEcUK5tMuD4YCvtaDEdxsrYeJVkHdehuoKZLnsPlSCfw4rwgqdhP+yAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/039a3778545348a8f50b0703c011638d/8ac56/github2.webp 240w,
+/static/039a3778545348a8f50b0703c011638d/d3be9/github2.webp 480w,
+/static/039a3778545348a8f50b0703c011638d/d00b9/github2.webp 800w&quot;
+          sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/039a3778545348a8f50b0703c011638d/8ff5a/github2.png 240w,
+/static/039a3778545348a8f50b0703c011638d/e85cb/github2.png 480w,
+/static/039a3778545348a8f50b0703c011638d/5a190/github2.png 800w&quot;
+          sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/039a3778545348a8f50b0703c011638d/5a190/github2.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 모든 문제가 해결 된거겠지요? 아닙니다 아직 한가지 문제가 더 있습니다. 바로 다른 개발자와 협업이 안된다는 점입니다. 다른 개발자들과 수정사항 정보들을 공유하고 함께 관리해야 하는데 앞서 본 버전 관리 시스템으로는 그것이 불가능 합니다. 그러면 어떻게 해야 할까요? 🧐🧐🧐🧐🧐&lt;/p&gt;
+&lt;p&gt;네, 답은 아주 간단합니다. Version database를 서버에 올려놓고 공유하면 됩니다. 이러한 서버를 “Central VCS server” 라고 합니다. 즉 중앙 버전 관리 시스템 서버 인거죠. 수정사항 내역들과 meta 정보들은 전부 중앙 서버에서 관리하고 개발자는 각자 컴퓨터에 최신 버전의 코드들만 중앙 서버에서 다운로드 받아서 작업하는 방식 입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 800px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/19cca5dca158eb7f3d8fd0cc4b730e78/5a190/github3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC40lEQVQ4y22T32/SUBTH+Q9MfDEaH7eMRJ1xT/OPUf8jfTK6GHVOzXQPzsVNo9lcgUKhLQVKaWnL2PhlmNDSMVfKaO/x3DtdgvMm3/Tcc08+nMP93lipVIJKpQK6YZxJ1+k+rNfroKqqsrOzPa9pmlcul0GWpSgvy6AoCuRyWaAx5iCfzxN6jvUkRmGaVoZ0KgkCnwIpK0BByYe2bYNhGAxomiYDJhNclMYaUcyBIGQYjO6THEdUbAzrSQx/HSzsLItFnCAAL0lQUtWw3WhARdeVZCJxi3bYbreh2+1GrVYLaEzVbDaZME86nQ42ppGYretkQ8qT68/ekPjLVTL7/C25urQSbpdUsLVy4RvH3cbuBp7nwTgIop+HXXBdh+mw24UOgke+T4IgOANahg5flSIsLL+DxZU1uPt6DRZevY8SqgrVslrc/LK1WCgoR71eD3BFhBCIogkqZF9CIponvu/T/57EyjhyzTShZVtQt0ymBu5/4Gh4VuBTqXns0HMchwGHQwcMPQ81uwy2pUK/15kGiqI4I0jSzG42N8NjnEZ9x1gQxTlZFK/gbc4icPgXOJmcgu8P4ejIhZOTIYzHwTQwl8vFZVmOIzhOY1ES45IkzWHuBuau/Q8YBCcMRr+TyXgaSL2D3kMZBH1I8GYJ9eH+/j4gSOF5/sLIekVm41pm6eLI1MjUOmluF7LJBCjow6IkRZZlQbVaLfB8itnGdV0GxIUXEWJ3PoThKbucKSC9arNqkB1RIhsZgXzKiiShFMLGwQEtUBLc7h1VLXn9fp8Bx+MRDAY9cJ1D8LwejEa/poF7aOrVrAixR0tw+ckyXHr8AmIPn0YfJRkstVTc+Ly1WCwWzoHHxwMwq0XYq1WgvldBP3angVV8eik08f31TaZ7HzbhwfpWmEfrWPSlZDI36ciO65z78GwRpj/7iz7s1GxoohepMA476EMNR8anN4+FHr0kfGZRA5/kv8I8oecU+BvaF74Xw7qJ/wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/19cca5dca158eb7f3d8fd0cc4b730e78/8ac56/github3.webp 240w,
+/static/19cca5dca158eb7f3d8fd0cc4b730e78/d3be9/github3.webp 480w,
+/static/19cca5dca158eb7f3d8fd0cc4b730e78/d00b9/github3.webp 800w&quot;
+          sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/19cca5dca158eb7f3d8fd0cc4b730e78/8ff5a/github3.png 240w,
+/static/19cca5dca158eb7f3d8fd0cc4b730e78/e85cb/github3.png 480w,
+/static/19cca5dca158eb7f3d8fd0cc4b730e78/5a190/github3.png 800w&quot;
+          sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/19cca5dca158eb7f3d8fd0cc4b730e78/5a190/github3.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;자 이제 모든게 해결됬겠죠? 행복하게 코드를 구현하면 되겠죠? 아직 한가지 문제가 더 있습니다. 위의 central VCS server 방식의 문제점은 해당 중앙 서버가 다운이 되면 개발팀 전체가 개발 진행이 안된다는 점입니다. 심지어 만일 central VCS server가 삭제되거나 복구가 안될정도로 손상을 입으면 소스코드 전체가 날라가 버리는 대참사가 일어날 확률도 있습니다. 그래서 나온 해결책이 “Distributed Version Control System”, 즉 분산 버전 관리 시스템 입니다. 중앙 서버 뿐만이 아니라 각 개발자의 컴퓨터에도 최신 버전의 코드 뿐만이 아니라 수정 사항 내역들과 meta 정보들을 전부 다 가지고 있는 방식입니다. 그럼으로 혹시나 중앙 서버에 문제가 있어도 언제든지 개발자의 컴퓨터를 통해 복구가 가능한 구조입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 668px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2008a1129d62e745822f5c34f839a3bb/74866/github4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 119.76047904191618%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEg0lEQVQ4y52VXWgjVRTHp+kiLuiDD4qCsIiCrizo0kgfrYLQh33wRVBQdF1EfNEHUXzQBx98WAQXhNZWu61pu+paW9p17dfatEk2ySSZSdLM5KNNM/mayaSTzOSrHzGTmeu5twnKFuvqhUtOZv73N+ece869FPW3YbfbKY7jLNhm2eDzfr9vlqa9k4FAYNrjcU97PR4bwwQWQqHQBawJh8OW4eFh6h+Hw+GgEolEL7Yjkci7xaKMeI5DgpBCUZ5Hkc0w0jQVcTz/GdbwPH9qaGjoZGAulyPAeCLx1uHBAVLVchMgerlU0oty4cAw2gjefYQ129vbp/7VQ1EUCTAajb6NYNSqqi4XskiWc6iiKS38LBaLfYw1yWTy7oEQDgHu7VV1SRRMWc6aYBNgNMr/f2C9rmEgwsBaTe0Ao3cPzOfzXeBFvPhgv97a3RXNkiKZ+/u1P/4zUJKkbg4vHXmompKYQkU5g+12B/gJ1uzs7Jy8yxsb61QqlSJ1uLm5+XqpVIJdLmnFYqGKZ7mkqLVaDUFJfYA1sXjsZA+Xl5dJcZOSSGXvmbKNP3NtavKsfd318K3fNx65/uMPT0xOjJ3noonT3YiOAf1+fw/Lsha/z2eBjrAwDGPxgY3fvTzwdO+dHx3sP0OescEg6P1kDTDIOrB7qJPGl198ehpSRrmcjh48sX3l8uf3nriIpukztM/XD/3Zl4rHrNFwyBpgg+dvrS4Pzs/OPIg1N2/Mk4nH7MxPD6ws/TbIhsLPJnjeusVxVpZh+jDDR9OPU5uRyEhBFJHX5Wyt2e2Gl/YafDikp9NpFAwGBzo7bsFpwbbPR1uh9dphljHt9jXD4XIabMDfymcyuMdnqUSUH00B8NzYtP7Ud1Po0REbujS/aKgFCXkCgRe7QIAT4JrHaxV3kuaHi6vooaFxdO7qNfTk2HQ7LKRRMhabo6IcN5rO5dF7vy633piZN1/9ZcH8at2pF3JZRDPMCxjCcRGSfGw7adoqJBLGiNONXvl53ngT9O/cWGrFIKI49hAafbRWraKqXNCVXNYs5/OmKkltRVEQ0wEK6YwluSOQHQRwH9SqUYYINEk0d7NZsyJJegPqE1IxR2UymVFc/WW1rGsV1ZSLsqmUlLau62h1Zek1DLk68vX93w5duQ/M3sWbCxdUVTWqtSpStbJZVkumVJB0zIC2naMEQSBAaH49LSTMbGYL9yxpsdu3b5McBlmm1+/zWo6KeeO5eqNhNJt7SEjFQL+NTyICzGazfwEBomvarlmtlkxdbxKgx+MhIW9tbVli8TgBulxOK7SfYRg6qlQUE89Go3IcWJRzxzx0u90ECHm2dO8ap9Nhrdfr4OE+Sgtxoi/e4eE3+A985RA81OGLeqvVbLbbbfDQPXAc6OwDYKvdbkFExRbWN+raYQc4g4GTRydzBVUru6hWU1B3QMgvdYC9XSCE3N99X9GKcEUokK4K6gBXcI1dhItpBs7BcUkSbXBi20RJnEgJqesAPNu5LnughEjZwEY9Bufg96Ik2UAPv2TNBGbAofz+n7ULS2ao+sMbAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/2008a1129d62e745822f5c34f839a3bb/8ac56/github4.webp 240w,
+/static/2008a1129d62e745822f5c34f839a3bb/d3be9/github4.webp 480w,
+/static/2008a1129d62e745822f5c34f839a3bb/7c056/github4.webp 668w&quot;
+          sizes=&quot;(max-width: 668px) 100vw, 668px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/2008a1129d62e745822f5c34f839a3bb/8ff5a/github4.png 240w,
+/static/2008a1129d62e745822f5c34f839a3bb/e85cb/github4.png 480w,
+/static/2008a1129d62e745822f5c34f839a3bb/74866/github4.png 668w&quot;
+          sizes=&quot;(max-width: 668px) 100vw, 668px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/2008a1129d62e745822f5c34f839a3bb/74866/github4.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;자 이제 아주 멋진 VCS 시스템을 디자인 했으니 직접 사용해 볼까요? 먼저 중앙 서버가 필요하니 서버를 구축하고 거기에 version database 시스템을 구축하고 또한 개발자의 컴퓨터에서 접속 해야 하니 보안 시스템도 구축하고 또 각 개발자의 컴퓨터에서 버전 컨트롤을 할 수 있게 해주는 클라이언트 프로그램 개발하고 또…&lt;/p&gt;
+&lt;p&gt;실제 개발보다 일이 더 커져버렸네요. 그럼으로 그냥 git 과 github를 사용하면 됩니다 😂😃&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 330px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d587bf7879eae8a612a6e926858d1acc/d9ecf/github5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 144.84848484848484%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAIAAAAl5NuSAAAACXBIWXMAAAxOAAAMTgF/d4wjAAADOElEQVQ4y3XU1VZjUQwG4D42t7wM7u5OKbZwGGRgcHfXzsdJp6UsJhdn5ST549mpdDq9s7Ozvb29tbX1O6G1tbX19fU/CRHmGar4ZR/C1MHBwcrKSkdHx+rq6sTExObmJove3t7BwcGpqanx8fHZ2dm+vr6mpqaenp5MJjM/P19TU7OxsZHNZlPcTE9Pt7S0tLW19ff3U7MeGRmpqqrq7u4eGxsbHR2tqKighR8eHr6/v7+8vLy7u/sES5ioLaHKykpeABoaGrgXPAJSlZWVSae9vZ0WGPLj4+MTrMJ0QvL8lZBoKjw9PWW6tLR0dXUl2+PjYxUpQVOyCX2Cww3CXF9fX1xcYFiL7FchnPrVEd0hFGxycvL9/b0ADmeCPD4+YsTZ399/eHjQUfzJyYn2np2d+R4dHZ2fn39GlsnCwoKuSlWeHEs1kxDeV/+7urrm5uZ2d3eVzYaLp6enXNoUzc3Nra2tyuZCVXzpEwxrkoGBASrfoaEh7uSSA0tjcXHRnPVcq9VWV1cnJgxen6kwYNzhGUs7B5aVtA1WD+hkIQVzMhWS6upqXy4IZVRbW3t4eKj+AtgweBW5s7OTRayNhRFQkrQShleCdr68vOzt7eXmzFTB9kmF9fX1+MbGRtaykH/wVPYR7PX1VeTb29sC2MZxGXsXE7pPiBHJzc0N5u3tDQCj59l/9MOSGMbXyef55+dn3RX8v2BxAmyBssXE0s58lXzfMCSxr8hQWQxNzocJYRE4vgozAsP8KtfhfNnB/AyOhvmqP4xssr5ijK2kpKS0tFTPf6gZ6UoApIqx/B4ZU7CVjLXNeRned3Dgw07l0Vi+tNAxwsScYqIFMLIGsXS+1lCEkCtScOsJSWV/4wErAi8vL7tkw2BkNyOsX/lTuaowc7Buo/AMxRtgty1peXk5tauKc/eqcGTnHU+AmWlBEdjXbJiqR2IeUO4krGC3IXJEi8iRdgGcP1EUj75hSNVtmFk8faHFFK4qpNprqlGnyJbEnBymY2bEXfRZU/hlTGhVUuFGkobhy8jTKwu5QM7MzFhVT7x7xPAOb4ViyVKeAQ3QD3bwHgB8FGmf/GLISfzilxNaSugv48n6HDX85psAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/d587bf7879eae8a612a6e926858d1acc/8ac56/github5.webp 240w,
+/static/d587bf7879eae8a612a6e926858d1acc/f2908/github5.webp 330w&quot;
+          sizes=&quot;(max-width: 330px) 100vw, 330px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/d587bf7879eae8a612a6e926858d1acc/8ff5a/github5.png 240w,
+/static/d587bf7879eae8a612a6e926858d1acc/d9ecf/github5.png 330w&quot;
+          sizes=&quot;(max-width: 330px) 100vw, 330px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/d587bf7879eae8a612a6e926858d1acc/d9ecf/github5.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아, 참고로 git도 Linus Torvalds 가 만들었습니다. 네, linux를 만들 사람이 git도 만들었어요 😮&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 897px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/abfeaf6a3e60837d6ae927c4980172e3/3a737/github6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.87625418060201%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADZ0lEQVQ4y12TXUxbZRjHe+WVd954YbaY6JXbhZkz0UX8iqJsi9MLEj+mQ6ZM2BYgjCEE5zaQZQ6Z2yAEurasVKUGggO2Ao20FKgtVNpaWFeglI9RGNCVfpevny+nZhee5Jfnf97k/M77nuc8MqvVisFgYHBwELPZjMlkwmKx0C/qwMCAhNFoZGhoCIfTiXXYRv+AhZERG3a7/TEej4fKykpk4VCIcDhMPBaT2MnJRILQ2hrRSIRYNCpySKzFWd8C/2qYWHKLDZH/f2k0GmQh8UBYEEsmCcfjRIQ0ImosmXicI4nUfXxnXQDbbG0J4/a2lDc3NyShSqVCVqWQUyVv5EaTnHqVHEVbG+qODjQ9elr6+qjvaKe6tYUmXSfhSJzZhUf45vw8XAkK+bogSXAtiogolUL4k6aZ6qZbXKisoLysFE37bW5ptZScyeNy3TXUej31d7tQ9/YQCIawj3vxTD9kZl4wt4h/KcDCYoBYYguFUomssqGOkuJ8CnO+Iu/LLCpEPpH9OccOp6MUL7ncqKKophqNrhvvlJvunm7uTa0w5vbhnfEL2Yokjie3UzusqqvnYnExTz+7lwOvv835U59Rmp/LoXczuPNzLUW5Z3ly1y40Kg3jNgu62+3ML8eZmJrHN7PAgn8Zr2+OSHQ9Jfy+RsvFimYOHTnKyVO5NF8pp7TwGAVfHKWrIJtfSot57Z39nLtaS/hRkGGzlZbf2xmx38c96ee+dxGPIBzdSB0583gZeSdKuH7pB35tqOXmtSu8kZ5G9kvPMZlzmObjGeTkpFN1qVDqZEfbH3z44n70vQM43TNM+fxMCkKR/3b4wgef8s2PDVzXtFKr+I3yb8v5JOMtyjIPovvoAFcz0ygqOIK68ZwktA39xXfnL+D8Z5zZ+SWmxbFnRddjic2U8Ik9L/PU3n088/xuXn3zFd77OIszX2fRIn6h3LR95B/cw+mT7yOvK2EplMA8EcAxNo17Yk7sTnzDxVWWV0NSU24qFMi0onvVN2pQq+oYMnXRfKcPeWsnBsc9LC4XI+ZObMM6fBPDrCRg0BNg9kGQB4tBSRQMxaS6MzhqtZgU584sjtr5W2C1juByOnCPuXDaR3E6HGJ+XYyOOrE7XPR2daJVNnC3p48+Qz8Go0mqvfo/MfYPUlpWzr9okzV5F7TZYQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/abfeaf6a3e60837d6ae927c4980172e3/8ac56/github6.webp 240w,
+/static/abfeaf6a3e60837d6ae927c4980172e3/d3be9/github6.webp 480w,
+/static/abfeaf6a3e60837d6ae927c4980172e3/10735/github6.webp 897w&quot;
+          sizes=&quot;(max-width: 897px) 100vw, 897px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/abfeaf6a3e60837d6ae927c4980172e3/8ff5a/github6.png 240w,
+/static/abfeaf6a3e60837d6ae927c4980172e3/e85cb/github6.png 480w,
+/static/abfeaf6a3e60837d6ae927c4980172e3/3a737/github6.png 897w&quot;
+          sizes=&quot;(max-width: 897px) 100vw, 897px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/abfeaf6a3e60837d6ae927c4980172e3/3a737/github6.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;우리나라 노량진 와서 회도 먹었다네요 (Linus Torvalds, 넌 못하는게 뭐니?)&lt;/p&gt;
+&lt;h2 id=&quot;git-basics&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-basics&quot; aria-label=&quot;git basics permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git Basics&lt;/h2&gt;
+&lt;p&gt;Git을 사용해서 파일 버전 관리를 할때 파일은 다음 3개의 상태중 하나의 상태에 있게 됩니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Committed&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;수정 사항들이 git에 저장이 된 상태를 “committed” 이라고 합니다. 이러한 행위를 “commit” 한다고 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modified&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Modified file은 이름 그대로 수정된 file 입니다. 하지만 아직 “commited” 되지 않은 상태의 file을 이야기 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Staged&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Staged file은 modified file에서 한단계 더 나아가서 곧 commit 될거라고 mark 해놓은 상태입니다. 즉 modified 와 committed의 중간 상태라고 생각하시면 됩니다.&lt;/li&gt;
+&lt;li&gt;이렇게 중간 상태가 존재 하는 이유는, commit 하기전에 중간 상태를 저장할 수 있도록 하기 위함입니다. Commit을 하면 commit history에 남기도 하고, 혹시 추가 수정 사항이 있거나 다시 되돌려야 할때 까다롭기 때문에 (commit 후에도 다시 되돌리는게 가능은 합니다) commit 전에 중간 상태에 저장할 수 있도록 하는 것입니다. &lt;strong&gt;&lt;em&gt;즉, commit은 해당 개발이 완전 완료 됬을때 하는 것이기 때문에, 아직 완료는 안되었지만 그래도 중간 상태를 저장할 필요가 있을때 staging을 사용하는 것입니다.\&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 691px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9d9477fd9c79be7b77141f3b033f88eb/e185b/github7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.827785817655572%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAoUlEQVQI12PYd/re3zO33/+/9OCbNwMQmM34ycfe+J8HxD736PSBk3eO/99zbtePi0/P/7/w7HQJSFx/2hdetfYPfCD2s53bZrw5dOD//e1bf9/Zuvk/w75Tt/+evf3u/9UnP31BCixmgg3kBrGBhhw6defk/00HN/64+OTi/8svzpeBxA2nf+XV6PwINvD57p2zXx0++P/ujm2/b27Z/B8A7SRcGtnev5YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/9d9477fd9c79be7b77141f3b033f88eb/8ac56/github7.webp 240w,
+/static/9d9477fd9c79be7b77141f3b033f88eb/d3be9/github7.webp 480w,
+/static/9d9477fd9c79be7b77141f3b033f88eb/c0989/github7.webp 691w&quot;
+          sizes=&quot;(max-width: 691px) 100vw, 691px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/9d9477fd9c79be7b77141f3b033f88eb/8ff5a/github7.png 240w,
+/static/9d9477fd9c79be7b77141f3b033f88eb/e85cb/github7.png 480w,
+/static/9d9477fd9c79be7b77141f3b033f88eb/e185b/github7.png 691w&quot;
+          sizes=&quot;(max-width: 691px) 100vw, 691px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/9d9477fd9c79be7b77141f3b033f88eb/e185b/github7.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Git을 사용한 버전 관리의 flow는 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;소스코드 전체를 다운로드 받습니다 (전문적인 언어로, “git repository를 checkout 한다” 고 합니다).&lt;/li&gt;
+&lt;li&gt;소스코드 파일들을 수정 합니다. 즉 개발을 한다는 말입니다.&lt;/li&gt;
+&lt;li&gt;수정한 파일들을 &lt;code class=&quot;language-text&quot;&gt;stage&lt;/code&gt; 합니다.&lt;/li&gt;
+&lt;li&gt;그리고 계속 해서 소스코드 파일들을 수정해 나갑니다.&lt;/li&gt;
+&lt;li&gt;해당 작업이 완료될때까지, 즉 commit 할 준비가 될때까지, 3,4번을 반복합니다.&lt;/li&gt;
+&lt;li&gt;완료되면 commit 합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/878c0699104786bcea19be09c70ceef3/0b533/github8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 92%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC/UlEQVQ4y4WT+0/TUBTH97eBkOgPEAGNMSKOh6JxEHn+AfoLifzgA5JBCAWmDjFhPDYcAgm6zMjMimOQsbHRPdh7vV1ve3u7tptdG3CiCbcnzen3ns+955x7ayiXyxVt6I7/0L+1tbW6tupyfbMuWp3Oz7YV2+rqit1up2n6IkxzKgZFLpfEkqQ+uCRLClMsxuPxWCyRyxYCgWD45PQ0Ek2lUqpYwkiRRVnSrITLZcVwFPVvH25u7Tu3/V9cga+Qh+qqhWKIytiiWXs8Z0/SmzxiVNG+F5uwh8wbIbMj+NZ+sutLGpyHjgX37Pji2MTaq08H1liGUuOotC3FTq5sjrrIF1lkzhZ8kFeGF447Xu52jG3ffb5ufEOOOzIGd8Bldb+z7MxZdog10lYAWRWOnu2mWWLv1+sAZU7QC/k8JZfkyfXgoHlvxOwemfo+NENaXQmDIAgAggLIMQgChq5o/VCrBwLLYKZqAqdoIofFPJIyrJDOszkABQEZ9O4BCKV4QpyawkdHSiSihMOVeBwe+PFxUHWUSFgORxSKqkQp4STEQ6i33VBWFNXLUqf5nodCSyu82QKamn3117x1dQeNjQcNDd66+vD1G6i1jVOtqRl0dSEAzmFtZ7pYzDg2ot09KYJIWywxgojOzkamp09nZiiCSBBzmfn5zNx8dpZIvv/As+xfMABAVhSYTstaIvo9YHkel0qV86GLSBA4jrsMS5JUndRgHApJgWOIMeb5apQsq3r1rcI8XwNr0aznJz80fDYwmBgcSo2M4mcD0uMnOacTa7P6EejbIIQuw7TbHX9g/NHe7rnXTho7U+33c223YsvLYg32P1hvGE2r2SiiKAmCulieJIHHA0URI6TH6aMKc9w/NTOMrJVU+4exDIOKxYraMyyqknAclEgSSRL355wvul0La7VwPh/X188PDiWempJ9/cjUJxs7C4sfOVG8Gmb295O9vWcmk7er2/+oN9Pdk7t9J7m0xF8Ba2IRQhZj+fwTRCLA60WyfJH2b/N7q99kTHByAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/878c0699104786bcea19be09c70ceef3/8ac56/github8.webp 240w,
+/static/878c0699104786bcea19be09c70ceef3/d3be9/github8.webp 480w,
+/static/878c0699104786bcea19be09c70ceef3/b0a15/github8.webp 500w&quot;
+          sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/878c0699104786bcea19be09c70ceef3/8ff5a/github8.png 240w,
+/static/878c0699104786bcea19be09c70ceef3/e85cb/github8.png 480w,
+/static/878c0699104786bcea19be09c70ceef3/0b533/github8.png 500w&quot;
+          sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/878c0699104786bcea19be09c70ceef3/0b533/github8.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;basic-git-commands&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic-git-commands&quot; aria-label=&quot;basic git commands permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic Git Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git init&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;프로젝트를 git repository로 만들기 위해서 사용하는 명령어 입니다. 여기서 프로젝트(project)라 함은 개밸하고자 하는 소스코드들이 있는 디렉토리를 말합니다. &lt;code class=&quot;language-text&quot;&gt;git init&lt;/code&gt;을 해서 git repo로 만들어야 git으로 버전 관리가 시작됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;수정 사항들, 즉 modified 파일들을 staged 상태로 옴기고자 할때 사용하는 명령어 입니다. 또한, git repo에 새로이 추가된 파일들을 staged 상태로 옴길때도 사용됩니다. 새로이 추가된 파일들은 “untracked” 파일 이라고 하는데, git에서는 이들도 수정 사항이라고 보는 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git commit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;staged 된 파일들을 commit 하고자 할때 사용하는 명령어 입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git diff&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;어떤 수정 사항들이 적용됬는지 보고자 할때 사용하는 명령어 입니다. 참고로 staged 된 수정 사항들은 &lt;code class=&quot;language-text&quot;&gt;git diff&lt;/code&gt;로 볼 수 없습니다. Modified 된 파일들만 &lt;code class=&quot;language-text&quot;&gt;git diff&lt;/code&gt;로 볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git status&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;현재 상태를 보여주는 명령어 입니다. 어떠한 파일들이 modified가 되었고 어떠한 파일들이 staged가 되었는지 등의 전체적인 상황을 보여줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Commit 내역들을 보여줍니다. Commit history라고도 합니다. &lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt;를 통해 이제까지 커밋 내역들을 전부 볼 수 있습니다. 다만 출력되는 포맷이 보기가 쉽지가 않아서 &lt;code class=&quot;language-text&quot;&gt;tig&lt;/code&gt; 같은 tool을 사용하면 훨씬 편리합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git rm&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;원하는 파일을 git repo에서 삭제합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git mv&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;원하는 파일을 git repo 상에서 이동 시킬때 사용합니다. 주로 rename 할때 사용 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git branch&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Branch를 생성할 때 사용됩니다. Branch에 관해서는 다음에 자세히 이야기 할 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git checkout&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;어떤 branch를 checkout 할때 사용되는 명령어입니다. 이와 관련해서 다음에 더 자세히 이야기 할 것입니다.&lt;/p&gt;
+&lt;h2 id=&quot;branch--merging&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#branch--merging&quot; aria-label=&quot;branch  merging permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Branch &amp;#x26; Merging&lt;/h2&gt;
+&lt;p&gt;Git 에서 branch는 굉장히 중요한 컨셉이며 꼭 이해하는 컨셉입니다. 왜냐하면 git을 사용할때는 branch 기반으로 개발하기 때문입니다. Git branch를 이해할려면 먼저 git이 어떻게 데이터 (수정사항들)을 저장하는지를 알아야 합니다.&lt;/p&gt;
+&lt;p&gt;Git은 데이터를 딘슨힌 변경사항(diff)으로 저장하지 않습니다.. Git은 파일으 스냅샷의 연속으로 저정합니다. Git은 새로 commit이 들어오거나 프로젝트의 상태를 저장할 때마다 파일이 존재하는 그 순간을 중요하게 여깁니다. 그래서 파일이 달라지지 않았으면 git은 빠른 성능을 위해서 파일을 새로 저장하지 않고 이전 상태의 파일에 대한 링크만 저장합니다. 즉, 수정 사항만을 저장하는게 아니라 파일의 스냅샷(snapshot)을 시간순으로 저장하는 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 800px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c52457f5907a698668fc2d1bb2c036d7/5a190/github9.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACd0lEQVQozxWPa0hTYRjHT4WNyJKm6SKpVoKXygtkKkY5FSpKQwPrgxWB0Kf6UJ8iSK20i0FYKOgEl05blqTuS0FLiW7kUrbcpts5np3znvtt7rg+lNHp2QsPz//P+/s/z/tiHnte9fv+vGOOJxezxntOWD32fNv0QK7tdXdlQUtz/UF7e1HD4N38831tRadbLjTluHvLCz9AxtOfVzXS3bjT9bQh22MvsHnsudXjPccrsdlhyx/v8zTj24DJ9t2x7brflWXMO9ONWceW3gVXas6cc3tszpn5e24olfSPbs3yDpnd3mGL4RtNh0xKI2SafS8shncoY23WkfoJW3x7sjzkLi1kWrH1QVfK5qC7osQ3WVUWeJlmxuD8GCvePz9RU+Ebs+5L+sCrHRb/VG1FcOpQ0ZID2xgYxEz+N4dL/JO2sp+jpkwsjIdxXuAIPREr1RMrl0RZYDiBo1cT8VaWpXbJquSjELWsaspHggiZgeljOBSVZBGt/orXKJp0ihc5RCMK12LKCEZTi49Egbyj60KmpqJiniceMCjcpWlMDcNENvEccZOKhrpEkbz69cvMhpUV7izLRh5LUrQjHuf3KDKdA5n7CC09VBW6CcMjCzjLEmQ8LpZKErosy4jlOBKpKttOUeHdsswscNzyMvjPOB4wA2dnEB4VRZrRdakWqi6paTqMg3ZhJBnqEITorURCSVcU9gDodljQqarcUU3jTADfQAjvVBTmysz0u3WKytYhFOnkefI28NkwxCpJdBtk7sGyMxhBBNdEkTLAHIG6BmUAmPTPYjF+LwzVAf4HnYZlGfDSCRhmwJ0Bv6nTdfFcMgPMX+jT/wEGDLGCdxGIwwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/c52457f5907a698668fc2d1bb2c036d7/8ac56/github9.webp 240w,
+/static/c52457f5907a698668fc2d1bb2c036d7/d3be9/github9.webp 480w,
+/static/c52457f5907a698668fc2d1bb2c036d7/d00b9/github9.webp 800w&quot;
+          sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/c52457f5907a698668fc2d1bb2c036d7/8ff5a/github9.png 240w,
+/static/c52457f5907a698668fc2d1bb2c036d7/e85cb/github9.png 480w,
+/static/c52457f5907a698668fc2d1bb2c036d7/5a190/github9.png 800w&quot;
+          sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/c52457f5907a698668fc2d1bb2c036d7/5a190/github9.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 변경사항을 볼때는 현재 스냅샷과 이전 스냅샷을 비교하여 변경사항을 볼 수 있는것입니다.&lt;/p&gt;
+&lt;p&gt;이렇게 스냅샷으로 저장되어 있기 때문에, 개발자가 central server에서 새로 repo를 checkout 받으면 해당 리포의 어느 특정한 시점의 (일반적으로 가장 최신) 스냅샷을 checkout 받는것입니다.&lt;/p&gt;
+&lt;p&gt;그러면 여기서 질문이 생길것입니다. 개발자들이 각자 snapshot을 checkout 받아서 개발을 하면 어떻게 서로의 변경사항들을 조율을 할수 있을까요? 즉 서로의 변경사항들을 합쳐서 새로운 최신 버전의 스냅샷을 만드는 과정이 필요한데, 문제는 어떤 스냅샷을 기준으로 변경사항들을 합치느냐 하는 문제가 생깁니다.&lt;/p&gt;
+&lt;p&gt;그래서 이러한 문제를 해결하기 위해 branch를 사용합니다. Branch는 나뭇가지 혹은 분점 을 뜻합니다. 즉 기본이 되는 큰 줄기가 있고 그 줄기로 부터 옆으로 가지가 나는걸 뜻하죠. Git의 branch 모델이 바로 이러한 구조입니다. 기준이 되는 스냅샷이 있습니다. 이 기준을 master branch라고 합니다. 그리고 각 개발자는 master branch를 checkout 먼저 하고, master branch로 부터 자신만의 branch를 만듭니다. 이걸 feature branch라고 합니다. 그리고 feature branch를 기반으로 개발을 한 후 개발이 완료가 되고 commit을 하면 자신의 feature branch를 다시 master branch로 합하게 됩니다. 이렇게 합하는 과정을 merge 한다고 합니다.&lt;/p&gt;
+&lt;p&gt;정리를 하자면:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Matser branch를 check out 한다.&lt;/li&gt;
+&lt;li&gt;자신만의 feature branch를 만든다.&lt;/li&gt;
+&lt;li&gt;Feature branch에서 개발을 한다.&lt;/li&gt;
+&lt;li&gt;완료되면 commit 한다.&lt;/li&gt;
+&lt;li&gt;Master branch에 feature branch를 merge 한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 951px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ad3fc94a11cacdebb4be0d90d1f1df4d/9b379/github10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.47528916929547%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACRElEQVQoz2NgwAFYmJk55KQkJUHsryeOTfh26sTXF5s3Wr/atsXkzfat5kBs9mbHVrO32zabPd+7+9SzvbtPgjWev/8NTJ+58wWMYUBeQZlFUUZGEMT+fPxoGtDAdf8vXxD8f/kiz5sd2wRf79gu+GbndoHXa1cLP9+zq/f1gX09cM2lTZMZXnz5z/j043/GE7e/Mu4+dZ8R2bUfN2/kvzhvjgXI4UDMje6b//t2i+zs7VbBJocV/F8ygePcrGkGUAM50OU/b1glf6CvSwfIZGUQFBLmAQlee/Kr6erjn7N3n3slcer2Z5vrT39dvfjge3rn0rNclx99b7/x7NepKy/+q5988F/w8qMflUD5s0evvdffee61xNXH31cC+WuvvvkvxcDOziEPsvX6s9/rrz75eW7vhdfSp+98sb329Oetq09/Z+y/+5/rypOf7dee/jp9+Mpb3a0nnoldevS99vqzX1cuPPqjd+jqB2mgvuVAvHbv+ZeKOL158PYOncAkU15scnvvLOLbeWmTGU7NKdmliPD6/x8cIYfv7jZz8LKVAzKF0NU/+n+Lff2J5XogOSdPN3CQzV2whOHkrU+MDHde/oUrVFFXZwNSnFqmKqyXnp1fdvXV5UJwknpwKvPU3RPLjtzZJ7H55iL2E3ePZp6+d3Lt//9/uUDym4/uZnz5+z+mS3n5eEG2SRvb6gtceXH55fnHZzZvu7ZS+sj1g8sPXz307fCdvbZHH+5RO3Lj4ILDVw/+3H15mzhI34n7R+HJDAC9Tiol5lc6CwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/ad3fc94a11cacdebb4be0d90d1f1df4d/8ac56/github10.webp 240w,
+/static/ad3fc94a11cacdebb4be0d90d1f1df4d/d3be9/github10.webp 480w,
+/static/ad3fc94a11cacdebb4be0d90d1f1df4d/d9249/github10.webp 951w&quot;
+          sizes=&quot;(max-width: 951px) 100vw, 951px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/ad3fc94a11cacdebb4be0d90d1f1df4d/8ff5a/github10.png 240w,
+/static/ad3fc94a11cacdebb4be0d90d1f1df4d/e85cb/github10.png 480w,
+/static/ad3fc94a11cacdebb4be0d90d1f1df4d/9b379/github10.png 951w&quot;
+          sizes=&quot;(max-width: 951px) 100vw, 951px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/ad3fc94a11cacdebb4be0d90d1f1df4d/9b379/github10.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;gitignore-file&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gitignore-file&quot; aria-label=&quot;gitignore file permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;code class=&quot;language-text&quot;&gt;.gitignore&lt;/code&gt; File&lt;/h2&gt;
+&lt;p&gt;Git repo에 있는 모든 파일을 전부 commit 해야 하는건 아닙니다. 파일들중 commit 하지 말아야 하는 파일들도 있습니다. 예를 들어, vim을 사용해서 개발을 하면 vim이 백업 파일을 자동을 만듭니다. 이러한 파일은 끝이 &lt;code class=&quot;language-text&quot;&gt;.un~&lt;/code&gt; 로 끝납니다. Dot file 이기 때문에 &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt;에 나오지는 않지만 &lt;code class=&quot;language-text&quot;&gt;git status&lt;/code&gt; 에는 나오고 &lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt; 에도 걸립니다. 그럼으로 이러한 파일들은 git이 자동으로 skip하도록 설정 하는것이 좋습니다. 이러한 설정은 &lt;code class=&quot;language-text&quot;&gt;.gitignore&lt;/code&gt; 파일을 만들어서 관리합니다. 앞서 말한 vim의 백업 파일을 git이 무시하도록 할려면 &lt;code class=&quot;language-text&quot;&gt;.gitignore&lt;/code&gt; 파일에 다음과 같은 라인을 추가하면 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;*.*un~&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;더 상세한 내용은 이곳을 &lt;a href=&quot;https://help.github.com/en/articles/ignoring-files&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;참조&lt;/a&gt;하세요.&lt;/p&gt;
+&lt;h2 id=&quot;github&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#github&quot; aria-label=&quot;github permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Github&lt;/h2&gt;
+&lt;p&gt;위에서 VCS(version control system) 에서는 개발자간의 협업을 위해 중앙 서버가 있다고 배웠습니다. Github는 바로 이러한 중앙서버의 역활을 하는 서비스 입니다. 개발자가 직접 git 중앙서버를 구현하여 운영할 수 도 있지만 그러자면 여러가지 비용과 구현하는 시간이 걸립니다. 그래서 대신에 가성비 좋고 튼튼한 github를 사용하는 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/07a37d1552a07e2fbf330270d102886a/e85cb/github11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAPoAAAD6AG1e1JrAAACc0lEQVQ4y4VU3U9ScRjm32nrssvu2roFBAm9aK2gCy+aE/vY3GjWpJTFRasWpCOdq0CDcCuG1GQjDh8xWJAKA8JsKKkkyjcHeDrnx9eB2Hy3Zy/nOe/7nvd9fi8/Hp/PxyAIBALixWIxbsrlkMtkEIlEPe8GgYczLBQOQ3FvCpMMksmds8LBq9fr6Eej0QBN0yRA/UiFG5cu4DoDjVpNuGq1ikF5LHhschsswRpbjGaTGoBtxQDb3B1Q2hkEPR6UymVwc/pBRuYWi8ViUCgUmFGpMK1UYsFkxjnJVVwcm0CVDWA76SvSrkFG7i8YjUah1+thtliwND8Pgz+AiVgR1/x7CBaKzWSOZv8VbPkOMchSiTgOf+8y3dXIyJVKBWXGt5vg5vK4bWezWVitn+BhtKIoCpTLhW9+PwxGI96bTOS32+0m8Hq9WLfZkMvlOkWJhg3OF1LpNPyBYOckWbC2GYkg0VoZlmtvAOXzIfP3uE9Djn6H0S2s6Z6BrtE9QRGHHV9W33R1a3mXcRkB50aTa61bz8gfwxasWDTY3/6BQj5PuAJdwrJTB7t1Ace/dhgNS4TfKxxgya6Bz2HGafoPqrVan4ZMk2P+h5CYx5G6fxfxyDYJOM1ncNk1junFSezOPkDq6KApQzqE8xsymJ/exs9XL3BSq5PeyT+Frjerf044ccumxuvns9gMB5pz0Q3oQquYWnuCdy+Z7vdTTbpYgNKrxeO3c/iwqEWpUu7uIddougr313WcZDM9fOaIOTCPgzmUcg+fjG/he4Dqrg33dhEI+BAKhZCOjDI3i7jLM559lkpHIRwa6rlxhocluCId6Tz/A7LnBicZTouDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/07a37d1552a07e2fbf330270d102886a/8ac56/github11.webp 240w,
+/static/07a37d1552a07e2fbf330270d102886a/d3be9/github11.webp 480w&quot;
+          sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/07a37d1552a07e2fbf330270d102886a/8ff5a/github11.png 240w,
+/static/07a37d1552a07e2fbf330270d102886a/e85cb/github11.png 480w&quot;
+          sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/07a37d1552a07e2fbf330270d102886a/e85cb/github11.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Github는 단순 중앙서버 역할 이외에도 여러가지 기능을 제공합니다. Code review, documentation(문서) 생성및 관리 등 개발 프로젝트 운영에 필요한 여러 기능을 제공하기 때문에 요즘에는 github를 사용하지 않는 개발자가 거의 없을정도로 개발에 꼭 필요한 서비스가 되었습니다.&lt;/p&gt;
+&lt;h2 id=&quot;projects&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#projects&quot; aria-label=&quot;projects permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Projects&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.git-tower.com/blog/git-cheat-sheet&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;이곳&lt;/a&gt;을 참조해서 기본적인 Git 명령어들을 모두 알아보시길 바랍니다. 앞으로 daily 사용할 것입니다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;다음 리스트는 git을 쓸때 유용하게 쓰이는 tool들과 플러그인 들입니다. 각 링크를 통해서 어떠한 것들인지와 사용법을 숙지하시고 전부 설치하세요.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://jonas.github.io/tig/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Tig&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/so-fancy/diff-so-fancy&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Diff So Fancy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tj/git-extras&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Git Extra&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pre 코스때 구현한 프로젝트 들을 모두 github에 올려주세요. Github에 새로운 리포지토리 를 만드는 방법은 &lt;a href=&quot;https://help.github.com/en/articles/create-a-repo&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;여기&lt;/a&gt;를 참조하세요.&lt;/li&gt;
+&lt;li&gt;Github에 “dot files” 라는 리포를 만들고 개인의 dot file들을 다 올리세요. 현재는 아마 &lt;code class=&quot;language-text&quot;&gt;.zshrc&lt;/code&gt; 와 &lt;code class=&quot;language-text&quot;&gt;.vimrc&lt;/code&gt; 파일만 있을 것입니다. 일단 이 두 파일만 올리시고, 추후 새로 dot file들이 생길때마다 올리세요. 이렇게 github에 개인 dot file들을 올리고 관리하는 사람들이 많습니다. 이렇게 함으로써 새로운 컴퓨터에서도 동일한 개발환경을 유지하도록 하는 것입니다.&lt;/li&gt;
+&lt;li&gt;Github에 올라와 있는 &lt;a href=&quot;https://github.com/django/django&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Django 리포지토리&lt;/a&gt;를 checkout 하시고 &lt;code class=&quot;language-text&quot;&gt;tig&lt;/code&gt;를 사용해서 django의 수정 내역들이 어떻게 되어 있는지 확인해보세요.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Database 기초]]></title><description><![CDATA[위코드 은우님이 발표하신 Database기초 강의 자료입니다]]></description><link>https://akiakma.github.io/posts/blogdatabase(1)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogdatabase(1)</guid><pubDate>Tue, 25 Feb 2020 20:37:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;database-기초-이해-및-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#database-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4-%EB%B0%8F-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;database 기초 이해 및 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Database 기초 이해 및 설치&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;데이터를 저장 및 보존 하는 시스템&lt;/li&gt;
+&lt;li&gt;Application에서는 데이터가 메모리 상에서 존재한다. 그리고 메모리에 존재하는 데이터는 보존이 되지 않는다. 해당 애플리케이션이 종료하면 메모리에 있던 데이터들은 다시 읽어 들일 수 없다.&lt;/li&gt;
+&lt;li&gt;그럼으로 데이터를 장기 기간동안 저장 및 보존 하기 위해서 데이터 베이스를 사용하는 것이다.&lt;/li&gt;
+&lt;li&gt;일반적으로 database에는 크게 관계형 데이터베이스(RDBMS)와 “NoSQL”로 명칭되는 비관계형(Non-relational) database가 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;관계형-데이터베이스rdbms-relational-database-management-system&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EA%B3%84%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4rdbms-relational-database-management-system&quot; aria-label=&quot;관계형 데이터베이스rdbms relational database management system permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관계형 데이터베이스(RDBMS, Relational DataBase Management System)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;이름 그대로, 관계형 데이터 모델에 기초를 둔 데이터베이스 시스템을 말한다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;관계형 데이터란 데이터를 서로 상호관련성을 가진 형태로 표현한 데이터를 말한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;모든 데이터들은 2차원 테이블(table)들로 표현 된다.&lt;/li&gt;
+&lt;li&gt;각각의 테이블은 컬럼(column)과 row(로우)로 구성된다.&lt;/li&gt;
+&lt;li&gt;컬럼은 테이블의 각 항목을 말한다. 행으로 생각하면 된다.&lt;/li&gt;
+&lt;li&gt;로우는 각 항목들의 실제 값들을 이야기 한다. 열로 생각하면 된다.&lt;/li&gt;
+&lt;li&gt;각 로우는 저만의 고유 키(Primary Key)가 있다. 주로 이 primary key를 통해서 해당 로우를 찾거나 인용(reference)하게 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;각각의 테이블들은 서로 상호관련성을 가지고 서로 연결될 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;테이블끼리의 연결에는 크게 3가지 종류가 있다.&lt;/li&gt;
+&lt;li&gt;one to one&lt;/li&gt;
+&lt;li&gt;one to many&lt;/li&gt;
+&lt;li&gt;many to many&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;대표적인 관계형 데이터베이스에는 MySQL과 PostgreSQL(줄여서 Postgres)가 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;one-to-one&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#one-to-one&quot; aria-label=&quot;one to one permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;One To One&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;테이블 A의 로우와 테이블 B의 로우가 정확히 일대일 매칭이 되는 관계를 one to one 관계라고 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 461px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fb34cfa369cfad4ee469095ab2a3178b/f816d/onetoone.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.490238611713664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABfklEQVQoz4VRy2rCQBSdlFAxVFdSodgGupJ2Uela8E/8lv6FrmyzdmFxo11Ip9UIKgGVKkJCRPANvoqoeXF7J6iImx44zFw458w9CSmXy1qj0dDYmU6nNVmW1WazqVcqlZ9MJnNPEADgcrFYsJFUq9UvVVUhn8/bhUIBstkslEolqNfrQLrdLmw2G1gulzCZTABNsN1uYTQaWZIkPaOfE0XRHwqFLsge+CBlnuFwaA8GA+j3+64XZzfQWq/XlmmaLne7nWkYhrNarX4ppY8sIBwOCzzP+wOBgBfHq3a7LaOHLWIcfAzosUir1QJd190tHccB27aBYT6fA9Z+2FdmW15Eo1GObYzVlNls5jY5BfMTRVEoCqimaRRrUwz6xPN7PB5/FItFkQViMEdOgN/uJZfLvXc6nTfUp6bT6Ss+kOr1ehL5Dyg83iORyOF6g7xF8mfyS5JMJrl4PM7VajWOVTsjOfxln893dAmCcOfxeJ6CweA1mxOJBM/0sVjM+wfRZTeWMRaBMwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/fb34cfa369cfad4ee469095ab2a3178b/8ac56/onetoone.webp 240w,
+/static/fb34cfa369cfad4ee469095ab2a3178b/9daa3/onetoone.webp 461w&quot;
+          sizes=&quot;(max-width: 461px) 100vw, 461px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/fb34cfa369cfad4ee469095ab2a3178b/8ff5a/onetoone.png 240w,
+/static/fb34cfa369cfad4ee469095ab2a3178b/f816d/onetoone.png 461w&quot;
+          sizes=&quot;(max-width: 461px) 100vw, 461px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/fb34cfa369cfad4ee469095ab2a3178b/f816d/onetoone.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;em&gt;users and user_profiles - one to one&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;one-to-many&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#one-to-many&quot; aria-label=&quot;one to many permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;One To Many&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;테이블 A의 로우가 테이블 B의 여러 로우와 연결이 되는 관계를 one to many 관계라고 함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 461px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/de9d8d764c93d30bd82e6edc6b781266/f816d/onetomany.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.490238611713664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABeUlEQVQoz4WRTWvCQBCGJ0EoQdsehEKLaGlvQs89+if8P/0RHorQFErBBA/Sk4KnRIgialApKHQJRPEbFBUJ8YPpbIheLHRgmMzu7Jtn34VyucxarRYrFApMVVWWz+d/ms2mVa1Wv7PZ7CNQIKKXruvyFmhPtywL2+32nubRMAzsdDrYaDQQGGO4Xq9xMpngYDDA8Xjs9aPRyEmlUs90XojFYpeRSEQEP0hIcxwHF4vFnp+hWZzP5zgcDhGm0yn+FZvNBkul0hMXiMfjwUAgcBUOhyVqr7vdrkFiOJvNXJrbb7fbHdHvVqvVDnRdl03TlElYJjqeb/T93uv1Xknw9njlaDQqJpNJgRMToXkkWi6XJ4jD4YDwX5DHZ2vFYvFF07Qv8k6hqvb7/U8ilm3b/oBKpSKSwSL94CzJS08gnU6fxDKZDC83lJz+zq9Bf/sC6FpArwO1Wg3q9bpXec/JFEXxpnK5HIRCoZOoJEkP1N/7dgg+gJBIJKRftYUxhDpGuOsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/de9d8d764c93d30bd82e6edc6b781266/8ac56/onetomany.webp 240w,
+/static/de9d8d764c93d30bd82e6edc6b781266/9daa3/onetomany.webp 461w&quot;
+          sizes=&quot;(max-width: 461px) 100vw, 461px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/de9d8d764c93d30bd82e6edc6b781266/8ff5a/onetomany.png 240w,
+/static/de9d8d764c93d30bd82e6edc6b781266/f816d/onetomany.png 461w&quot;
+          sizes=&quot;(max-width: 461px) 100vw, 461px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/de9d8d764c93d30bd82e6edc6b781266/f816d/onetomany.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;각 고객은 여러 제품을 구매할 수 있지만 구매된 제품의 주인은 오직 한 고객 뿐이다 - one to many&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;many-to-many&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#many-to-many&quot; aria-label=&quot;many to many permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Many To Many&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;테이블 A의 여러 로우가 테이블 B의 여러 로우와 연결이 되는 관계를 many to many 라고 함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 701px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7f22eed63074f55fbef0497cd4eb7085/49217/manytomany.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.39657631954351%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA5UlEQVQY03WOv4qDQBDG9x3SJWXavIbFyeVC4Op7G6+VA1OkuRcQbOwtVRS1EgUVxD9EWCu1MLuRvVm57ZIPhh32N/PNh5IkWeI4XhzHIV3XsSiKruhflmW9Z1nGbNumrus+eA/8LHgYhj993zPf9+/coyiKBdV1zSilbJ5nxtW27a9YME3zE2PMhmFYZ7g8z/sSPE3TC//nM4SQdQbBZbksSxmM3qBOeZ4fxEIQBBtI9FFVFWcyHD9C6q3gwL6bpnmA4W0cRzxNE0bPZBgGUlUVvRIEXV9JknaKoux1Xd9qmrbj9Qf0Aa7k5xNpfQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/7f22eed63074f55fbef0497cd4eb7085/8ac56/manytomany.webp 240w,
+/static/7f22eed63074f55fbef0497cd4eb7085/d3be9/manytomany.webp 480w,
+/static/7f22eed63074f55fbef0497cd4eb7085/e2a71/manytomany.webp 701w&quot;
+          sizes=&quot;(max-width: 701px) 100vw, 701px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/7f22eed63074f55fbef0497cd4eb7085/8ff5a/manytomany.png 240w,
+/static/7f22eed63074f55fbef0497cd4eb7085/e85cb/manytomany.png 480w,
+/static/7f22eed63074f55fbef0497cd4eb7085/49217/manytomany.png 701w&quot;
+          sizes=&quot;(max-width: 701px) 100vw, 701px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/7f22eed63074f55fbef0497cd4eb7085/49217/manytomany.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;책은 여러 작가에 의해 쓰일 수 있고 작가들은 여러 책을 쓸 수 있다 - many to many&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;어떻게-테이블과-테이블을-연결하는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%85%8C%EC%9D%B4%EB%B8%94%EA%B3%BC-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%9D%84-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94%EA%B0%80&quot; aria-label=&quot;어떻게 테이블과 테이블을 연결하는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어떻게 테이블과 테이블을 연결하는가?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Foreign key(외부키)라는 개념을 사용하세 주로 연결&lt;/li&gt;
+&lt;li&gt;앞서 본 one to one 예에서 user&lt;em&gt;profiles 테이블의 user&lt;/em&gt;id 컬럼은 users 테이블에 걸려있는 외부 키라고 지정한다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;즉 데이터베이스에게 user_id의 값은 users 테이블의 id 값이며 그러므로 users 테이블의 id 컬럼에 존재하는 값만 생성될 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;만일 users 테이블에 없는 id 값이 user_id 에 지정되면 에러가 난다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;왜-테이블들을-연결하는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%99%9C-%ED%85%8C%EC%9D%B4%EB%B8%94%EB%93%A4%EC%9D%84-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94%EA%B0%80&quot; aria-label=&quot;왜 테이블들을 연결하는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;왜 테이블들을 연결하는가?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;왜 정보를 여러 테이블에 나누어서 저장하는가?&lt;/li&gt;
+&lt;li&gt;앞서 본 one to many의 예에 경우 그냥 하나의 테이블에 고객 정보와 구입한 제품 정보 모두를 저장 하면 안되는가?&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하나의 테이블에 모든 정보를 다 넣으면 동일한 정보들이 불필요하게 중복되어 저장된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;더 많은 디스크를 사용하게 되고&lt;/li&gt;
+&lt;li&gt;또한, 잘못된 데이터가 저장 될 가능성이 높아진다.&lt;/li&gt;
+&lt;li&gt;예를 들어, 고객의 아이디는 동일한데 이름이 틀린 로우들이 있다면 어떻게 해야 하는가? 어떤 이름이 정확한건가?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;여러 테이블에 나누어서 저장한후 필요한 테이블 끼리 연결 시키면 위의 2문제가 사라진다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;중복된 데이터를 저장하지 않음으로 디스크를 더 효율적으로 쓰고,&lt;/li&gt;
+&lt;li&gt;또한 서로 같은 데이터이지만 부분적으로 틀린 데이터가 생기는 문제가 없어진다.&lt;/li&gt;
+&lt;li&gt;이것을 &lt;code class=&quot;language-text&quot;&gt;normalization&lt;/code&gt;이라고 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;acidatomicity-consistency-isolation-durability&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#acidatomicity-consistency-isolation-durability&quot; aria-label=&quot;acidatomicity consistency isolation durability permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ACID(Atomicity, Consistency, Isolation, Durability)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;원자성, 일관성, 고립성, 지속성&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;원자성(Atomicity)&lt;/code&gt;은 트랜잭션과 관련된 작업들이 부분적으로 실행되다가 중단되지 않는 것을 보장하는 능력이다. 예를 들어, 자금 이체는 성공할 수도 실패할 수도 있지만 보내는 쪽에서 돈을 빼 오는 작업만 성공하고 받는 쪽에 돈을 넣는 작업을 실패해서는 안된다. 원자성은 이와 같이 중간 단계까지 실행되고 실패하는 일이 없도록 하는 것이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;일관성(Consistency)&lt;/code&gt;은 트랜잭션이 실행을 성공적으로 완료하면 언제나 일관성 있는 데이터베이스 상태로 유지하는 것을 의미한다. 무결성 제약이 모든 계좌는 잔고가 있어야 한다면 이를 위반하는 트랜잭션은 중단된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;고립성(Isolation)&lt;/code&gt;은 트랜잭션을 수행 시 다른 트랜잭션의 연산 작업이 끼어들지 못하도록 보장하는 것을 의미한다. 이것은 트랜잭션 밖에 있는 어떤 연산도 중간 단계의 데이터를 볼 수 없음을 의미한다. 은행 관리자는 이체 작업을 하는 도중에 쿼리를 실행하더라도 특정 계좌간 이체하는 양 쪽을 볼 수 없다. 공식적으로 고립성은 트랜잭션 실행내역은 연속적이어야 함을 의미한다. 성능관련 이유로 인해 이 특성은 가장 유연성 있는 제약 조건이다. 자세한 내용은 관련 문서를 참조해야 한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;지속성(Durability)&lt;/code&gt;은 성공적으로 수행된 트랜잭션은 영원히 반영되어야 함을 의미한다. 시스템 문제, DB 일관성 체크 등을 하더라도 유지되어야 함을 의미한다. 전형적으로 모든 트랜잭션은 로그로 남고 시스템 장애 발생 전 상태로 되돌릴 수 있다. 트랜잭션은 로그에 모든 것이 저장된 후에만 commit 상태로 간주될 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;트랜잭션transaction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98transaction&quot; aria-label=&quot;트랜잭션transaction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;트랜잭션(Transaction)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ACID를 제공함으로 따라서 트랜잭션(일련의 작업들을 한번에 하나의 unit으로 실행하는것) 기능을 제공하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;트랜잭션은 일련의 작업들이 마치 하나의 작업처럼 취급되어서 모두 다 성공하거나 아니면 모두 다 실패하는걸 이야기 한다.&lt;/li&gt;
+&lt;li&gt;Commit &amp;#x26; rollback&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;nosql-데이터베이스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nosql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4&quot; aria-label=&quot;nosql 데이터베이스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;NoSQL 데이터베이스&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;비관계형 타입의 데이터를 저장할때 주로 사용되는 데이터베이스 시스템&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;관계형 데이터베이스와 다르게 비관계형 이기 때문에 데이터들을 저장하기 전에 정의 할 필요가 없다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;관계형 데이터베이스는 데이터들을 저장하기 전에 어디에 어떻게 저장할것인지를 정의 해야한다.&lt;/li&gt;
+&lt;li&gt;즉 테이블을 정의해야함 (테이블 이름, 테이블과 다른 테이블의 관계, 각 컬럼의 타입 등등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MongoDB, Redis, Cassandra 등이 가장 대표적인 NoSQL 데이터 베이스이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;sqlrdbms-vs-nosql&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sqlrdbms-vs-nosql&quot; aria-label=&quot;sqlrdbms vs nosql permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SQL(RDBMS) VS NoSQL&lt;/h2&gt;
+&lt;h3 id=&quot;sql&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sql&quot; aria-label=&quot;sql permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SQL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;장점:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;관계형 데이터베이스는 데이터를 더 효율적으로 그리고 체계적으로 저장할 수 있고 관리 할 수 있다.&lt;/li&gt;
+&lt;li&gt;미리 저장하는 데이터들의 구조(테이블 스키마)를 정의 함으로 데이터의 완전성이 보장된다.&lt;/li&gt;
+&lt;li&gt;트랜잭션(transaction)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;단점:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;테이블을 미리 정의해야 함으로 테이블 구조 변화 등에 덜 유연한다.&lt;/li&gt;
+&lt;li&gt;확장성이 쉽지 않다.&lt;/li&gt;
+&lt;li&gt;역시 테이블 구조가 미리 정의 되어 있다보니 단순히 서버를 늘리는것 만으로 확장하기가 쉽지 않고 서버의 성능 자체도 높여야 한다.&lt;/li&gt;
+&lt;li&gt;서버를 늘려서 분산 저장 하는것도 쉽지 않다.&lt;/li&gt;
+&lt;li&gt;Scale up (서버의 성능을 높이는것)으로 확장성이 됨.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;정형화된 데이터들 그리고 데이터의 완전성이 중요한 데이터들을 저장하는데 유리하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예) 전자상거래 정보. 은행 계좌 정보, 거래 정보 등등.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;nosql&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nosql&quot; aria-label=&quot;nosql permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;NoSQL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;장점:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;테이터 구조를 미리 정의하지 않아도 됨으로 저장하는 데이터의 구조 변화에 유연하다.&lt;/li&gt;
+&lt;li&gt;확장하기가 비교적 쉽다. 그냥 서버 수를 늘리면 됨(scale out)&lt;/li&gt;
+&lt;li&gt;확장하기가 쉽고 테이터의 구조도 유연하다 보니 방대한 양의 데이터를 저장하는데 유리하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;단점:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;데이터의 완전성이 덜 보장된다.&lt;/li&gt;
+&lt;li&gt;트랜잭션이 안되거나 비교적 불안정하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;주로 비정형화 데이터 그리고 완전성이 상대적으로 덜 유리한 데이터를 저장하는데 유리하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예) 로그 데이타&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[인증 (Authentication) & 인가 (Authorization)]]></title><description><![CDATA[위코드 은우님이 발표하신 인증 (Authentication) & 인가 (Authorization) 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/blogwebhttpbasic(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogwebhttpbasic(2)</guid><pubDate>Wed, 19 Feb 2020 21:00:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;인증authentication--인가authorization&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9Dauthentication--%EC%9D%B8%EA%B0%80authorization&quot; aria-label=&quot;인증authentication  인가authorization permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증(Authentication) &amp;#x26; 인가(Authorization)&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;인증과 인가는 API에서 가장 자주 구현되는 기능중 하나이다.&lt;/li&gt;
 &lt;li&gt;Private한 API는 물론이고 Public한 API도 기본적인 인증과 인가를 요구한다.&lt;/li&gt;

@@ -1,4 +1,391 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 Mar 2020 10:25:58 GMT</lastBuildDate><item><title><![CDATA[RESTful API]]></title><description><![CDATA[위코드 은우님이 stackoverflow에 답변하신 글입니다. ]]></description><link>https://akiakma.github.io/posts/blogRESTfulAPI</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogRESTfulAPI</guid><pubDate>Sun, 01 Mar 2020 21:20:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;restful-http-api-구조-및-핵심-개념&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#restful-http-api-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EA%B0%9C%EB%85%90&quot; aria-label=&quot;restful http api 구조 및 핵심 개념 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RESTful HTTP API 구조 및 핵심 개념&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Mar 2020 13:05:15 GMT</lastBuildDate><item><title><![CDATA[React의 Lifecycle]]></title><description><![CDATA[React 라이프사이클에 관하여 작성하였습니다.fetch 함수 사용하면서 state객체 반환시 일어날 수 있는 오류에 관한 글입니다.]]></description><link>https://akiakma.github.io/posts/blogreact(4)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogreact(4)</guid><pubDate>Sat, 07 Mar 2020 17:37:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;lifecycle&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lifecycle&quot; aria-label=&quot;lifecycle permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Lifecycle&lt;/h1&gt;
+&lt;p&gt;Lifecycle 메소드 실행 순서는 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 712px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/337aef127cda3dbd73289c3fbe7500c5/3d4b6/lifecycle.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 102.80898876404494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAACo0lEQVQ4y41V23ajMAzsZyRgY4zBFy42l6TQdrsP/f9/mpWdlG27TboPc/AxyqCRRsqDEAKiLOGURde0MGFCXdew7YBu2WDaHrbSaJVG0IrOEjxn4JyjKIr9+Y6HSCgpyNUOrR4gCEXnkfcOB6dxbA0yrSFsANMO2diD+Q5SqX/IdsKKCKuqgfIz+HSGW07woYexGto0sEYTQYOipOxUBU7x8Xd3CCsUnGQMJPe8YRg9bKNg6IdalqgjQZTHGArGE+5KToQFhzQ9uvU3+vmc7hgFv2MnuOI7skRYUkNiEyKxIWlVo9O5+Cb4Iwm/8f5BSrkTFpwCs4ykceQkL2fXDNkFt0g+fiwRKlVDlgLzNiE8zXh+PeFpGxE6i7Zt0RM01THGMsY/leJrSRJh0zTpwk09hm3Bung8hRavY4cXssnbKeCN7s5Di8HU8LZBIExkK08uiFBU8z3DKDmyV1TPX5TZad1QdyMM+XEk4qFz6V0lCqjY9SvSubo8P0lOhHFi6FLPAep5Q1hPWCi7nrw4EaG1NvlQiPL/JKcMo8HdgMY5zFML71vYwcP0V/iJzG5vmjplGP2mabSifcryYuDsmOFwyJBlOfI8B4ugrkdjc87vWufaZUVkAoN36Anj1GEiWGpAXTeoIq512rO5YZ2UYZQs48Z5HFGvMx6fF7ysIzZqyNy3ONMyeKRl4cj4RSHu+nFvSpm6SFmQzOyY40A40prKCVHupfDF3Sn5kqGgzga480S70EArScshWkL+rR9j/zd6KtqGAmrbQfcBNgQsy4x1HjGNNDHeozEOsrGXrfNThsaYtGQr6nJFNWKE2PH4sViKOAUlnYWs9uxuYd82FQVLQSTlhVhcCd7xU+0+SY41jP8pve526GTkMcESZFrCPxP+AbfMS/81yQf2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/337aef127cda3dbd73289c3fbe7500c5/8ac56/lifecycle.webp 240w,
+/static/337aef127cda3dbd73289c3fbe7500c5/d3be9/lifecycle.webp 480w,
+/static/337aef127cda3dbd73289c3fbe7500c5/c4538/lifecycle.webp 712w&quot;
+          sizes=&quot;(max-width: 712px) 100vw, 712px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/337aef127cda3dbd73289c3fbe7500c5/8ff5a/lifecycle.png 240w,
+/static/337aef127cda3dbd73289c3fbe7500c5/e85cb/lifecycle.png 480w,
+/static/337aef127cda3dbd73289c3fbe7500c5/3d4b6/lifecycle.png 712w&quot;
+          sizes=&quot;(max-width: 712px) 100vw, 712px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/337aef127cda3dbd73289c3fbe7500c5/3d4b6/lifecycle.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;lifecycle-기본순서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lifecycle-%EA%B8%B0%EB%B3%B8%EC%88%9C%EC%84%9C&quot; aria-label=&quot;lifecycle 기본순서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Lifecycle 기본순서&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;constructor&lt;/li&gt;
+&lt;li&gt;render&lt;/li&gt;
+&lt;li&gt;componentDidMount&lt;/li&gt;
+&lt;li&gt;render&lt;/li&gt;
+&lt;li&gt;(fetch 완료)&lt;/li&gt;
+&lt;li&gt;(setState)&lt;/li&gt;
+&lt;li&gt;componentDidUpdate (setState 되었기 때문에 컴포넌트 업데이트발생)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;1render-함수-안에-thisstatedata&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1render-%ED%95%A8%EC%88%98-%EC%95%88%EC%97%90-thisstatedata&quot; aria-label=&quot;1render 함수 안에 thisstatedata permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1.render 함수 안에 this.state.data&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 720px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/009cdb437df99ea4fe6cc8fc2e6aa034/37523/lifecycle2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 112.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsSAAALEgHS3X78AAADNklEQVQ4y31VWXajMBDMMcbsIAkJxGrAdpxkljfJfM39r1NTknePk496gECt6urq5ilNU6RZCiMNWmVRjzPKpkOpFJrlGXbaQpX68E5IDFqgEgWSKELsEMdIkuR8fXIB8zyHERoNN2WFRqIbBE2FVaXxrdZYWYNQaWT1iMjUCMYWYWeR89D0KtglYJEjzwqobkY6biCGBf00ojQlZCk9hJRIc4EkyxGTYUwSaZbdsDsHFEIc6FcWyWYH3dborIZV4gyjpN/oN0fE8f5hykVBTeIIWdnATC/ot3tIUyFNM4Tc7BBd63XEidVjhlyU1KRiUVRVQ0qml1w+PCN+sHaFJ1cQxUCJZyoQBiGCVYAVcWIVx9ENi4cHXQeUTvA0gaVujdOO6LoKpZYsWIGUB6UsxuWAz3EI6BjyoZk6mJcF7dzhx9uMTV9jpn36usLiCmUUlJR3bB+lXCp/uuKGaT9hMw3YjR3mtsGv7Ro/lw6/NyNeB4uFB0z0psNsHQwWYl2X6Ojbi4b+hBTz1GD3ukVJL0pjUTXWy6B5qLPWqSjO0E4mj+N9ck6ZaZw+KmqDfLfAbCZsNwOmY8qjdZoamrvwnRUf7XILpuw8qLX2CwU7Rtct8rJG3xmMIxkymO4nCJpedyPvCcPAdMUjLX1Al3LGNiqE8IthGNI2B0RhRARMNzx0E6/Rg6FwE9CnTA3ahlOF4jZH21S8d7bJBDVmqmF068cvGTr9LO2inG2WHj+/L3geG2w5VabW8tpgZmUrXX4a7MKQje9SzsjimxPXVy1F5orkphHZC85MkfMbXj9rx/gUsCxL/zCwCD0ZCQ7SiB9FXHMIWb0VtQyYstMvpI5OZw+3dmLsbFPQAoIpF3wxtyXqF9qFXvy76/FeS3xYhVcjsRMJ5iJBz1m4pidnow/gaGuT8Jahom2KKMB3dsrLNGHfN/jYrPF37j3+DA3e+xZvmsGkwraqsKeue3bSM4fwOgn+TzlzBucQkDH/MUmGOM39nHSjzQ0G9+z1cvYJQ2+lKDjayad8Z5vsOM6jK+d7He8nzN2Ave8YanhgUQmDTrceg+bUscSaLThMHLoLfwu9r/xXw9XhH4J9iOxw+HcmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/009cdb437df99ea4fe6cc8fc2e6aa034/8ac56/lifecycle2.webp 240w,
+/static/009cdb437df99ea4fe6cc8fc2e6aa034/d3be9/lifecycle2.webp 480w,
+/static/009cdb437df99ea4fe6cc8fc2e6aa034/bc514/lifecycle2.webp 720w&quot;
+          sizes=&quot;(max-width: 720px) 100vw, 720px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/009cdb437df99ea4fe6cc8fc2e6aa034/8ff5a/lifecycle2.png 240w,
+/static/009cdb437df99ea4fe6cc8fc2e6aa034/e85cb/lifecycle2.png 480w,
+/static/009cdb437df99ea4fe6cc8fc2e6aa034/37523/lifecycle2.png 720w&quot;
+          sizes=&quot;(max-width: 720px) 100vw, 720px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/009cdb437df99ea4fe6cc8fc2e6aa034/37523/lifecycle2.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 736px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/606a50cbb2cd4456d953c83bee86aba9/f941f/lifecycle3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.44021739130434%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAAB6klEQVQ4y21TSXLjMAzUV2xKtqndonZSq2tOc8o38v87goZMZSaVAwoEBTe7G3AQRRE9K0NdN1DTdjSMVmrc+7jdbqSU4p6OxnGU3Pc9DcMg+fl8Sn48HhSEYUimbmjZdqo54/J+vzPAlfDNh9ZawBBN0wgYgHGuqup/wKIsqeYPRVFSHCccMWV5LsBZlglDAE7TJEAI55yAANQYQ/M8S8/B0NTUD1bk2mmmaV5of/2hiu8hx7MGQF0fd2AGILArikLqkyGkrtuLHAMB2DqArtR2/elfkiTCEJJ/Y4haGKIZTDAQxGgde6YEJOTAUHBGs7X2BPHD8YB4BCoC/ACA6/6SLEDMWr3BwBA1fPUeAgTgPwG/JTetyENu2iMgO2aZni3O27adspdlOeXDv3Vd5dHger1SzqZKA7/69+OTp17Lx4jZ4TsCbJM0FS9Tzun7jJCt4G1Aj3iomMXUzGRyNnfe5OU84xXSBQ/MsDxHCYNb7nMsK2Y/L5fL+RgCNbCCUB1+6UiT0TV1aUtZWrIfePFYavgYIXP4f8+/S+/jAEQjN+iHpvyWU5f0FEcsi6XAcCzsvu90Z2bCSh2egpV6n30NLAEseVEdD2EcnKyOszMDrbJCeV6Q4mb4hJXBALDceAwZE8Zio8aUvwCbSpOdsHqvdwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/606a50cbb2cd4456d953c83bee86aba9/8ac56/lifecycle3.webp 240w,
+/static/606a50cbb2cd4456d953c83bee86aba9/d3be9/lifecycle3.webp 480w,
+/static/606a50cbb2cd4456d953c83bee86aba9/b8c12/lifecycle3.webp 736w&quot;
+          sizes=&quot;(max-width: 736px) 100vw, 736px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/606a50cbb2cd4456d953c83bee86aba9/8ff5a/lifecycle3.png 240w,
+/static/606a50cbb2cd4456d953c83bee86aba9/e85cb/lifecycle3.png 480w,
+/static/606a50cbb2cd4456d953c83bee86aba9/f941f/lifecycle3.png 736w&quot;
+          sizes=&quot;(max-width: 736px) 100vw, 736px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/606a50cbb2cd4456d953c83bee86aba9/f941f/lifecycle3.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;화면에 에러 없이 결과가 잘 나타납니다.&lt;/li&gt;
+&lt;li&gt;처음 render 함수가 실행 될 때는 componentDidMount 이전, 즉 setState되기 전이기 때문에 this.state.data가 빈 배열로 찍히는 것을 확인 할 수 있습니다. &lt;/li&gt;
+&lt;li&gt;componentDidMount 이후, 즉 setState 이후의 render 함수에는 this.state.data가 데이터에서 받은 배열을 잘 반영하여 나오는 것을 확인할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;그럼 이번에는 데이터 안의 객체에 좀 더 접근하기 위해 this.state.data가 아닌 this.state.data[0]을 콘솔에 찍어 보도록 하겠습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-render-함수-안에-thisstatedata0&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-render-%ED%95%A8%EC%88%98-%EC%95%88%EC%97%90-thisstatedata0&quot; aria-label=&quot;2 render 함수 안에 thisstatedata0 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. render 함수 안에 this.state.data[0]&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 711px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ec467c35bede4848119d727983476db5/a8e5b/lifecycle4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 112.65822784810126%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsSAAALEgHS3X78AAADXklEQVQ4y41V7ZKjNhD0W+QwCIRAEohvA7bXt7fJbt2fVCpVqbz/u3Rasr1n7/qu8qNLINAw3dMzbDIpYQuDXjeohx1sP0IXBZr5EKBthVY7uEJjtNwvC6SJgEgSCCGQpun76rHJ8xxaaXSmRa4sUtti29SInMWX2iJqKsTaIKtHJLZBNLaIhxbSaMgsuwv2HjCXDNrNyMYFatqjnydYBitMeUZZIlMlUr4nCgWhcl7LT9mFgAXp+fTTqkKyP8Dy631bodEFOqItFWpmEw7790g3UBbiJ5SVQioSSF3D7L5iOJyg6waSmcc8eMaNXhdcA3zKUKkibJZaoxpnmKaD1j6j+xcfHX6EjTEmXBRFiXgbYxtFxBbJJSshkv8R6IbyOZsUVaXhao2aa9NYaBbD085yhYzFSB7o9uh+o32GvOjmDu7bHsNxwusfezztWuw7h8E5HFmosTIwl49/zPiuKJ6yp1foEvNph8M6MdiIpWvxdlzwdhjw/bDD71OLY99goS9Xj/a8HrsaMz07uSoU613DLM0wTw5PpxV6WGhcB+OaIIOXJWia/FrPQNkH9JG966U1yJ/2sIcZp9OMpXcYG4e5Y1syuKRng80+aHir5TkgbxQLYCqHnO3VsijjyP4lDcv+LmsX7GR7dlBVQ8r7lrsNurHWhk1F20i2UxzHiGgbjzhOkMRbUo3P9gmUHw+Fu6II+qinuD0z6yj2wOzaruJHFHJOGd/HyQ2tX5n87EM+rIcGlro1y4DnrzMOrOpK20ytw9q32DmDmhqnDybMw06RbMHfuCY8kJO65LXOJQrq5Vej8rCf+YOfAoqwJ26L0pByxywVR1UsGDg9Y8vriF3yhfpt/aAQF1yGxtbjEix9tw0fTp1Fe5owTg1eZ4dvVYGXusBqCvRZgkmlGPIUjlm2zLgr8oCRI27HfXnNsOIc9JU92hKv+xXPU48/n1b8sw749zDh75n3uwF/9RbPZYaFv4QTvfkyDniZRrzx+XebQ7H6yZWyt4uhbapUovQaZv63oGBJvwwTndX2OvOQooVyQtJOV2R+8F47xVc5o/BxmlAn+i/x/tuGMRaFURZxrEVn26Q/tBUfce2UMFj5c5qqEYPtsNQTO2SAW4+opwVuOcLt1sDih13EQwgW8D9ykIjQkGFXLAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/ec467c35bede4848119d727983476db5/8ac56/lifecycle4.webp 240w,
+/static/ec467c35bede4848119d727983476db5/d3be9/lifecycle4.webp 480w,
+/static/ec467c35bede4848119d727983476db5/68932/lifecycle4.webp 711w&quot;
+          sizes=&quot;(max-width: 711px) 100vw, 711px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/ec467c35bede4848119d727983476db5/8ff5a/lifecycle4.png 240w,
+/static/ec467c35bede4848119d727983476db5/e85cb/lifecycle4.png 480w,
+/static/ec467c35bede4848119d727983476db5/a8e5b/lifecycle4.png 711w&quot;
+          sizes=&quot;(max-width: 711px) 100vw, 711px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/ec467c35bede4848119d727983476db5/a8e5b/lifecycle4.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 725px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dc639bf1284eabf0e39578d04e5563ce/a0209/lifecycle5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.51724137931035%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAACCklEQVQ4y4VTSbbbMAzLUWInnuJ5kOcpyU/7uuo9ev89SjCVX7ppF3ykaQkCCOnkXa8oqwpdP8C0HYZxQt0YeJ4H3/c1WF9lXSXrhmHQaNsWfd+j6zrt8zvPc5zeC2us+x3GtAjDCEEQ4nJx4bqu5MsBTgALRiDWxhiUZanfSZLgxA1V3Sgz5jTLNEo5pJEDsrxQ4CAIsK4rpmnCOI6Y51lrgjZNo/+KongDliWljGjllHnhjxKF9AhIcAKSJZlwUyY9ymPNTGas4zh+S+amtut1dlVdoxamlJ9luQD5Oj9KJhA3M9I01UyQKIq0Zj4kL9su7DYNgvfCmAwplWsIaCVTJiUzKJ+SWR+Sa2mM0yIut+o2e47jqFSys6ZYEJpi3aYZtaiiYYdkznBeNzWCIPa6aJAhJUsmm7Y1ByBBrMusOYYTATi7noulOZKBSJ7mBY/nS+QYXIXtTcD3bcN+fykYpX+6vCyLAisgqY4ys03m1zU9srQRl0usApDebuhF8hJ46M2AHz9//a3gIzgaley4DhI/wav4jqVYkMYFEi/AVQ5z/lxuynaZ/xOn9+ILkjDBM/9Cmw+oxP5HFMIIS14F6zQP/1cooL1j3Bh7MZrYIAtyhNFN57Lvu87GAn4CfzKzvfdLEXdpwLY/0I2DzO6O59c3bPenvIQC5/P5uIe8Np/30JrCmq/mN/vdspr3948NAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/dc639bf1284eabf0e39578d04e5563ce/8ac56/lifecycle5.webp 240w,
+/static/dc639bf1284eabf0e39578d04e5563ce/d3be9/lifecycle5.webp 480w,
+/static/dc639bf1284eabf0e39578d04e5563ce/92338/lifecycle5.webp 725w&quot;
+          sizes=&quot;(max-width: 725px) 100vw, 725px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/dc639bf1284eabf0e39578d04e5563ce/8ff5a/lifecycle5.png 240w,
+/static/dc639bf1284eabf0e39578d04e5563ce/e85cb/lifecycle5.png 480w,
+/static/dc639bf1284eabf0e39578d04e5563ce/a0209/lifecycle5.png 725w&quot;
+          sizes=&quot;(max-width: 725px) 100vw, 725px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/dc639bf1284eabf0e39578d04e5563ce/a0209/lifecycle5.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;에러가 뜨지 않습니다.&lt;/li&gt;
+&lt;li&gt;this.state.data가 빈 배열인 경우에도 this.state.data[0]은 그냥 undefined로 나오기 때문에 에러가 발생하지 않고 그 다음의 componentDidMount함수가 실행되는 것을 볼 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3-render-함수-안에-thisstatedata0name&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-render-%ED%95%A8%EC%88%98-%EC%95%88%EC%97%90-thisstatedata0name&quot; aria-label=&quot;3 render 함수 안에 thisstatedata0name permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. render 함수 안에 this.state.data[0].name&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 714px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f36d90c579e5ec3629ff0dd2d0e58fa8/d67ca/lifecycle6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 104.76190476190477%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsSAAALEgHS3X78AAAC8UlEQVQ4y31V2W7bMBDMZ9iWqJOHKEqULPmI0wRIUKAI0Kei//8t0yFtOU6a5GGwJqUdzXKH67uiLFAWJQbdwToP4wfIWqKdDnDzEVpptHUDp2oMRqIQGUSaIssYhfgPd2VVkrBAZzxq5ZCZHqJ3WDcKK2JtFISycX9tG2zGDrlWKPI8EgTiW9xVVRUfSuOQzweU2x3GeYRrG9hGw5JQUWXGKjJWIygg4/uLwo9KqfBMKJhQ7B7gpgnGaOi6giRBQFFc1ASkb8m3pFeFZUlClpzlBZr5hG5/gm4scn4k5cvpbfIFS/KnJUspI2FNpVLrc8INyX/4Yn/Ju1NKRcIylCZSFHwQS2RMxRkJy0zY2VjqF91dBETCUJ51BvPLPbanCS/PB5xmj61r4bseo9Uwso4f/qj8di1uFQY/9scR47bHwbfYdRZPJH2cerwwHrm3bQ0GWmlk9wO2NkQFq+T7ksuyjOxD1+Dx+QQzHSFbj873VGho9JpmTpDznSLPoiuWWH6wUGxKIAyLgonFfgezG3E6bjHR4N45jJ1DbRpUUl27/9n5xZKNMZEwfM3QLpVuYa1C3zdcN5Cu556B7jy0beOt+swBV4WaVglnGG5Mzm6mmw1WqzPW/J0EJAk2jCnjV4a++jAQxi63GvOPGdvDgKfHGYeZ3e2otnVoWYXilSu+UPeOcOlyHTrlLEp20vcWnl0MHe14l0N0WsYq3gjFp4hnGAgVEyyRZzlWmwSrJI1YpwEiIolXMXuHZS+5rGOXc95jqyv400ir0IOtwo7rmbBFBi0SNLmAoQK9ID/D0D7nKCCDwoadzNnlsczwcL/HAy3z+zTjz97j72HEK+ff69DiZ1Phl61xz0G7pxueRk+MeJkYvcPz4DHnyaXLJNT0YF/W/FIYWVTG8eV4rprnpsLgyFLUvOvygvoDZJwD4kxYBR9yHm4u4yoguQyF9LrHM8q+h1jOsKIiz/8Up9oYTeNgBg5aP6IZJ07z5mZsiW/xD7PiTsYKzTwFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f36d90c579e5ec3629ff0dd2d0e58fa8/8ac56/lifecycle6.webp 240w,
+/static/f36d90c579e5ec3629ff0dd2d0e58fa8/d3be9/lifecycle6.webp 480w,
+/static/f36d90c579e5ec3629ff0dd2d0e58fa8/80c40/lifecycle6.webp 714w&quot;
+          sizes=&quot;(max-width: 714px) 100vw, 714px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f36d90c579e5ec3629ff0dd2d0e58fa8/8ff5a/lifecycle6.png 240w,
+/static/f36d90c579e5ec3629ff0dd2d0e58fa8/e85cb/lifecycle6.png 480w,
+/static/f36d90c579e5ec3629ff0dd2d0e58fa8/d67ca/lifecycle6.png 714w&quot;
+          sizes=&quot;(max-width: 714px) 100vw, 714px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f36d90c579e5ec3629ff0dd2d0e58fa8/d67ca/lifecycle6.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 686px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2f9dc6d48a0441df367a22821a8e7f24/f6386/lifecycle7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24.78134110787172%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAAAv0lEQVQY03XQYW6DMBQD4JyJ5PEISUpbGkKnlXWa2vvfxHVQp01C/PjkSBDLYIp2WLoepfP44HluFddKWhTK71xEkUTQiINj7jHHYUAeLxhPZ8QQoSzzqlA+bJ1bCTlS6pzQb26ZqQ/4pOdpxD1G3EJdyVWtYGLpzHV1dTXxQrYOueYOc40JCwsfwxnPwwE/yeM7eNx65S9QLD7gi8vvNPNCYWGxssscWZZZGvlibOyaqZ7/ZbR2lfipiaV/ufUCcUGn5WDW+k0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/2f9dc6d48a0441df367a22821a8e7f24/8ac56/lifecycle7.webp 240w,
+/static/2f9dc6d48a0441df367a22821a8e7f24/d3be9/lifecycle7.webp 480w,
+/static/2f9dc6d48a0441df367a22821a8e7f24/7dbce/lifecycle7.webp 686w&quot;
+          sizes=&quot;(max-width: 686px) 100vw, 686px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/2f9dc6d48a0441df367a22821a8e7f24/8ff5a/lifecycle7.png 240w,
+/static/2f9dc6d48a0441df367a22821a8e7f24/e85cb/lifecycle7.png 480w,
+/static/2f9dc6d48a0441df367a22821a8e7f24/f6386/lifecycle7.png 686w&quot;
+          sizes=&quot;(max-width: 686px) 100vw, 686px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/2f9dc6d48a0441df367a22821a8e7f24/f6386/lifecycle7.png&quot;
+          alt=&quot;Nulla faucibus&quot;
+          title=&quot;Nulla faucibus&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;에러가 발생했습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;constructor&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;render&lt;/p&gt;
+&lt;p&gt;console.log(“render”) &gt;&gt;&gt; 문제없음&lt;/p&gt;
+&lt;p&gt;console.log(this.state.data[0].name) &gt;&gt;&gt;&lt;strong&gt;에러발생!!!!&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;this.state.data는 빈배열이어서 name이라는 키값을 가질수 없기때문에 에러가 발생합니다.&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;this.state.data[0]은 undefined이기 때문에 위와같은 에러가 발생하게됩니다. 정리하면 undefined일 경우에는 오류가 나지않아 그냥 지나쳤다가 다시 render될때는 fetch에서 받은값이 잘 전달되는것인데. undefined의 name속성을 가지려고하니까 에러가 발생하는 것입니다!!!!!&lt;/u&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;해결방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;해결방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;해결방법&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;AND 연산자(&amp;#x26;&amp;#x26;)를 사용한 조건부 렌더링&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;render&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+   &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    LifeCycle
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;state&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+   &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;h1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;this.state.data[0]이 true인 경우에만 this.state.data[0].name을 랜더하겠다 라는 뜻입니다. 이렇게 데이터를 받아서 무조건 렌더링 하는 것이 아니라, 조건을 걸어서 내가 원하는 데이터가 있는 경우에만 렌더링을 시켜주는 방법으로 에러를 해결할 수 있습니다.&lt;/p&gt;
+&lt;h2 id=&quot;-부모---자식-lifecycle-순서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-%EB%B6%80%EB%AA%A8---%EC%9E%90%EC%8B%9D-lifecycle-%EC%88%9C%EC%84%9C&quot; aria-label=&quot; 부모   자식 lifecycle 순서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;🚀 &lt;strong&gt;부모 - 자식 Lifecycle 순서&lt;/strong&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;부모 constructor&lt;/li&gt;
+&lt;li&gt;부모 render (부모 render 안에 있는 자식 컴포넌트로 넘어감)&lt;/li&gt;
+&lt;li&gt;자식 constructor&lt;/li&gt;
+&lt;li&gt;자식 render&lt;/li&gt;
+&lt;li&gt;자식 componentDidMount (여기까지 하고 부모 컴포넌트로 다시 넘어감)&lt;/li&gt;
+&lt;li&gt;부모 componentDidMount&lt;/li&gt;
+&lt;li&gt;부모 fetch 완료 (setState 발생 &gt; 업데이트 발생 &gt; 다시 render)&lt;/li&gt;
+&lt;li&gt;부모 render (부모 render 안에 있는 자식 컴포넌트로 넘어감)&lt;/li&gt;
+&lt;li&gt;자식 render&lt;/li&gt;
+&lt;li&gt;자식 componentDidUpdate
+(componentDidMount는 최초 렌더 시 한 번만 실행되기 때문에 componentDidUpdate 발생. 여기까지 하고 다시 부모로 넘어감.)&lt;/li&gt;
+&lt;li&gt;부모 componentDidUpdate
+(componentDidMount는 최초 렌더 시 한 번만 실행되기 때문에 componentDidUpdate 발생)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;참조:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://velog.io/@joonsikyang/React-Project-Lifecycle#&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://velog.io/@joonsikyang/React-Project-Lifecycle#&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[삼항연산자와 논리연산자(기초)]]></title><description><![CDATA[간단하게 삼항연산자와 논리연산자에 관하여 작성해보았습니다.]]></description><link>https://akiakma.github.io/posts/blogreact(3)</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogreact(3)</guid><pubDate>Fri, 06 Mar 2020 22:37:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;삼항연산자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90&quot; aria-label=&quot;삼항연산자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;삼항연산자&lt;/h1&gt;
+&lt;p&gt;리액트에서는 {}로 감싸주면 JSX에 JS를 사용할 수 있습니다.  그러나.. if문은 JSX내에 넣을 수 없습니다. 그렇다면 JSX내에서 if문을 사용하고 싶을때는 어떻게 해야 할까요?&lt;/p&gt;
+&lt;p&gt;바로 &lt;strong&gt;3항 연산자&lt;/strong&gt;가 이때 쓰입니다. &lt;u&gt;3항연산자는 a ? b : c 와 같은 형식으로 사용&lt;/u&gt;하고 여기서 a부분이 조건이고 이 부분이 true이면 b를 반환하고  false이면 c를 반환하는 연산자입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt;import React, { Component } from &amp;#39;react&amp;#39;;
+ 
+class App extends Component {
+  render() {
+    return (
+      &amp;lt;div&amp;gt;
+        {
+          10 + 30 === 40 
+            ? (&amp;lt;div&amp;gt;true&amp;lt;/div&amp;gt;)
+            : (&amp;lt;div&amp;gt;false&amp;lt;/div&amp;gt;)
+        }
+      &amp;lt;/div&amp;gt;
+    );
+  }
+}
+ 
+export default App;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;복잡한 조건식을 사용할떄에는 웬만하면 JSX 밖에서 로직을 구현하는것이 좋습니다. 하지만 JSX에서 사용한다면 즉시 실행 함수(IIFE)를 이용합니다.&lt;/p&gt;
+&lt;p&gt;또 다른 방법으로는 &lt;strong&gt;논리연산자&amp;#x26;&amp;#x26;&lt;/strong&gt; 을 사용하는 것입니다. &lt;/p&gt;
+&lt;p&gt;조건 &amp;#x26;&amp;#x26; expression 이런식으로 사용합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt;console.log(true &amp;amp;&amp;amp; 1 &amp;gt; 0 &amp;amp;&amp;amp; &amp;#39;success&amp;#39;); //success 
+console.log(true &amp;amp;&amp;amp; 1 &amp;lt; 0 &amp;amp;&amp;amp; &amp;#39;success&amp;#39;); //false 
+console.log(1 &amp;gt; 0 || &amp;#39;success&amp;#39;); //true 
+console.log(1 &amp;lt; 0 || &amp;#39;success&amp;#39;); //success &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;react&quot;&gt;&lt;pre class=&quot;language-react&quot;&gt;&lt;code class=&quot;language-react&quot;&gt;function isAdult(age) {
+   return age &amp;amp;&amp;amp; age &amp;gt; 17 ;
+}
+
+isAdult(16) // false
+isAdult(18) // true
+isAdult()   // false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[RESTful API]]></title><description><![CDATA[위코드 은우님이 stackoverflow에 답변하신 글입니다. ]]></description><link>https://akiakma.github.io/posts/blogRESTfulAPI</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogRESTfulAPI</guid><pubDate>Sun, 01 Mar 2020 21:20:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;restful-http-api-구조-및-핵심-개념&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#restful-http-api-%EA%B5%AC%EC%A1%B0-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EA%B0%9C%EB%85%90&quot; aria-label=&quot;restful http api 구조 및 핵심 개념 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;RESTful HTTP API 구조 및 핵심 개념&lt;/h1&gt;
 &lt;h2 id=&quot;기본-배경-지식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EB%B3%B8-%EB%B0%B0%EA%B2%BD-%EC%A7%80%EC%8B%9D&quot; aria-label=&quot;기본 배경 지식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기본 배경 지식&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -75,6 +462,7 @@
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;/books/novel/stephenking&lt;/code&gt; 이라고 하지 &lt;code class=&quot;language-text&quot;&gt;/books/novel/get-stephenking&lt;/code&gt; 이라고 잘 하지 않는다.&lt;/li&gt;
 &lt;li&gt;그 이유는 동사는 &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; 같은 HTTP Method를 통해 표현하기 때문이다.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&quot;추가적으로-적어보았습니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B6%94%EA%B0%80%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%A0%81%EC%96%B4%EB%B3%B4%EC%95%98%EC%8A%B5%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;추가적으로 적어보았습니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;추가적으로 적어보았습니다.&lt;/h3&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[github(2)]]></title><description><![CDATA[위코드 은우님이 발표하신 Github 강의 자료입니다.]]></description><link>https://akiakma.github.io/posts/bloggithub(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/bloggithub(2)</guid><pubDate>Fri, 28 Feb 2020 19:20:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;git--github&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git--github&quot; aria-label=&quot;git  github permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git &amp;#x26; Github&lt;/h1&gt;
 &lt;p&gt;Git은 VCS (Version Control System) 입니다. 여기서 version은 소스코드(sourcecode) 파일의 version을 뜻하니다. 즉 소스코드(soruce code)의 변경사항 내역을 관리하는 시스템 입니다. 참고로 소스코드란 코드 파일들을 말합니다. &lt;code class=&quot;language-text&quot;&gt;server.js&lt;/code&gt; 같은 파일이 소스코드 입니다.&lt;/p&gt;

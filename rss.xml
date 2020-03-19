@@ -1,4 +1,135 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Mar 2020 05:18:28 GMT</lastBuildDate><item><title><![CDATA[Synchronous & ASynchronous]]></title><description><![CDATA[프로그래밍에서 동기 비동기적 처리에 관하여 작성하였습니다.]]></description><link>https://akiakma.github.io/posts/blogsynchronousasynchronous</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogsynchronousasynchronous</guid><pubDate>Wed, 18 Mar 2020 19:10:20 GMT</pubDate><content:encoded>&lt;h2 id=&quot;동기와-비동기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0&quot; aria-label=&quot;동기와 비동기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;동기와 비동기&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Mar 2020 06:27:36 GMT</lastBuildDate><item><title><![CDATA[Git-flow]]></title><description><![CDATA[git을 사용할때 사용하면 좋은 브랜치 전략인 git-flow에 관하여 작성한 글입니다.]]></description><link>https://akiakma.github.io/posts/gitflow</link><guid isPermaLink="false">https://akiakma.github.io/posts/gitflow</guid><pubDate>Thu, 19 Mar 2020 13:10:20 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/gitflow.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 132.52173913043478%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsSAAALEgHS3X78AAAD9klEQVQ4y11VW3OiWBD2/7/tX9iHqZrdquwk2ZlJ3IoZYxKvRIyggIiCGBFQ7he5uR+ciU6mH6i2T9/767Z2fKc4jjebTZ7naZoGQQCJ6zqiKBZFkWWZZVn4gg/DEDrEpAbO8zxwURRpmgYN/FytVnkONj8cDsQY7sBAeatpCPPTGDYcx0FK3ohX8OT5NyZJ07WuwyN8ua5bG41G2+0WDxClFcFJGHqHQ0KUoihEzoZhREGw2Vt/v7yyLNN6eBgMBjWe52VZfjeG6/wQ28P+hbmz4Bt+TdN0HAe1ICm7IghpmoZhDQWQyLvdTlVVw9h5jjF5rZNsdV1XFGW5XMAGSUEHjk611NCkfq8HNxOWbf74MWZYzzWF6QN5Rv8fQa3WviLf9/Et3qn29vbWaDQ6nY5p7ybTCfUy3Gry5PUmig6II0nS09MTFJaKQjJHFaS7pTFELMu+aZtZi5ZYgepSiwXHMXeLhfzX58/Pz89qRe3GfZokyCVwf0kbmYgzEdz4gVrSvNBjooO7nPd4YSbw/HQ6DdFu3+fqDceyZFXt84JtWUgK/S8jQwPGUnMsU4JCi/kxofrN1UrFnEzTIJCKEbYoFG37leFYhrm9uUE5NcyDnUxg7MXBilsoIyk/Biz9b5oVZOwkQ2CpqGCUBD46j16s1+vSmGEYPDueq44lucNp5lZezCHJS4iW4MVEUDZAg0ZZtn2uGW+YEzho7EzTc0NFno5fLoIgdhzbi1xA6P7+vtNuIyDULOuXUSGyIAgY/YimB/0+pg2CozzL5wuxPrgCGB9AzSaaRGBzjgzcIm1DN+4ad9fX1427hiQBT25ZZxw2X+pJmqBzUCObA80Pac+EGTjqqbeQpI2+9VxrPHq09vZW17psC1lgHCiNYONDZHiVl0tw4n+0p5qbmbrV5WHv4nDIgtBrDL8hbaTT7XbJtsL4fAwwAzS9hE4caktVGIzTAtvjl5Iw6L4+Zlk5rSRJSEC07bTztSgMcTfKNrqOykpqb5Yds7nIu47Li3xrWvd8DwGwsCQaFuMcGd2eVCDBnNczWR7Nk8zutf7khfkLRZm6CYQBwlgvxAx8f6frWUXAz9nYdPbabLUeiOkxCwMfa3x7e4t9Ot0ZXMaJJH3qD3mOoygK96A0JiAZXzy5pu0ErqKsDGM/n4uXl5dX11ekKLJSODTafg+/APZwOCznDAiU2DZsz3F9P+y2G4P2J3o0/vLln+9fb7Dwp4ahWqs6Bj9rPt3t4v1ExlGo62vfD3qD7vcuZhaTq0pePzTsbFwd33JC/r79eGFZju3YqinjyCE7QAVtw9+AXFXxu/GJsjTUNwz26ey3SjhLEl6S/mh1inf5/54j0+Z4U0Z5AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/8ac56/gitflow.webp 240w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/d3be9/gitflow.webp 480w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/e46b2/gitflow.webp 960w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/7ed5b/gitflow.webp 1150w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/8ff5a/gitflow.png 240w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/e85cb/gitflow.png 480w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/d9199/gitflow.png 960w,
+/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/33d1d/gitflow.png 1150w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f3ecc3cf5b3902dbb1ff2356fe65e67e/d9199/gitflow.png&quot;
+          alt=&quot;gitflow&quot;
+          title=&quot;gitflow&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;git-flow 에서는 master, develop, feature, release, hotfix의 다섯가지 브랜치를 기본적으로 사용한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;master&lt;/strong&gt;: 이미 충분히 검증되어 배포된 상용 소스를 버전별로 관리하는 브랜치이다. 즉, 버전 단위로 변경점이 관리되는 안정화된 브랜치이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;develop&lt;/strong&gt;: 실제 개발이 이루어지는 브랜치이다. 모든 기능이 develop 브랜치에서 개발될 수 있고, 아직 개발중이기 때문에 안정성이 떨어질 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;feature&lt;/strong&gt;: 새로운 기능을 개발하기 위한 브랜치이다. 이 브랜치는 develop에서 분기되어 개발 완료후 develop으로 머지되며, 개발중인 기능의 개수만큼 존재 할 수 있다. 기능 개발은 develop 브랜치에서 해도 된다고 생각할 수 있지만, 동시 다발적으로 여러 기능이 개발되거나, 규모가 큰 기능을 개발하는 경우에는 feature 브랜치를 사용해야 각각의 개발을 독립적으로 만들어 줄 수 있다.(간단한 수정은 develop에서 해도 무방.)     &lt;/p&gt;
+&lt;p&gt;​                                      &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 324px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0db33f78be34755da674ab08d950f713/67580/gitflow2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 161.41975308641975%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsSAAALEgHS3X78AAAE6UlEQVRIx52W2W8TVxjF/RdW6nPV56oPfUe0qAJSIUoCpGUJdhLIYjtexrsJWYhjJ7Fjx+NlPKuX8RIHQlHpn3B67owTCqpQzIOlL5k75577Lb87nsTgDYLtAQLWGKtyBmutGjY6Y/xRtnDv0ECoO8S6YeNwfx0BrY1Qe4gZ2cJsnXH3FBsnTSQjUQR7Y8T7Z/AErAH8ahcRc4CQqiLEl6KWjWW5gydFxmYfId1GstlAWO8hYvSxqvawzl+Ez8JqBzG5hTVqrGpdeNa5IEwHsfYIkqYgaljI2Of4KaTgm0fHiGgDPhtgsykjZtqI0+GaZiOgu3FM6yBNl2GKL8qqKxjizpI1RERtctcR4q1NPMrnced1DwmKCZcvmzVIFIzxRELQrwsTQ5roIEnBENf4qi14/AyifJAQObBoX0lAqnoxE9/BtcAOworubJb9gmBKCBoTwTW6W8gXsXhYh293BU9St7B8eIJb6WNci5UQMzrM6eDqDkUFnxXKWDyowvfqNyy8zuJFqY65fQUzeyKfI6cQUx1Zco58Dqnup6MGssN3mC9auLmlIt0bXk3w4sh+Bht8mLDaSFZ9SLTySPXO8JA9eHNbu7rgf48cMk6R1kuQ9r9HSvYibb+dCKrTCwqHIcNdmKizwmqNDjkpRyZu7VzN4SdVFjkUEyC1xwifLCPcqlLkDHMFAzc2Jw7NKXIojiwmRbJGCB0/Zt+V6PANZvM6rmcUpLoXDuVLwVWt91FQFYIcS46uMynC4QYdxtuniGoNvtRBvDNCULWx1uSkdPiS6MNWk2J9Z9z8eh9BbhLns5jeRbquEiodeE8UeGL2GZabJu1qeFYqwFupcieNOWziwUHD2VUsDBZ24OPRxN9zpSYeHjOuafAVZaxs5/C03OCxe/AIfMX7dGe/Q0j2kzYVpIbneFA0cfu1xniMCOfZ2HlAOLAARNSNqoW7dcajcyQqNeSWfJD4jtDyCIYlB/yNPkBqrPJYVWy+/YD54y5uc1JevX2HRH+M4e49FsjG5vgv3Kj38Hurj83zv5GVmyj6FpAYv+c68jBO1QBzs07ArshbWFEaCHZOMV82cfdAJ2xZVea4sO+HX7OwQVDcrpq4V2NMwAaYhkREQoCxSJ8LWFYtTtGstoukoThsXK4RsMcWizJwqpxWmmSl7RRofcJDEUcJ1WRNJXC7/H9XNLaYlBGyBmGa+46TsugA9j7d/cpZztj/1zafN3ZjMimTtpF4h2RstkbjBTJmGS9H7zHPSfmq0RP5eZo7grdQhXdrAY+3X+H50QnxpWIm9xX4uuThIftv6z6e7e0QsBXcTORxPVZ0AWsOpptliR2f7L+HVHuBuL6HzPAf/BzJ4celLfcKaH/5CvjMobikus4sh5UKgkezZGIWjys27uRMomzqI7v4clqAV2hYKSN6soQ/Dgzc2TWufut9gq8JbaIae83sIdk9xw/+Gr59WoZkDPhsKnxdOBxSsEWXbaeZFytt/HlgOvFU97Kbw4+CEQqmeiM2tuk09vSX1OWRhaCCiO4KzhGwv7x0Aes6lL/QNi5gXYdcHFC77qeIrtJNx2mTgAPYrvNdIwQzhEbUdIt38W0j1l3OMgHrE4AVyHmuWPDJOrylvAPYpZruAPZ+ocFYALaFjcK2A9glAnZ2AtglAnaxJGN1aw9PJoD9Fx91Qp3FWArBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/0db33f78be34755da674ab08d950f713/8ac56/gitflow2.webp 240w,
+/static/0db33f78be34755da674ab08d950f713/4e123/gitflow2.webp 324w&quot;
+          sizes=&quot;(max-width: 324px) 100vw, 324px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/0db33f78be34755da674ab08d950f713/8ff5a/gitflow2.png 240w,
+/static/0db33f78be34755da674ab08d950f713/67580/gitflow2.png 324w&quot;
+          sizes=&quot;(max-width: 324px) 100vw, 324px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/0db33f78be34755da674ab08d950f713/67580/gitflow2.png&quot;
+          alt=&quot;gitflow&quot;
+          title=&quot;gitflow&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;release&lt;/strong&gt;:기능개발 완료 후 안정화를 위한 브랜치이다. 다음 버전에 포함될 기능이 모두 머지된 시점의 develop 브랜치에서 분기하여 안정화 작업이 끝나면 develop과 master브랜치에 각각 머지된다. 테스트 등을 통해 발견된 버그들만 수정하여 release 브랜치에 반영하고 그 외의 변경은 일절 제한된다. 안정화 완료후 release브랜치를 develop브랜치에 머지하는 이유는 release 브랜치가 develop 브랜치에서 분기 되었기 때문에 release 브랜치에 존재하는 버그는 당연히 develop 에도 존재하기 때문이다. 안정화가 진행되는 동안에는 변경이 제한되야 하기 때문에 개발이 일시적으로 중단되어야 하나, release 브랜치를 사용하면 안정화를 하면서도 develop 브랜치나 feature브랜치에서 지속적으로 개발을 진행할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 322px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/327fe18d05f8d09043f0470ba90458c8/fc778/gitflow3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 163.0434782608696%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/327fe18d05f8d09043f0470ba90458c8/8ac56/gitflow3.webp 240w,
+/static/327fe18d05f8d09043f0470ba90458c8/ce133/gitflow3.webp 322w&quot;
+          sizes=&quot;(max-width: 322px) 100vw, 322px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/327fe18d05f8d09043f0470ba90458c8/8ff5a/gitflow3.png 240w,
+/static/327fe18d05f8d09043f0470ba90458c8/fc778/gitflow3.png 322w&quot;
+          sizes=&quot;(max-width: 322px) 100vw, 322px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/327fe18d05f8d09043f0470ba90458c8/fc778/gitflow3.png&quot;
+          alt=&quot;gitflow3&quot;
+          title=&quot;gitflow3&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hotfix&lt;/strong&gt;: 이미 릴리즈 된 소스에서 버그가 발견되어 긴급히 수정하여 배포해야할 때 사용하는 브랜치이다. hotfix브랜치는 master 브랜치에서 분기되어 master 브랜치와 develop 브랜치에 머지된다. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; &lt;strong&gt;모든 개발은 develop 브랜치를 기반으로 진행하되, 새로운 기능을 개발하는 경우는 develop 브랜치에서 feature/* 브랜치를 새로 따서 작업 후 develop 에 머지한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 배포를 위해 안정화를 해야 하는 경우에는 배포하고자 하는 기능들이 모두 머지된 develop 브랜치에서 release 브랜치를 따고 더 이상의 수정은 bug fix로 제한한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; &lt;strong&gt;안정화가 완료되면, release 브랜치를 master 브랜치에 머지 후 versioning 하여 배포하고, release 브랜치에서 수정된 버그들은 develop 브랜치에 머지한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; &lt;strong&gt;배포된 버전에서 문제가 생긴 경우에는 해당 버전의 master 브랜치에서 hotfix/* 브랜치를 따서 해당 문제를 수정한 후 master 브랜치에 머지하여 배포하고, develop 브랜치에도 확산전개 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;\&lt;/strong&gt;[출처]** &lt;a href=&quot;https://blog.naver.com/tmondev/220763012361&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Git, 가장 쉽게 사용하기 - (2) commit, branch 전략 잘 짜는 법&lt;/a&gt;|**작성자** &lt;a href=&quot;https://blog.naver.com/tmondev&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;개발몬스터&lt;/a&gt;**&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Synchronous & ASynchronous]]></title><description><![CDATA[프로그래밍에서 동기 비동기적 처리에 관하여 작성하였습니다.]]></description><link>https://akiakma.github.io/posts/blogsynchronousasynchronous</link><guid isPermaLink="false">https://akiakma.github.io/posts/blogsynchronousasynchronous</guid><pubDate>Wed, 18 Mar 2020 19:10:20 GMT</pubDate><content:encoded>&lt;h2 id=&quot;동기와-비동기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0&quot; aria-label=&quot;동기와 비동기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;동기와 비동기&lt;/h2&gt;
 &lt;h4 id=&quot;동기와-비동기synchronous--asynchronous&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8F%99%EA%B8%B0%EC%99%80-%EB%B9%84%EB%8F%99%EA%B8%B0synchronous--asynchronous&quot; aria-label=&quot;동기와 비동기synchronous  asynchronous permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;동기와 비동기(Synchronous &amp;#x26; ASynchronous)&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;동기적 처리&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;코드가 위에서부터 아래로 내려오며 하나가 끝나면 다음 코드가 실행되는 방식을 동기적 처리라고 합니다.&lt;/p&gt;

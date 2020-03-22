@@ -1,4 +1,247 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 22 Mar 2020 07:08:10 GMT</lastBuildDate><item><title><![CDATA[React할때 알면 좋은것들]]></title><description><![CDATA[I wish I knew these before diving into React.]]></description><link>https://akiakma.github.io/posts/divingintoreact</link><guid isPermaLink="false">https://akiakma.github.io/posts/divingintoreact</guid><pubDate>Thu, 19 Mar 2020 19:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;i-wish-i-knew-these-before-diving-into-react&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#i-wish-i-knew-these-before-diving-into-react&quot; aria-label=&quot;i wish i knew these before diving into react permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;I wish I knew these before diving into React&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 22 Mar 2020 11:55:42 GMT</lastBuildDate><item><title><![CDATA[콜백함수란?(2)]]></title><description><![CDATA[콜백함수에 관한 글(2)입니다.]]></description><link>https://akiakma.github.io/posts/whatscallback(2)</link><guid isPermaLink="false">https://akiakma.github.io/posts/whatscallback(2)</guid><pubDate>Sun, 22 Mar 2020 21:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;들어가기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0&quot; aria-label=&quot;들어가기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가기&lt;/h1&gt;
+&lt;p&gt;Callback 함수를 모르지는 않는다. 하지만 잘 안다고 말할수도 없다.
+요즘 Node, Vue 등을 공부하면서 callback 함수의 진화형인 Promise, async 등을 접했고 곧 벽에 막혔다.
+이 글을 통해 Javascript callback 함수를 제대로 공부하고, 정리하고자 한다.&lt;/p&gt;
+&lt;h1 id=&quot;callback-콜백함수란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#callback-%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98%EB%9E%80&quot; aria-label=&quot;callback 콜백함수란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CallBack 콜백함수란&lt;/h1&gt;
+&lt;p&gt;CallBack 함수란 이름 그대로 나중에 호출되는 함수를 말한다.
+콜백함수라고 해서 그 자체로 특별한 선언이나 문법적 특징을 가지고 있지는 않다.
+콜백함수도 일반적인 자바스크립트 함수일 뿐이다.
+콜백 함수는 코드를 통해 명시적으로 호출하는 함수가 아니라, 개발자는 단지 함수를 동록하기만 하고, &lt;strong&gt;어떤 이벤트가 발생했거나 특정 시점에 도달했을 때 시스템에서 호출하는 함수를 말한다.&lt;/strong&gt;
+즉 콜백함수는 콜백함수라는 유니크한 문법적 특징을 가지고 있는 것이 아니라, 호출방식에 의한 구분이다.&lt;/p&gt;
+&lt;p&gt;대표적인 콜백 함수의 사용 예로는 자바스크립트에서 이벤트 핸들러 처리이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;button id=&amp;quot;button1&amp;quot; onclick=&amp;quot;button1_click();&amp;quot;&amp;gt;버튼1&amp;lt;/button&amp;gt;
+&amp;lt;script&amp;gt;
+function button1_click() {
+	alert(&amp;quot;버튼1을 누르셨습니다.&amp;quot;);
+}
+&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Html에 onclick에 button1_click함수는 브라우저의 javascript API에서 DOM 이벤트 핸들러에 전달(등록)되고, 해당 버튼에 클릭이벤트가 발생했을 이벤트 핸들러가 콜백함수를 호출한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$( &amp;quot;#target&amp;quot; ).click(function() {
+  alert( &amp;quot;Handler for .click() called.&amp;quot; );
+});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위처럼 Jquery에서도 콜백함수를 자주 사용하게 된다.&lt;/p&gt;
+&lt;p&gt;콜백함수란 특정함수에 전달되어 특정함수가 어떤조건에 의해 호출하는 함수라고 후려칠수 있겠다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;callback을-활용한-비동기적-프로그래밍&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#callback%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%B9%84%EB%8F%99%EA%B8%B0%EC%A0%81-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&quot; aria-label=&quot;callback을 활용한 비동기적 프로그래밍 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Callback을 활용한 비동기적 프로그래밍&lt;/h1&gt;
+&lt;p&gt;Callback 함수를 사용하는 이유는, 자바스크립트에서 비동기적 프로그래밍을 할수 있기 때문이다.
+이 콜백함수기법은 자바스크립트에서 가장 오래된 비동기적 메커니즘이라고 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;비동기적 테크닉&lt;/strong&gt; : 소중한 싱글스레드의 멈춤을 방지한다. 즉 블록킹을 방지하여 싱글스레드가 논블록킹으로 동작하게 한다.&lt;/p&gt;
+&lt;p&gt;비동기적 프로그래밍이 필요한 이유는 다음과 같다.&lt;/p&gt;
+&lt;h2 id=&quot;비동기적-테크닉을-사용하는-경우&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EB%8F%99%EA%B8%B0%EC%A0%81-%ED%85%8C%ED%81%AC%EB%8B%89%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0&quot; aria-label=&quot;비동기적 테크닉을 사용하는 경우 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비동기적 테크닉을 사용하는 경우&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1.사용자 이벤트 처리&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;브라우저 화면에서 발생하는 사용자의 이벤트는 예측이 불가능하다.
+따라서 이런 화면이벤트를 관리담당하는 녀석에게 우리는 특정이벤트가 발생할 때 호출을 원하는 내용을 callback 함수에 전달하게 된다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.네트워크 응답 처리&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;화면단에서 서버에게 요청을 보냈을 때, 그 응답이 언제 올지 알 수 없다.
+따라서 이런 서버에 대한 응답처리 등도 비동기적으로 처리해야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.파일을 읽고 쓰는 등의 파일 시스템 작업&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.의도적으로 시간 지연을 사용하는 기능(알람 등)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;위와 같이 이벤트 등을 기다리는데 하나뿐인 소중한 스레드를 사용한다면, 또 서버의 응답을 기다리기 위해 하나뿐인 소중한 스레드를 사용한다면…
+사용자는 멈춰져 있는 화면을 보게되는 것이다.
+위와 같이 스레드의 블록킹을 야기하는 작업은 필수적으로 비동기적 프로그래밍을 해야 한다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;callback-함수의-비동기적-사용의-예&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#callback-%ED%95%A8%EC%88%98%EC%9D%98-%EB%B9%84%EB%8F%99%EA%B8%B0%EC%A0%81-%EC%82%AC%EC%9A%A9%EC%9D%98-%EC%98%88&quot; aria-label=&quot;callback 함수의 비동기적 사용의 예 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Callback 함수의 비동기적 사용의 예&lt;/h1&gt;
+&lt;p&gt;콜백 함수는 일반적으로 다른 함수에 넘기거나 객체의 프로퍼티로 사용한다.
+드물게는 배열에 넣어서 쓸 때도 있다.
+항상 그런건 아니지만 보통의 콜백함수는 익명함수로 사용한다.&lt;/p&gt;
+&lt;p&gt;중요한 점은 콜백함수는 그냥 일반적인 함수이다.
+우리는 비동기적 프로그래밍을 하기 위해서는, &lt;strong&gt;비동기적으로 콜백함수를 호출하는 함수&lt;/strong&gt;에게 &lt;strong&gt;비동기적으로 호출되기를 원하는 코드&lt;/strong&gt;를 &lt;strong&gt;콜백함수&lt;/strong&gt;에 담아서 전달해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function fn_fakeAsync(callback){
+  calback();
+}
+
+console.log(&amp;quot;------- fn_fakeAsync 호출 직전 -------&amp;quot;);
+
+fn_fakeAsync(function(){
+  console.log(&amp;quot;이게 비동기적으로 동작하길 바래&amp;quot;);
+});
+
+console.log(&amp;quot;------- fn_fakeAsync 호출 이후 -------&amp;quot;);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드 결과&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;------- fn_fakeAsync 호출 직전 -------
+이게 비동기적으로 동작하길 바래
+------- fn_fakeAsync 호출 이후 ------&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위처럼 단순히 아무 함수에게나 콜백함수를 전달하여 호출시키는 것으로는 비동기적으로 콜백함수를 호출 할수 없다.&lt;/p&gt;
+&lt;p&gt;다시한번 말하지만 자바스크립트에서 비동기프로그래밍을 하려면 &lt;strong&gt;비동기적으로 콜백함수를 호출하는 함수&lt;/strong&gt;와 &lt;strong&gt;비동기적으로 호출되기를 원하는 콜백함수&lt;/strong&gt;가 필요하다.&lt;/p&gt;
+&lt;p&gt;그럼 비동기적으로 콜백함수를 실행하는 시스템 함수들을 알아보자.&lt;/p&gt;
+&lt;h2 id=&quot;settimeout-함수&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#settimeout-%ED%95%A8%EC%88%98&quot; aria-label=&quot;settimeout 함수 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;setTimeout 함수&lt;/h2&gt;
+&lt;p&gt;setTimeout은 콜백함수의 실행을 지정된 밀리초만큼 지연하는 내장함수이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function fn_newCallBack(){
+  console.log(&amp;quot;비동기적으로 호출되고 싶다.&amp;quot;);
+}
+
+console.log(&amp;quot;-------  호출 직전 -------&amp;quot;);
+
+setTimeout(fn_newCallBack, 3 * 1000); // 3초 뒤 콜백 호출
+
+console.log(&amp;quot;-------  호출 이후 -------&amp;quot;);
+-------  호출 직전 -------
+-------  호출 이후 -------
+비동기적으로 호출되고 싶다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;3초뒤에 fn_newCallBack함수가 호출되는 것을 확인 할 수 있다.
+여기서 이게 무슨 비동기적 프로그래밍인지 갸웃 할수 있다.&lt;/p&gt;
+&lt;p&gt;동기적 프로그래밍에서 만약 3초뒤에 fn_newCallBack를 호출시키려 한다면, 3초를 자바스크립트의 하나뿐인 메인스레드가 카운팅을 하고 있어야 한다.
+즉 프로그래밍이 멈추는 것이다.
+setTimeout함수는 메인스레드가 할일을 자바스크립트 API에게 위임시킴으로써 메인쓰레드의 멈춤(블록킹)을 피하게 해준다.&lt;/p&gt;
+&lt;p&gt;다음 예제를 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function fn_newCallBack(){
+  console.log(&amp;quot;비동기적으로 호출되고 싶다.&amp;quot;);
+}
+
+console.log(&amp;quot;-------  호출 직전 -------&amp;quot;);
+
+setTimeout(fn_newCallBack, 0); // 즉시 실행되지 않을까?
+
+console.log(&amp;quot;-------  호출 이후 -------&amp;quot;);
+-------  호출 직전 -------
+-------  호출 이후 -------
+비동기적으로 호출되고 싶다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드를 보면 setTimeout함수에 지연시간을 0으로 설정하여 즉시 실행하게 하였다.
+그 결과를 보면 3초 셋팅과 마찬가지로 맨 마지막에 호출되는 것을 확인 할 수 있다.
+물론 딜레이 없이 console에 찍히는것은 3초 셋팅과 다르긴 하다.
+음 setTimeout에 지연시간을 0으로해도 내장으로 지연시간이 있는 것일까?&lt;/p&gt;
+&lt;p&gt;그렇다면 다음코드는 어떻까?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function fn_newCallBack(){
+  console.log(&amp;quot;비동기적으로 호출되고 싶다.&amp;quot;);
+}
+
+console.log(&amp;quot;-------  호출 직전 -------&amp;quot;);
+
+setTimeout(fn_newCallBack, 0); // 콜백이 언제 동작할지 예측해보자.
+
+console.log(&amp;quot;-------  호출 이후 -------&amp;quot;);
+
+//무한로프로 콘솔을 찍어낸다.
+while(true){
+  console.log(&amp;quot;한국 일교차 너무해...&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드를 실행하면 while문의 콘솔이 무한히 찍기고 fn_newCallBack함수는 절대 호출되지 않는다.
+이게 무슨 말일까?&lt;/p&gt;
+&lt;p&gt;javascript의 비동기적 동작을 이 글에서 다 설명하기에는 너무 빡세니, 간단히 설명해보겠다.
+setTimeout함수에 전달된 콜백함수는 javascript 실행환경의 어느 바구니에 담겨진다.
+그러면 javascript API가 setTimeout의 지연시간을 보고 카운팅을 대신 해준다.&lt;/p&gt;
+&lt;p&gt;음? 그런데 지연시간이 0이네? javascript API는 이 콜백함수를 바구니에 꺼내서, TaskQueue라는 곳에 적재한다.
+이 TaskQueue는 현재 동작중인 메인스레드가 일을 다 끝내면, 다음으로 해야할 일들이 있는 Queue이다.&lt;/p&gt;
+&lt;p&gt;즉 위 코드에서 while의 무한루프로 메인스레드가 자기일을 끝내지 못하기 때문에 TaskQueue에 적재된 콜백함수가 호출되지 못하는 것이다.&lt;/p&gt;
+&lt;p&gt;여기서 중요한 점은 setTimeout과 같은 비동기적으로 콜백을 호출 시켜주는 함수는, 전달된 콜백함수를 현재 실행중인 싱글스레드에서 뽑아내어 특정 장소에 보관하고 특정 조건을 만족시킬때 호출이 가능하게 한다는 점이다.
+setTimeout은 시간을 카운팅하는 기능 외에, 콜백함수를 비동기영역으로 넘기는 역할을 하는 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;setTimeout(function(){
+  //나라의 말이 중국과 달라
+  //문자와 서로 맞지 아니해서
+  //이러한 까닭으로 어리석은 백성이 말하고자 할 바가 있어도
+  //마침내 제 뜻을 능히 펴지 못하는 사람이 많으니라
+  //내 이를 위하여 가엾게 여겨
+  //새로 스물여떯 자를 만드노니
+  //사람마다 하여금 쉬이 익혀 날로 쓰며 편안케 하고자 할 다름이니라
+}
+, 1000 * 5);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;setTimeout에 콜백으로 익명함수를 주로 사용하는데 익명함수가 길어질 경우 두번째 인자를 식별하기 어려울 수 있다.
+다라서 위처럼 두번째 식별인자는 마지막 행에 분리하는 것이 사용팁이다.&lt;/p&gt;
+&lt;h2 id=&quot;setinterval함수와-clearinterval함수&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#setinterval%ED%95%A8%EC%88%98%EC%99%80-clearinterval%ED%95%A8%EC%88%98&quot; aria-label=&quot;setinterval함수와 clearinterval함수 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;setInterval함수와 clearInterval함수&lt;/h2&gt;
+&lt;p&gt;setInterval도 setTimeout과 같이 콜백을 비동기적으로 호출 가능하게 해주는 함수이다.
+차이점은 지정된 시간을 기준으로 반복적으로 콜백을 호출해준다는 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;let i = 0;
+const intervalId = setInterval(function(){
+  
+  if(i === 3) return clearInterval(interbalId);
+
+  console.log(`${i++}: 인터벌로 호출 되는 콜백입니다.`);
+  
+}
+, 5 * 1000);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.hanumoka.net/images/20181024-javascript-callback_1.png&quot; alt=&quot;setInterval 실행결과&quot;&gt;&lt;/p&gt;
+&lt;p&gt;위 코드에서 console.log 내부에 문자열을 감싼 것은 싱글쿼터가 아니라 백틱(키보드 esc 아래에 있음)이다.
+Es2015 부터 백틱을 사용하여 위 처럼 템플릿 문자열을 사용 할 수 있다.&lt;/p&gt;
+&lt;p&gt;setInterval의 기능은 단순하다 중요한 것은 고유의 intervalId를 리턴하고 이것을 clearInterval 함수에 넘겨 해당 setInterval을 중지시킬수 있다.
+특시 Node등 서버단에서 setInterval를 사용할 경우 반드시 clearInterval로 인터벌을 정지시키지 않을경우 서버 메모리 누수가 발생할 수도 있으니 주의해야 한다.&lt;/p&gt;
+&lt;p&gt;지금까지 setTimeout, setInterval, clearInterval등은 모두 전역 객체(브라우저에서는 Window, 노드에서는 global)에 정의 되어 있으므로 어디서나 사용할 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[콜백함수란?(1)]]></title><description><![CDATA[콜백함수에 관한 글입니다.]]></description><link>https://akiakma.github.io/posts/whatscallback(1)</link><guid isPermaLink="false">https://akiakma.github.io/posts/whatscallback(1)</guid><pubDate>Sat, 21 Mar 2020 21:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;콜백함수란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98%EB%9E%80&quot; aria-label=&quot;콜백함수란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;콜백함수란?&lt;/h1&gt;
+&lt;p&gt;이 문서는 &lt;a href=&quot;https://medium.com/u/e9031892baf5?source=post_page-----65bb82556c56----------------------&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Brandon Morelli&lt;/a&gt;의 &lt;a href=&quot;https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;JavaScript: What the heck is a Callback?&lt;/a&gt; 을 번역한 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;간단히:&lt;/strong&gt; 콜백은 다른 함수가 &lt;strong&gt;실행을 끝낸 뒤&lt;/strong&gt; 실행되는 &lt;em&gt;— call back 되는&lt;/em&gt; 함수를 말한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;조금 자세히:&lt;/strong&gt; 자바스크립트에서 함수는 object이다. 이 때문에 함수는 다른 함수의 인자로 쓰일 수도, 어떤 함수에 의해 리턴될 수도 있다. 이러한 함수를 &lt;strong&gt;고차 함수&lt;/strong&gt; &lt;em&gt;higher-order functions&lt;/em&gt; 라 부르고 인자로 넘겨지는 함수를 &lt;strong&gt;콜백 함수&lt;/strong&gt; &lt;em&gt;callback function&lt;/em&gt; 라고 부른다.&lt;/p&gt;
+&lt;p&gt;^장황한 설명이다. 예제를 보며 파헤쳐보자!&lt;/p&gt;
+&lt;h1 id=&quot;왜-콜백함수가-필요한가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%99%9C-%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C%EA%B0%80&quot; aria-label=&quot;왜 콜백함수가 필요한가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;왜 콜백함수가 필요한가?&lt;/h1&gt;
+&lt;p&gt;아주 중요한 이유 — 자바스크립트는 이벤트 기반 언어이기 때문이다. 자바스크립트는 다음 명령어를 실행하기 전 이전 명령어의 응답을 기다리기보단, 다른 이벤트들을 기다리며 계속 명령을 수행한다. 간단한 예제를 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function first(){
+  console.log(1);
+}function second(){
+  console.log(2);
+}first();
+second();&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;당신이 예상하듯이 &lt;code class=&quot;language-text&quot;&gt;first&lt;/code&gt; 함수가 먼저 실행되고 &lt;code class=&quot;language-text&quot;&gt;second&lt;/code&gt; 함수가 그다음에 실행될 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 1
+// 2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기까진 오케이.&lt;/p&gt;
+&lt;p&gt;그런데 만약 &lt;code class=&quot;language-text&quot;&gt;first&lt;/code&gt; 함수가 즉시 완료될 수 없는 코드를 포함한다면 어떨까? 예를 들어, 요청 request을 보낸 후 응답 response을 기다려야하는 API라면? 이를 구현하기 위해 &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; 함수를 써보자. &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; 함수는 지정된 시간이 지난 후에 함수를 call한다. 우리는 API 요청을 흉내 내기 위해서 함수 콜을 500ms만큼 지연시킬 것이다. 새로운 코드는 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function first(){
+  // Simulate a code delay
+  setTimeout( function(){
+    console.log(1);
+  }, 500 );
+}function second(){
+  console.log(2);
+}first();&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;지금은 &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; 함수가 어떻게 동작하는지 이해할 필요는 없다. 중요한 건 우리가 &lt;code class=&quot;language-text&quot;&gt;console.log(1);&lt;/code&gt;를 500ms 딜레이 시켰다는 것이다. 이제 우리 함수를 실행하면 어떻게 될까?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;first();
+second();// 2
+// 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;비록 우리가 &lt;code class=&quot;language-text&quot;&gt;first()&lt;/code&gt;함수를 먼저 콜했더라도 그 결과는&lt;code class=&quot;language-text&quot;&gt;second()&lt;/code&gt;함수의 결과 이후에 찍힌다.&lt;/p&gt;
+&lt;p&gt;이는 자바스크립트가 우리가 원하는 순서대로 함수를 수행하지 않았다는 게 아니다. 이는 자바스크립트가 &lt;code class=&quot;language-text&quot;&gt;first()&lt;/code&gt;함수로부터의 응답을 기다린 후에야 &lt;code class=&quot;language-text&quot;&gt;second()&lt;/code&gt; 함수를 수행하는 게 아니라는 뜻이다.&lt;/p&gt;
+&lt;h1 id=&quot;콜백-만들기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%9C%EB%B0%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot; aria-label=&quot;콜백 만들기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;콜백 만들기&lt;/h1&gt;
+&lt;p&gt;설명은 이제 그만하고 직접 콜백 함수를 만들어 보자!&lt;/p&gt;
+&lt;p&gt;먼저, 크롬 개발자도구를 열고 (&lt;em&gt;Windows: Ctrl + Shift + J&lt;/em&gt;)(&lt;em&gt;Mac: Cmd + Option + J&lt;/em&gt;) 당신의 콘솔에 다음과 같은 함수 선언을 해보라.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function doHomework(subject) {
+  alert(`Starting my ${subject} homework.`);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 우리는 &lt;code class=&quot;language-text&quot;&gt;doHomework&lt;/code&gt; 라는 함수를 만들었다. 이 함수는 우리가 공부할 과목을 변수로 받는다. 당신의 콘솔에 다음과 같이 입력해 함수를 불러보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;doHomework(&amp;#39;math&amp;#39;);// Alerts: Starting my math homework.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;doHomework()&lt;/code&gt; 함수의 두 번째 인자로 &lt;code class=&quot;language-text&quot;&gt;callback&lt;/code&gt;을 넘겨줌으로써 콜백 함수를 추가해보자. 이제 우리는 &lt;code class=&quot;language-text&quot;&gt;doHomework()&lt;/code&gt; 함수를 호출할 때 두 번째 인자 자리에서 콜백 함수를 정의할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function doHomework(subject, callback) {
+  alert(`Starting my ${subject} homework.`);
+  callback();
+}
+
+doHomework(&amp;#39;math&amp;#39;, function() {
+  alert(&amp;#39;Finished my homework&amp;#39;);
+});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;당신도 보겠지만, 위의 코드를 입력하면 당신은 2개의 alert를 연달아서 받을 것이다: ‘starting homework’ 메세지와, 그 다음에 ‘finished homework’ 메세지를 말이다.&lt;/p&gt;
+&lt;p&gt;사실 콜백 함수를 꼭 함수 호출 시에 정의할 필요는 없다. 다음과 같이 콜백함수는 스크립트의 어느 부분에서라도 정의될 수 있다:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function doHomework(subject, callback) {
+  alert(`Starting my ${subject} homework.`);
+  callback();
+}function alertFinished(){
+  alert(&amp;#39;Finished my homework&amp;#39;);
+}doHomework(&amp;#39;math&amp;#39;, alertFinished);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 예제의 결과는 바로 전 예제와 완전 같을 것이다. 하지만 코드 구성이 약간 다르다. 당신이 알 수 있듯이, 우리는 &lt;code class=&quot;language-text&quot;&gt;doHomework()&lt;/code&gt; 함수를 호출할 때 &lt;code class=&quot;language-text&quot;&gt;alertFinished&lt;/code&gt; 함수의 정의를 인자로 넘겨준다!&lt;/p&gt;
+&lt;h1 id=&quot;실제-사용-예제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%EC%A0%9C-%EC%82%AC%EC%9A%A9-%EC%98%88%EC%A0%9C&quot; aria-label=&quot;실제 사용 예제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실제 사용 예제&lt;/h1&gt;
+&lt;p&gt;지난 주에 나는 &lt;a href=&quot;https://codeburst.io/build-a-simple-twitter-bot-with-node-js-in-just-38-lines-of-code-ed92db9eb078&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;어떻게 38줄의 코드로 트위터 봇을 만드는가(Build a simple Twitter Bot with Node.js in just 38 lines of code)&lt;/a&gt;에 대한 블로그를 썼다. 그 블로그의 코드들이 동작하는 이유는 순전히 &lt;a href=&quot;https://developer.twitter.com/en/docs&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Twitters API&lt;/a&gt; 덕분이다. 당신이 어떤 API에 요청을 보내면, 당신은 API의 응답에 대응하기 전에 일단 그 응답을 기다려야한다. 이는 실제로 콜백 함수가 어떻게 쓰이는지에 대한 아주 좋은 예제이다! 여기 API요 청을 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;T.get(&amp;#39;search/tweets&amp;#39;, params, function(err, data, response) {
+  if(!err){
+    // This is where the magic will happen
+  } else {
+    console.log(err);
+  }
+})&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;T.get&lt;/code&gt; 는 우리가 Twitter에 GET 요청을 보낸다는 뜻이다.&lt;/li&gt;
+&lt;li&gt;이 요청에는 세 개의 인자가 있다: &lt;code class=&quot;language-text&quot;&gt;&amp;#39;search/tweets’&lt;/code&gt; 는 요청의 경로, &lt;code class=&quot;language-text&quot;&gt;params&lt;/code&gt; 는 우리의 검색 인자들, 그리고 어떤 익명함수 — 우리의 콜백 이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;콜백은 우리가 이 코드의 다음 로직으로 넘어가기 전에 API의 응답을 기다려야 하기 때문에 중요하다! 우리는 현재 API 요청이 성공할지 실패할지 모르기 때문에 일단 우리의 파라미터들을 던져놓고 기다린다. 일단 Twitter가 응답하기만 하면 우리의 콜백 함수가 실행된다. Twitter는 &lt;code class=&quot;language-text&quot;&gt;err&lt;/code&gt; (error) object나 &lt;code class=&quot;language-text&quot;&gt;response&lt;/code&gt; object를 보낼 것이고 우리는 콜백 함수 내에서 &lt;code class=&quot;language-text&quot;&gt;if()&lt;/code&gt; 문을 사용함으로써 우리의 요청이 성공했는지 아닌지를 판단할 수 있다. 그 후에 새로운 데이터를 처리하면 된다.&lt;/p&gt;
+&lt;h1 id=&quot;해냈다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%B4%EB%83%88%EB%8B%A4&quot; aria-label=&quot;해냈다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;해냈다!&lt;/h1&gt;
+&lt;p&gt;잘했다! 당신은 이제 콜백이 무엇이고 어떻게 동작하는지 (이상적으로는) 이해했다. 사실 이는 콜백 함수라는 빙산의 일각일 뿐 아직도 배울 것이 많다. 나는 매주 몇 개의 블로그와 튜토리얼을 작성하므로 매주 한 번 이메일을 받고 싶다면 &lt;a href=&quot;https://docs.google.com/forms/d/e/1FAIpQLSeQYYmBCBfJF9MXFmRJ7hnwyXvMwyCtHC5wxVDh5Cq--VT6Fg/viewform&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;여기에&lt;/a&gt; 당신의 이메일을 적길 바란다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@oasis9217/%EB%B2%88%EC%97%AD-javascript-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%BD%9C%EB%B0%B1%EC%9D%B4-%EB%AD%94%EB%8D%B0-65bb82556c56&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://medium.com/@oasis9217/%EB%B2%88%EC%97%AD-javascript-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%BD%9C%EB%B0%B1%EC%9D%B4-%EB%AD%94%EB%8D%B0-65bb82556c56&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;콜백함수의 예시들&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;loading&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; done&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;전달받은 경로:&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;path &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sample.txt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/forder/text/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;완료!:&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+output
+&lt;span class=&quot;token comment&quot;&gt;// &apos;전달받은 경로:&apos; &apos;/forder/text/&apos;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// &apos;완료!:&apos; &apos;/forder/text/sample.txt&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[React할때 알면 좋은것들]]></title><description><![CDATA[I wish I knew these before diving into React.]]></description><link>https://akiakma.github.io/posts/divingintoreact</link><guid isPermaLink="false">https://akiakma.github.io/posts/divingintoreact</guid><pubDate>Fri, 20 Mar 2020 19:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;i-wish-i-knew-these-before-diving-into-react&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#i-wish-i-knew-these-before-diving-into-react&quot; aria-label=&quot;i wish i knew these before diving into react permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;I wish I knew these before diving into React&lt;/h1&gt;
 &lt;p&gt;&lt;em&gt;해당 글은 원작자의 허가를 받고 번역한 글 입니다.&lt;/em&gt;
 &lt;em&gt;원본 링크 : &lt;a href=&quot;https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://engineering.opsgenie.com/i-wish-i-knew-these-before-diving-into-react-301e0ee2e488&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&quot;table-of-contents&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#table-of-contents&quot; aria-label=&quot;table of contents permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Table of contents&lt;/h3&gt;

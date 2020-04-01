@@ -1,7 +1,254 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 25 Mar 2020 04:42:53 GMT</lastBuildDate><item><title><![CDATA[React Binding]]></title><description><![CDATA[React에서 bind 사용에 관하여 적은 글.]]></description><link>https://akiakma.github.io/posts/reactbinding</link><guid isPermaLink="false">https://akiakma.github.io/posts/reactbinding</guid><pubDate>Wed, 25 Mar 2020 13:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;react-binding이벤트메서드-연결&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-binding%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A9%94%EC%84%9C%EB%93%9C-%EC%97%B0%EA%B2%B0&quot; aria-label=&quot;react binding이벤트메서드 연결 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;React Binding(이벤트/메서드 연결)&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by akiakma]]></title><description><![CDATA[안녕하세요 .]]></description><link>https://akiakma.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Apr 2020 02:13:53 GMT</lastBuildDate><item><title><![CDATA[React Binding]]></title><description><![CDATA[ fetch API 관한 글입니다.]]></description><link>https://akiakma.github.io/posts/fetchapijavascript</link><guid isPermaLink="false">https://akiakma.github.io/posts/fetchapijavascript</guid><pubDate>Wed, 01 Apr 2020 19:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;javascript-fetch-api&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#javascript-fetch-api&quot; aria-label=&quot;javascript fetch api permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Javascript Fetch API&lt;/h1&gt;
+&lt;h1 id=&quot;개요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;개요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개요&lt;/h1&gt;
+&lt;p&gt;그 동안 WEB에서 어떤 리소스를 비동기로 요청하기 위해서는 XHR(XML HTTP Request)객체를 사용했어야 했었는데,&lt;/p&gt;
+&lt;p&gt;XHR은 잘 디자인되어 있는 API가 아니다. 요청의 상태나 변경을 구독하려면 Event를 등록해서 변경사항을 받아야 했고&lt;/p&gt;
+&lt;p&gt;요청의 성공, 실패 여부나 상태에 따라 처리하는 로직이 들어가기 좋지 않았다.&lt;/p&gt;
+&lt;p&gt;이를 보완하기 위해서 Fetch API를 도입하였는데 이는 HTTP 요청에 최적화 되어 있고 상태도 잘 추상화 되어 있고&lt;/p&gt;
+&lt;p&gt;Promise를 기반으로 되어 있기때문에 상태에 따른 로직을 추가하고 처리하는데에 최적화 되어 있다.&lt;/p&gt;
+&lt;h1 id=&quot;baisc-use&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#baisc-use&quot; aria-label=&quot;baisc use permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Baisc Use&lt;/h1&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;fetch(&amp;#39;http://hanur.me/users&amp;#39;)
+.then(res =&amp;gt; res.json())
+.then(data =&amp;gt; data.filter(item =&amp;gt; item.isRequired));&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;기본적으로 위와 같이 사용할 수 있다.&lt;/p&gt;
+&lt;h1 id=&quot;basic&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basic&quot; aria-label=&quot;basic permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basic&lt;/h1&gt;
+&lt;p&gt;Fetch API는 3개의 Interface를 도입하고 있는데 Headers, Request, Response 이다.&lt;/p&gt;
+&lt;p&gt;이는 곧 HTTP의 개념과 대응되는 Interface이다.&lt;/p&gt;
+&lt;h1 id=&quot;headers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#headers&quot; aria-label=&quot;headers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Headers&lt;/h1&gt;
+&lt;p&gt;Headers 객체는 HTTP Header와 대응되는 객체이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers();
+const content = &amp;quot;HI&amp;quot;;
+reqHeader.append(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/json&amp;quot;);
+reqHeader.append(&amp;quot;Content-Length&amp;quot;, content.length.toString());&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 처럼 Headers 객체를 만들고 append Method를 이용하여 HTTP Request Header 정보를 추가할 수 있다.&lt;/p&gt;
+&lt;p&gt;혹은 Append가 아닌 생성자로 Object literal를 이용하여 정의할 수 도 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const content = &amp;quot;HI&amp;quot;;
+const reqHeader = new Headers({
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  &amp;quot;Content-Length&amp;quot;: content.length.toString(), 
+});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;더 자세히 보기위해서 Headers 객체의 Prototype을 보자&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;append: function append()
+delete: function delete()
+entries: function entries()
+forEach: function forEach()
+get: function get()
+getAll: function getAll()
+has: function has()
+keys: function keys()
+set: function set()
+values: function values()
+constructor: function Headers()
+Symbol(Symbol.iterator): function ()
+Symbol(Symbol.toStringTag): &amp;quot;Headers&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;가장 눈에 띄는것은 Symbol.iterator를 구현한 Iterable 객체라는 점이다.&lt;/p&gt;
+&lt;p&gt;아마 기본적으로 key, value로 Header를 Set하고 있으니 해당 아이템을 List로 Iterator를 돌릴 수 있게 제공하는것 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers({
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  &amp;quot;Content-Length&amp;quot;: &amp;quot;30&amp;quot;,
+});for(const item of reqHeader){
+  console.log(item)
+}// console
+// -&amp;gt; [&amp;quot;content-type&amp;quot;, &amp;quot;application/json&amp;quot;]
+// -&amp;gt; [&amp;quot;content-length&amp;quot;, &amp;quot;30&amp;quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;for of문은 Symbol.iterator를 구현하고 있기때문에 for of문은 정상적으로 동작하고 item은 내 예상과 다르게 Array에 Key, Valuer가 담긴 모습으로 뽑히고 있다.&lt;/p&gt;
+&lt;p&gt;내가 예상해던건 Object에 {key: value} 느낌이였는데 아마 Object로 하면 해당 Key만 뽑는게 쉽지 않아서 Array에 담은것 같다. (Object.keys나 Object.values를 이용하면 되긴하지만 일을 2번하는 느낌이므로…)&lt;/p&gt;
+&lt;h2 id=&quot;entries&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#entries&quot; aria-label=&quot;entries permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;entries()&lt;/h2&gt;
+&lt;p&gt;해당 메서드는 Iterator를 리턴해주는데 &lt;code class=&quot;language-text&quot;&gt;Headers[Symbol.iterator]()&lt;/code&gt;와 같은 결과를 반환한다.&lt;/p&gt;
+&lt;h2 id=&quot;foreach&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#foreach&quot; aria-label=&quot;foreach permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;forEach()&lt;/h2&gt;
+&lt;p&gt;forEach을 따로 제공해주는데 Iterator를 돌리는것과 또 다르다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers({
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  &amp;quot;Content-Length&amp;quot;: &amp;quot;30&amp;quot;,
+});reqHeader.forEach((value, key, header) =&amp;gt; console.log(value, key, header));&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;callback 함수의 파라미터로 value, key, header 순으로 들어오게 된다. header는 헌재 forEach를 돌고있는 해당 header 객체이다&lt;/p&gt;
+&lt;h2 id=&quot;keys&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#keys&quot; aria-label=&quot;keys permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;keys()&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers({
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  &amp;quot;Content-Length&amp;quot;: &amp;quot;30&amp;quot;,
+});const keys = reqHeader.keys();for(const key of keys) {
+  console.log(key)
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;keys()는 Header에 등록된 Request Header key를 반환하는 Iterator를 반환하는 메서드이다. 만약 중복된 키로 여러 개의 Value가 등록된 경우 중복된 여러개의 Key가 아닌 하나의 key만 반환한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers({
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;plain/text&amp;quot;,
+  &amp;quot;Content-Length&amp;quot;: &amp;quot;30&amp;quot;,
+});const keys = reqHeader.keys();for(const key of keys) {
+  console.log(key)
+}// console
+// -&amp;gt; &amp;quot;content-type&amp;quot;
+// -&amp;gt; &amp;quot;content-length&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;values&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#values&quot; aria-label=&quot;values permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;values()&lt;/h2&gt;
+&lt;p&gt;values()는 Header에 등록된 Request Header value를 반환하는 Iterator를 반환하는 메서드이다.&lt;/p&gt;
+&lt;p&gt;만약 중복된 key로 여러 value를 등록했을 경우 하나의 String에 ,Seperator로 이어서 반환된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers({
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  &amp;quot;Content-Type&amp;quot;: &amp;quot;plain/text&amp;quot;,
+  &amp;quot;Content-Length&amp;quot;: &amp;quot;30&amp;quot;,
+});const values = reqHeader.values();
+for(const value of values) {
+  console.log(value)
+}// console
+// -&amp;gt; &amp;quot;application/json,plain/text&amp;quot;
+// -&amp;gt; &amp;quot;30&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 등록된 value가 앞에 나오고 나중에 등록된 value가 뒤에 나오게 된다.&lt;/p&gt;
+&lt;h2 id=&quot;set과-append의-차이점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#set%EA%B3%BC-append%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90&quot; aria-label=&quot;set과 append의 차이점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;set()과 append()의 차이점&lt;/h2&gt;
+&lt;p&gt;set()과 append()가 겉으로 보기에는 비슷해보일 수 있다.&lt;/p&gt;
+&lt;p&gt;두개의 API가 기본적인 사용법은 같은데 무슨 차이가 있나 살펴보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const reqHeader = new Headers();
+reqHeader.append(&amp;quot;Content-Type&amp;quot;, &amp;quot;application/json&amp;quot;);
+reqHeader.append(&amp;quot;Content-Type&amp;quot;, &amp;quot;hihi&amp;quot;);
+reqHeader.append(&amp;quot;Content-Length&amp;quot;, &amp;quot;30&amp;quot;);for(const value of reqHeader.values()){
+  console.log(value);
+}// console
+// -&amp;gt; &amp;quot;application/json,hihi&amp;quot;
+// -&amp;gt; &amp;quot;30&amp;quot;reqHeader.set(&amp;#39;Content-Type&amp;#39;, &amp;#39;good&amp;#39;);
+for(const value of reqHeader.values()){
+  console.log(value);
+}
+// console
+// -&amp;gt; &amp;quot;good&amp;quot;
+// -&amp;gt; &amp;quot;30&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 Code를 보면 알 수 있는 것처럼 append()는 설정을 추가해주는 메서드이고 set()은 해당 key를 이용해서 set해주고&lt;/p&gt;
+&lt;p&gt;만약 같은 key가 있다면 덮어써주는 메서드이다.&lt;/p&gt;
+&lt;h2 id=&quot;guard&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#guard&quot; aria-label=&quot;guard permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;guard&lt;/h2&gt;
+&lt;p&gt;Headers 객체는 우리가 Request를 보낼때도 사용하고 Response로 받는 경우에도 사용하게 됩니다.&lt;/p&gt;
+&lt;p&gt;우리가 직접 만든 Headers는 수정이 가능하지만, 만약 Response로 받은 Header의 경우 우리가 임의로 수정 할 수 없는게 맞습니다.&lt;/p&gt;
+&lt;p&gt;Server에서 내려준 Response에 대한 Header 이기때문에 그대로 사용하는게 맞습니다. 그러므로 Header에는 Header를 수정할 수 있는지&lt;/p&gt;
+&lt;p&gt;여부를 판단하는 guard가 존재합니다. guard는 Headers instance에 노출되어 있지 않아서 실제로 guard 값을 조회할 방법은 없습니다.&lt;/p&gt;
+&lt;p&gt;하지만 내부적으로 존재하는 값입니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;none: 기본값.&lt;/li&gt;
+&lt;li&gt;request: Request에 존재하는 Headers 객체를 위한 값.&lt;/li&gt;
+&lt;li&gt;request-no-cors: no-cors mode로 생성된 Request의 Headers 객체를 위한 값.&lt;/li&gt;
+&lt;li&gt;response: Response 객체에 있는 Headers 객체를 위한 값.&lt;/li&gt;
+&lt;li&gt;immutable: ServiceWork를 위해서 사용되는 값. Header가 Read-only라는 것을 나타낸다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;가장 기본값은 “none”이다. 이는 모든 변경을 사실상 허용한다는 의미이다.&lt;/p&gt;
+&lt;p&gt;“request”는 request를 위한 Header name이 아닌 경우 변경을 금지한다.&lt;/p&gt;
+&lt;p&gt;예를 들어서 request의 Headers의 guard 속성은 “request”이다.&lt;/p&gt;
+&lt;p&gt;그래서 Request Header에 정의되는 속성이 아닌 Response Header 값을 세팅한다거나 하면 Type Error를 발생시킨다.&lt;/p&gt;
+&lt;p&gt;이런 방식으로 guard가 작동하는데 확인할 수 없다는 점이 아쉬운 점이다.&lt;/p&gt;
+&lt;h1 id=&quot;request&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#request&quot; aria-label=&quot;request permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Request&lt;/h1&gt;
+&lt;p&gt;Request는 HTTP 요청을 통해 자원을 가져오는 인터페이스이다.&lt;/p&gt;
+&lt;p&gt;Request는 URL, Header, body가 필요하다. 그리고 Request에 대한 mode 제한과 certificate 관련 설정도 추가할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const req = new Request(&amp;quot;/api/posts&amp;quot;, {
+  method: &amp;quot;GET&amp;quot;,
+  headers: new Headers({
+    &amp;quot;content-type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  }),
+  body: {
+    name: &amp;quot;LeeHanur&amp;quot;,
+  }
+});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 느낌으로 사용할 수 있다. 물론 Request 객체를 생성한다고 HTTP Request가 날아가는건 아니다. Request 객체는 어떠한 HTTP Request에 대한 스팩을 정의한 것이고 실제로 Fetching 하는건 fetch Method를 이용해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const req = new Request(&amp;quot;/api/posts&amp;quot;, {
+  method: &amp;quot;GET&amp;quot;,
+  headers: new Headers({
+    &amp;quot;content-type&amp;quot;: &amp;quot;application/json&amp;quot;,
+  }),
+  body: {
+    name: &amp;quot;LeeHanur&amp;quot;,
+  }
+});
+// is not Fetchedfetch(req).then(res =&amp;gt; res.json()).then(data =&amp;gt; console.log(data));
+// is fetched Data!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 느낌이라고 생각하면 된다.&lt;/p&gt;
+&lt;p&gt;Request 객체의 첫번째 인자는 호출한 Path가 들어가고, 두번째 인자에는 Request에 대한 정보가 들어가는데,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;method&lt;/li&gt;
+&lt;li&gt;headers&lt;/li&gt;
+&lt;li&gt;body&lt;/li&gt;
+&lt;li&gt;mode&lt;/li&gt;
+&lt;li&gt;cache&lt;/li&gt;
+&lt;li&gt;credentials&lt;/li&gt;
+&lt;li&gt;redirect&lt;/li&gt;
+&lt;li&gt;referrer&lt;/li&gt;
+&lt;li&gt;integrity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;method&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#method&quot; aria-label=&quot;method permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;method&lt;/h2&gt;
+&lt;p&gt;method는 HTTP Method와 동일한 스팩으로 들어가면 된다. GET / POST / HEAD / PUT / DELETE / OPTION / PATCH 등등..&lt;/p&gt;
+&lt;p&gt;만약 지정을 안할 경우 기본값은 “GET”이 된다. 그리고 소문자로 지정해도 자동으로 대문자로 Uppercase된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const req = new Request(&amp;#39;/api/posts&amp;#39;, {
+  method: &amp;#39;get&amp;#39;
+});req.method // &amp;quot;GET&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;headers-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#headers-1&quot; aria-label=&quot;headers 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;headers&lt;/h2&gt;
+&lt;p&gt;headers는 Request Header를 지정해주는 곳인데 2가지 형식으로 넣을 수 있다. Object literal과 Headers 객체의 인스턴스를 넣을 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const req = new Request(&amp;#39;/api/posts&amp;#39;, {
+  method: &amp;quot;GET&amp;quot;,
+  headers: {
+    &amp;#39;content-type&amp;#39;: &amp;#39;application/json&amp;#39;,
+  }
+});const req2 = new Request(&amp;#39;/api/posts&amp;#39;, {
+  method: &amp;#39;GET&amp;#39;,
+  headers: new Headers({
+   &amp;#39;content-type&amp;#39;: &amp;#39;application/json&amp;#39;,
+  })
+})&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;body&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#body&quot; aria-label=&quot;body permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;body&lt;/h2&gt;
+&lt;p&gt;body는 HTTP Request에 실을 데이터인데 여러가지 타입을 넣을 수 있다. 스팩을 보면 아래와 같이 명시되어 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;typedef (Blob or BufferSource or FormData or URLSearchParams or ReadableStream or USVString)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Blob도 보낼 수 있는 부분을 보면 파일전송까지 모두 고려한것으로 볼 수 있고, FormData와 URLSearchParams도 넣을 수 있도록 모두 고려되어 있다.&lt;/p&gt;
+&lt;h2 id=&quot;mode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mode&quot; aria-label=&quot;mode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;mode&lt;/h2&gt;
+&lt;p&gt;mode는 Request시 어떤 Origin에 있는 Resource에 접근할지를 미리 설정할 수 있는 부분이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;same-origin&lt;/li&gt;
+&lt;li&gt;no-cors(Default)&lt;/li&gt;
+&lt;li&gt;cors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;same-origin은 현재 Origin과 같은 Origin에만 요청 할 수 있는 설정이다. 이를 이용하면 해당 Request는 같은 Origin에만 동작한다는걸 보장할 수 있다.&lt;/p&gt;
+&lt;p&gt;no-cors는 기본설정으로, 일반적으로 CDN에 있는 데이터를 가져온다거나 이미지를 불러온다거나 하는 기본적인 동작들을 할 수 있다. GET, POST, HEAD 이외에 다른 Method는 지원하지 않는다.&lt;/p&gt;
+&lt;p&gt;cors는 여러 다른 API에 접근할때 사용할 mode이다. Response Header가 일부 공개되지 않을 수 있지만 Body는 모두 접근가능하도록 Response가 온다.&lt;/p&gt;
+&lt;h1 id=&quot;response&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#response&quot; aria-label=&quot;response permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Response&lt;/h1&gt;
+&lt;p&gt;Response는 fetch를 호출하면 가져올 수 있는 객체인데, Response의 경우는 ServiceWorker가 아니면 생성해서 쓰는것이 크게 의미가 없다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;status&lt;/li&gt;
+&lt;li&gt;statusText&lt;/li&gt;
+&lt;li&gt;ok&lt;/li&gt;
+&lt;li&gt;headers&lt;/li&gt;
+&lt;li&gt;type&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;status&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#status&quot; aria-label=&quot;status permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;status&lt;/h2&gt;
+&lt;p&gt;status는 HTTP Response Code를 담고 있다. 일반적으로 성공적이였다면 200이 떨어지게 될것이다.&lt;/p&gt;
+&lt;h2 id=&quot;statustext&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#statustext&quot; aria-label=&quot;statustext permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;statusText&lt;/h2&gt;
+&lt;p&gt;statusText는 기본값은 “ok”이고 상황에 따라 다른 Message가 담길 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;ok&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ok&quot; aria-label=&quot;ok permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ok&lt;/h2&gt;
+&lt;p&gt;ok는 Status의 200299의 값을 추상화한 boolean인데 200299사이의 status이면 true를 가지게 된다.&lt;/p&gt;
+&lt;h2 id=&quot;headers-2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#headers-2&quot; aria-label=&quot;headers 2 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;headers&lt;/h2&gt;
+&lt;p&gt;Response Headers 이기때문에 headers의 guard 속성은 response로 되어있다.&lt;/p&gt;
+&lt;h2 id=&quot;type&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#type&quot; aria-label=&quot;type permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;type&lt;/h2&gt;
+&lt;p&gt;type은 Response 객체의 type을 말한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;basic&lt;/li&gt;
+&lt;li&gt;cors&lt;/li&gt;
+&lt;li&gt;error&lt;/li&gt;
+&lt;li&gt;opaque&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;basic은 가장 기본적인 속성이고 error가 난 Response가 아니고, Request시 mode의 값이 cors가 아니라면 basic이 오게 될 것이다. 가능한 모든 Headers 속성에 접근할 수 있다.&lt;/p&gt;
+&lt;p&gt;cors는 Request의 mode가 cors일때 나오는 값인데, 이 때는 Headers의 일부 값에 대한 접근이 제한된다.&lt;/p&gt;
+&lt;p&gt;error는 Response.error()를 호출했을때 나오는 type이다.&lt;/p&gt;
+&lt;p&gt;opaque는 Request mode를 no-cors로 설정했을때 가지게 되는 type이다.&lt;/p&gt;
+&lt;h1 id=&quot;body를-다루기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#body%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EA%B8%B0&quot; aria-label=&quot;body를 다루기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Body를 다루기&lt;/h1&gt;
+&lt;p&gt;Request와 Response 모두 Body값이 존재하는데 Body는 아래와 같은 종류로 설정할 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ArrayBuffer&lt;/li&gt;
+&lt;li&gt;ArrayBufferView (Uint8Array와 친구들)&lt;/li&gt;
+&lt;li&gt;Blob/File&lt;/li&gt;
+&lt;li&gt;string&lt;/li&gt;
+&lt;li&gt;URLSearchParams&lt;/li&gt;
+&lt;li&gt;FormData&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이런 다양한 종류의 Body를 다루기위해서 제공되는 Method가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;arrayBuffer()&lt;/li&gt;
+&lt;li&gt;blob()&lt;/li&gt;
+&lt;li&gt;json()&lt;/li&gt;
+&lt;li&gt;text()&lt;/li&gt;
+&lt;li&gt;formData()&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[React Binding]]></title><description><![CDATA[React에서 bind 사용에 관하여 적은 글.]]></description><link>https://akiakma.github.io/posts/reactbinding</link><guid isPermaLink="false">https://akiakma.github.io/posts/reactbinding</guid><pubDate>Wed, 25 Mar 2020 13:10:20 GMT</pubDate><content:encoded>&lt;h1 id=&quot;react-binding이벤트메서드-연결&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-binding%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A9%94%EC%84%9C%EB%93%9C-%EC%97%B0%EA%B2%B0&quot; aria-label=&quot;react binding이벤트메서드 연결 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;React Binding(이벤트/메서드 연결)&lt;/h1&gt;
 &lt;p&gt;React에서의 binding을 이해하기 위해서는 Javascript에서의 this의 이해가 중요하다.&lt;/p&gt;
 &lt;h2 id=&quot;javascript에서-binding&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#javascript%EC%97%90%EC%84%9C-binding&quot; aria-label=&quot;javascript에서 binding permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Javascript에서 Binding&lt;/h2&gt;
-&lt;p&gt;Javascript에서는 객체 안에서의 this는 해당 메서드가 포함된 Object를 가르킨다.&lt;/p&gt;
+&lt;p&gt;Javascript에서는 객체 안에서의 this는 해당 메서드가 포함된 Object를 가르킵니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  
     prop&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;token function-variable function&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
